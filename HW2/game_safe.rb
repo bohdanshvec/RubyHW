@@ -1,21 +1,30 @@
 class Game
+
   attr_reader :new_arr
   
   def initialize
+
     arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     @new_arr = arr.shuffle.pop(4)
+
   end
 
   def start
+
     system("clear")
 
     otvet_array = []
 
+    na_mestah = 0
+
     puts "Я загадал черырёхзначный код на сейфе, открой сейф."
+    puts "exit - выход из игры"
 
     # блок сверки двух массивов
     while @new_arr != otvet_array
       otvet = gets.chomp
+
+      break if otvet == "exit"
 
       otvet = otvet.delete(" ")
       otvet_array = otvet.chars
@@ -47,8 +56,11 @@ class Game
       puts "       На своих местах : #{na_mestah} \n"
     end
 
+    if na_mestah == 4
     puts "      \n\n Viktori !!!"
-    sleep 5
+    sleep 3
+    1
+    end
 
   end
 end

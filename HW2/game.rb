@@ -3,8 +3,6 @@ require './game_safe.rb'
 class Heros
 
   attr_accessor :name, :race
-  # attr_writer :level, :satiety, :life, :health
-  # attr_reader :year
 
   def initialize(name = "User", race = "Человек") 
 
@@ -14,7 +12,7 @@ class Heros
     @satiety = 10 # full satiety
     @life = 2     # maximum life
     @health = 100 # full health
-    @time_in_game = Time.now
+    @time_in_game = Time.now # tame start game
     
   end
 
@@ -74,17 +72,17 @@ class Heros
     puts "1. Сражусь с драконом."
     puts "2. Попытаюсь взломать сейф."
     puts "3. Посплю, оно и немного силы восстановит."
-    puts "4. Схожу в тринажерный зал."
-    puts "5. Поем."
+    puts "4. Схожу в тренажерный зал."
+    puts "5. Пойду поем."
     puts "6. Вывести характеристики моего героя на экран."
-    # puts ""
-    # puts ""
+    puts "7. Посмотреть общее время нахождения в игре."
+    puts 
+    puts "exit - выход из игры"
     puts
-    hungry
 
     choice = gets.chomp.to_i
 
-    until (1..6).include?(choice)
+    until (1..7).include?(choice) || "exit"
       
       puts "Вы ввели не правильную цифру"
       choice = gets.chomp.to_i
@@ -94,52 +92,136 @@ class Heros
     case 
     when choice == 1
       battle_with_dragon
+      start
     when choice == 2
       game_safe
+      level
+      start
     when choice == 3
-
+      sleeper
+      health_up
+      hungry
+      start
     when choice == 4
-
+      do_sport
+      hungry
+      start
     when choice == 5
-
+      satiety_up
+      start
     when choice == 6
       characteristics
-      
+      hungry
+      start
+    when choice == 7
+      timer
+      hungry
+      start
+    when choice == "exit"
+      puts "Прощай герой #{@name}, до новых встречь."
     end
-
-    sleep 2
 
   end
 
   def characteristics
 
     puts "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
-    sleep 2
-
+    puts
 
   end
 
   def battle_with_dragon
 
+    system("clear")
+
     puts "Вы в логове дракона."
     puts "И как всгда у Вас есть выбор:"
+    puts
     puts "1. Уйду восвояси, бои не по мне."
     puts "2. Сражусь с ДРАКОНОМ, в АТАКУ !!!"
     
+    c = gets.chomp.to_i
 
+    until (1..2).include?(c)
+      
+      puts "Вы ввели не правильную цифру"
+      c = gets.chomp.to_i
+
+    end
+
+    if c == 1
+      hungry
+      sleep 1
+      start
+    elsif c == 2
+      puts "УДАР - УДАР - УВОРОТ - КРОВЬ !!!!"
+      health_down
+      level
+      battle_with_dragon
+    end
+    
   end
 
   def game_safe
     game = Game.new
-    game.start
+    if game.start == 1
     2.times { hungry }
-    start
+    2.times { level }
+    else
+      hungry
+    end
   end
+
+  def sleeper
+
+    puts "Пока вы спите, ваше здоровье восстановиться."
+    puts
+    10.times { |x| print x; sleep 0.5 }
+    puts
+    health_up
+    puts "Ваше текущее здоровье: #{@health}"
+    sleep 2
+
+  end
+
+  def do_sport
+
+    puts "Раз - Два - Три  - Четыре - Пять, заряжаешься опять."
+    puts
+    10.times { |x| print x.to_s + " #{ ["):", "(:", "[:", "]:", "{:", "};"].sample }"; sleep 0.5 }
+    puts
+    health_up
+    puts "Ваше текущее здоровье: #{@health}"
+    sleep 2
+
+  end
+
+  def timer
+
+    t = Time.now - @time_in_game
+    case
+    when t < 60
+      puts "Вы в игре всего лишь #{t.to_i} секунд."
+    when t.to_i.between?(60, 3600)
+      puts "Вы в игре #{t.to_i / 60} минут и #{t.to_i % 60} секунд."
+    end
+
+  end
+
+
 
   private
 
   def level
 
+    @level += 1
+
+  end
+
+  def health_up
+    
+    z = rand(0..(100-@health))
+    @health += z
 
   end
 
@@ -147,16 +229,34 @@ class Heros
 
     if @satiety < 1 || @health < 1
       puts "Вы потеряли 1 жизнь." 
-      life -= 1
+      @life -= 1
+      @satiety = 10
+      @health = 100
+      sleep 2
     end 
 
     puts "К сожалению Вы потеряли все жизни, GAME OVER !!!" if @life < 1
 
   end
 
+  def hungry
+
+    @satiety -= 1
+      puts "Вы голодны, подкрепитесь." if (3..4).include?(@satiety)
+      puts "Вы ОЧЕНЬ голодны, рекомендум Вам подкрепиться." if (1..2).include?(@satiety)
+      sleep 3
+    life
+
+  end
+
   def health_down
 
-    @health -= rand(50)
+    z = rand(50)
+    @health -= z
+    puts "Дракон сильнее Вас, он нанес Вам #{z} урона и теперь ваше здоровье #{@health}"
+    2.times { hungry }
+    puts
+    characteristics
     life
 
   end
@@ -164,15 +264,8 @@ class Heros
   def satiety_up
 
     @satiety = 10
-
-  end
-
-  def hungry
-
-    @satiety -= 1
-    puts "Вы голодны, подкрепитесь." if @satiety < 5
-    puts "Вы ОЧЕНЬ голодны, рекомендум Вам подкрепиться." if @satiety < 3
-    life
+    puts "Ам - Ам - Чявк, я кушаю."
+    sleep 2
 
   end
 
