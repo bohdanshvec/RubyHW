@@ -12,10 +12,11 @@ class Heros
     @satiety = 10 # full satiety
     @life = 2     # maximum life
     @health = 100 # full health
-    @time_in_game = Time.new # tame start game
+    @time_in_game = Time.new # time start game
     
   end
 
+  # Метод приветствия, начало игры.
   def greetings
 
     puts
@@ -31,6 +32,7 @@ class Heros
     
   end
 
+  # Метод выбора рассы.
   def race
     
     puts "Выберите одну из предложенных расс:"
@@ -62,6 +64,7 @@ class Heros
   
   end
 
+  # Основной метод, куда всегда будут возвращатся, фактически меню игры.
   def start
 
     system("clear")
@@ -99,7 +102,6 @@ class Heros
       start
     when choice == 3
       sleeper
-      health_up
       hungry
       start
     when choice == 4
@@ -125,6 +127,7 @@ class Heros
 
   end
 
+  # Метод окончания игры.
   def the_end
 
     puts
@@ -135,6 +138,7 @@ class Heros
 
   end
 
+  # Метод выводящий инструкцию к игре.
   def prompt
 
     puts "   В этой игре Вы герой у вас есть ограниченных 2 жизни, по 100 здоровья в каждой и ограниченная сытость(10)."
@@ -159,7 +163,7 @@ class Heros
   end    
 
 
-
+  # Метод выводящий характеристики героя.
   def characteristics
 
     puts "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
@@ -167,6 +171,7 @@ class Heros
 
   end
 
+  # Бой с драконом.
   def battle_with_dragon
 
     system("clear")
@@ -202,6 +207,7 @@ class Heros
     
   end
 
+  # Игра СЕЙФ.
   def game_safe
 
     game = Game.new
@@ -215,30 +221,45 @@ class Heros
 
   end
 
+  # Метод, в котором герой спит.
   def sleeper
 
-    puts "Пока вы спите, ваше здоровье восстановиться."
-    puts
-    10.times { |x| print x; sleep 0.5 }
-    puts
-    health_up
-    puts "Ваше текущее здоровье: #{@health}"
+    if @health == 100
+      puts "Вы полностью зворовы: #{@health}"
+      puts "Вам не нужно спать."
+    else
+      puts "Пока вы спите, ваше здоровье восстановиться."
+      puts
+      10.times { |x| print x; sleep 0.5 }
+      puts
+      health_up
+      puts "Ваше текущее здоровье: #{@health}"
+    end
+    
     sleep 2
 
   end
 
+  # Метод в котором герой занимается спортом.
   def do_sport
 
-    puts "Раз - Два - Три  - Четыре - Пять, заряжаешься опять."
-    puts
-    10.times { |x| print x.to_s + " #{ ["):", "(:", "[:", "]:", "{:", "};"].sample }"; sleep 0.5 }
-    puts
-    health_up
-    puts "Ваше текущее здоровье: #{@health}"
+    if @health == 100
+      puts "Вы полностью зворовы: #{@health}"
+      puts "Вам не нужно заниматься спортом."
+    else
+      puts "Раз - Два - Три  - Четыре - Пять, заряжаешься опять."
+      puts
+      10.times { |x| print x.to_s + " #{ ["):", "(:", "[:", "]:", "{:", "};"].sample }"; sleep 0.5 }
+      puts
+      health_up
+      puts "Ваше текущее здоровье: #{@health}"
+    end
+
     sleep 2
 
   end
 
+  # Метод, в котором определяется время нахождения героя в игре (от начала и до данного момента).
   def timer
 
     t = Time.now - @time_in_game
@@ -255,19 +276,22 @@ class Heros
 
   private
 
+  # Метод добавляющий уровень герою.
   def level
 
     @level += 1
 
   end
 
+  # Метод, добавляющий здоровье герою.
   def health_up
-    
-    z = rand(0..(100-@health))
+ 
+    z = rand(1..(100-@health))
     @health += z
 
   end
 
+  # Метод контролирующий жизни героя и отнимающий их.
   def life
 
     if @satiety < 1 || @health < 1
@@ -286,6 +310,7 @@ class Heros
 
   end
 
+  # Метод отнимающий сытость.
   def hungry
 
     @satiety -= 1
@@ -296,6 +321,7 @@ class Heros
 
   end
 
+  # Метод уменьшающий здоровье.
   def health_down
 
     z = rand(50)
@@ -308,6 +334,7 @@ class Heros
 
   end
 
+  # Метод поднимающий сытость до максимума.
   def satiety_up
 
     @satiety = 10
@@ -327,8 +354,4 @@ name = gets.chomp
 
 hero = Heros.new(name)
 hero.greetings
-
-# p Heros.instance_methods
-# p hero.instance_variables
-# hero.game
 

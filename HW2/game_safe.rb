@@ -9,6 +9,7 @@ class Game
 
   end
 
+
   def start
 
     system("clear")
