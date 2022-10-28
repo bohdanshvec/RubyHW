@@ -12,7 +12,7 @@ class Heros
     @satiety = 10 # full satiety
     @life = 2     # maximum life
     @health = 100 # full health
-    @time_in_game = Time.now # tame start game
+    @time_in_game = Time.new # tame start game
     
   end
 
@@ -26,7 +26,7 @@ class Heros
     puts
     puts "Замечательно, Вас зовут #{@name}, ваша расса #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
 
-    sleep 5
+    sleep 3
     start
     
   end
@@ -76,13 +76,14 @@ class Heros
     puts "5. Пойду поем."
     puts "6. Вывести характеристики моего героя на экран."
     puts "7. Посмотреть общее время нахождения в игре."
+    puts "8. Правила игры"
     puts 
-    puts "exit - выход из игры"
+    puts "9. - выход из игры"
     puts
 
     choice = gets.chomp.to_i
 
-    until (1..7).include?(choice) || "exit"
+    until (1..9).include?(choice)
       
       puts "Вы ввели не правильную цифру"
       choice = gets.chomp.to_i
@@ -95,7 +96,6 @@ class Heros
       start
     when choice == 2
       game_safe
-      level
       start
     when choice == 3
       sleeper
@@ -117,11 +117,48 @@ class Heros
       timer
       hungry
       start
-    when choice == "exit"
-      puts "Прощай герой #{@name}, до новых встречь."
+    when choice == 8
+        prompt
+    when choice == 9
+      the_end
     end
 
   end
+
+  def the_end
+
+    puts
+    puts "Прощай герой #{@name}, до новых встречь."
+    sleep 2
+    system("clear")
+    exit
+
+  end
+
+  def prompt
+
+    puts "   В этой игре Вы герой у вас есть ограниченных 2 жизни, по 100 здоровья в каждой и ограниченная сытость(10)."
+    puts "   В начале игры Вы 0-ого уровня, но с каждыми активными действиями Ваш уровень будет расти."
+    puts "   Вы можете терять здоровье, но всегда и можете его пополнить."
+    puts "   Будете постепенно (выполняя действия) терять сытость, но всегда сможете поесть."
+    puts
+    puts "   Приятной ИГРЫ."
+    puts
+    puts "1. Вернуться в главное меню."
+
+    x = gets.chomp.to_i
+    until x == 1
+      
+      puts "Вы ввели не правильную цифру"
+      x = gets.chomp.to_i
+
+    end
+
+    start
+
+  end    
+
+
 
   def characteristics
 
@@ -139,10 +176,11 @@ class Heros
     puts
     puts "1. Уйду восвояси, бои не по мне."
     puts "2. Сражусь с ДРАКОНОМ, в АТАКУ !!!"
+    puts "3. Правила игры"
     
     c = gets.chomp.to_i
 
-    until (1..2).include?(c)
+    until (1..3).include?(c)
       
       puts "Вы ввели не правильную цифру"
       c = gets.chomp.to_i
@@ -158,18 +196,23 @@ class Heros
       health_down
       level
       battle_with_dragon
+    elsif c == 3
+      prompt
     end
     
   end
 
   def game_safe
+
     game = Game.new
+
     if game.start == 1
-    2.times { hungry }
-    2.times { level }
+      2.times { hungry }
+      2.times { level }
     else
       hungry
     end
+
   end
 
   def sleeper
@@ -235,7 +278,11 @@ class Heros
       sleep 2
     end 
 
-    puts "К сожалению Вы потеряли все жизни, GAME OVER !!!" if @life < 1
+    if @life < 1
+      puts "К сожалению Вы потеряли все жизни, GAME OVER !!!" 
+      puts
+      the_end
+    end
 
   end
 
