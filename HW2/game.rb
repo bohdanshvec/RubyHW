@@ -93,6 +93,8 @@ class Heros
 
     end
 
+    # call gem logic that save html
+
     case 
     when choice == 1
       battle_with_dragon
