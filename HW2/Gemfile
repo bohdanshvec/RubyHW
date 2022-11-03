@@ -1,0 +1,3 @@
+source "https://github.com/bohdanshvec"
+
+gem 'save_to_html', source: "https://github.com/bohdanshvec/save_to_html"

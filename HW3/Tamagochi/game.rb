@@ -1,4 +1,5 @@
 require './game_safe.rb'
+require 'save_to_html'
 
 class Heros
 
@@ -67,9 +68,11 @@ class Heros
   # Основной метод, куда всегда будут возвращатся, фактически меню игры.
   def start
 
+    save_user_stats_html
+
     system("clear")
     
-    characteristics
+    puts characteristics
     puts
     puts "Выбирайте, что будете делать:"
     puts "1. Сражусь с драконом."
@@ -101,25 +104,31 @@ class Heros
       start
     when choice == 2
       game_safe
+      save_user_stats_html
       start
     when choice == 3
       sleeper
       hungry
+      save_user_stats_html
       start
     when choice == 4
       do_sport
       hungry
+      save_user_stats_html
       start
     when choice == 5
       satiety_up
+      save_user_stats_html
       start
     when choice == 6
-      characteristics
+      puts characteristics
       hungry
+      save_user_stats_html
       start
     when choice == 7
       timer
       hungry
+      save_user_stats_html
       start
     when choice == 8
         prompt
@@ -196,9 +205,7 @@ class Heros
       smail_satiety = "\u{1F44E}"
     end
 
-    puts
-    puts "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} #{smail_life} жизни, #{@health} #{smail_health} здоровья и #{@satiety} #{smail_satiety} сытости."
-    puts
+    "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} #{smail_life} жизни, #{@health} #{smail_health} здоровья и #{@satiety} #{smail_satiety} сытости."
 
   end
 
@@ -231,6 +238,7 @@ class Heros
       puts "УДАР - УДАР - УВОРОТ - КРОВЬ !!!!"
       health_down
       level
+      save_user_stats_html
       battle_with_dragon
     elsif c == 3
       prompt
@@ -307,18 +315,12 @@ class Heros
 
   private
 
-  # call gem logic that save html, params(content, bypass_html = false, name = "index")
-  # class SaveToHtml.create
-  # запускающий фаил для подключонного gem save_to_html
-    def run_gem
-      new_file_html = SaveToHtml.new(characteristics, true, file_name)
-      new_file_html.created
+  # Метод запускающий подключенный гем
+  def save_user_stats_html
+    
+    new_file_html = SaveToHtml.new(content: characteristics, bypass_html: true, name: @name)
+    new_file_html.create
 
-  end
-
-  # Уникальное имя файла для создания html files
-  def file_name
-    @name + Time.now.to_s
   end
 
   # Метод добавляющий уровень герою.
@@ -344,6 +346,7 @@ class Heros
       @life -= 1
       @satiety = 10
       @health = 100
+      save_user_stats_html
       sleep 2
     end 
 
@@ -374,7 +377,7 @@ class Heros
     puts "Дракон сильнее Вас, он нанес Вам #{z} урона и теперь ваше здоровье #{@health}"
     2.times { hungry }
     puts
-    characteristics
+    puts characteristics
     life
 
   end
@@ -399,5 +402,4 @@ name = gets.chomp
 
 hero = Heros.new(name)
 hero.greetings
-# hero.send(:file_name)
 

@@ -1,0 +1,26 @@
+GIT
+  remote: https://github.com/bohdanshvec/save_to_html.git
+  revision: 2c77d4a8a8d54277073f920bd6f599a7fee943a7
+  specs:
+    save_to_html (0.2.0)
+      sanitize (~> 6.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    crass (1.0.6)
+    nokogiri (1.13.9-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.6.0)
+    sanitize (6.0.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  save_to_html!
+
+BUNDLED WITH
+   2.3.24
