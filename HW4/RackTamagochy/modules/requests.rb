@@ -30,29 +30,36 @@ module Requests
       if @req.path.include?('1')
         [200, {}, [template_start(battle_with_dragon, battle_links)]]
       elsif @req.path.include?('2')
-        [200, {}, [template_start("2222222222222")]]
+        [200, {}, [template_start("Данный функционал не подключён.", menu_link)]]
       elsif @req.path.include?('3')
-        [200, {}, [template_start("3333333333333")]]
+        health_up
+        satiety_down
+        [200, {}, [template_start(do_sleep_page, menu_link)]]
       elsif @req.path.include?('4')
-        [200, {}, [template_start("4444444444444")]]
+        level_up if @health < 100
+        health_up
+        satiety_down
+        [200, {}, [template_start(do_sport_page, menu_link)]]
       elsif @req.path.include?('5')
-        @satiety = go_eat(@satiety)
-        [200, {}, [template_start(go_eat_page, regulations_battle_link)]]
+        go_eat
+        [200, {}, [template_start(go_eat_page, menu_link)]]
       elsif @req.path.include?('6')
-        [200, {}, [template_start(total_time, regulations_battle_link)]]
+        [200, {}, [template_start(total_time, menu_link)]]
       elsif @req.path.include?('7')
-        [200, {}, [template_start(regulations_battle, regulations_battle_link)]]
+        [200, {}, [template_start(regulations_game, menu_link)]]
       elsif @req.path.include?('8') || @req.path.include?('name')
         [200, {}, [forma_html]]
       elsif @req.path.include?('9')
         [200, {}, [exit_gem]]
       elsif @req.path.include?('battle')
         if @req.params['step'] == "2"
-          @health = Battle.new(@health).start
+          health_down
+          level_up
+          satiety_down
           [200, {}, [template_start(battle_with_dragon, battle_links)]]
         elsif
           @req.params['step'] == "3"
-          [200, {}, [template_start(regulations_battle, regulations_battle_link)]]
+          [200, {}, [template_start(regulations_game, menu_link)]]
         else
           handle_default_requests
         end

@@ -12,6 +12,7 @@ module HtmlForms
         <body>
         <h1>#{characteristics}</h1>
         <h2>#{data}</h2>
+        <h2>#{"Вы проголодались, подкрепитесь !!!" if @satiety < 4}<h2/>
          <hr/>
         #{links}
         </body>

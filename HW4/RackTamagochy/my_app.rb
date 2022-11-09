@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 require 'byebug'
-require './battle'
 require './modules/html_forms'
 require './modules/requests'
-require './modules/html_battle'
+# require './modules/html_battle'
 require './modules/html_pages'
 require './modules/options'
 # require 'json'
@@ -12,7 +11,7 @@ require './modules/options'
 class MyApp
   include HtmlForms
   include Requests
-  include HtmlBattle
+  # include HtmlBattle
   include HtmlPages
   include Options
 
@@ -20,7 +19,7 @@ class MyApp
     @name = nil
     @race = 'Elf'
     @level = 0 # elementary level
-    @satiety = 8 # full satiety
+    @satiety = 10 # full satiety
     @life = 2 # maximum life
     @health = 100 # full health
     @time_in_game = Time.new # time start game
@@ -38,7 +37,9 @@ class MyApp
       handle_post_requests
     when @req.get?
       return [200, {}, [forma_html]] if @name.nil?
-
+      # if @satiety < 4
+      #   MyRackMiddleware.new(env).call(env) 
+      # end
       handle_get_requests
     else
       handle_default_requests
@@ -50,11 +51,6 @@ class MyApp
     "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
   end
 
-
-
-  private
-
-
 end
 
   # class MyRackMiddleware
@@ -63,7 +59,7 @@ end
   #   end
   #   def call(env)
   #     status, headers, body = @appl.call(env)
-  #     append_s = "... greetings from RubyLearning!!"
+  #     append_s = "... Вы проголодались, подкрепитесь !!!"
   #     [status, headers, body << append_s]
   #   end
   # end
