@@ -4,17 +4,23 @@ require 'byebug'
 require './battle'
 require './modules/html_forms'
 require './modules/requests'
+require './modules/html_battle'
+require './modules/html_pages'
+require './modules/options'
 # require 'json'
 
 class MyApp
   include HtmlForms
   include Requests
+  include HtmlBattle
+  include HtmlPages
+  include Options
 
   def initialize
     @name = nil
     @race = 'Elf'
     @level = 0 # elementary level
-    @satiety = 10 # full satiety
+    @satiety = 8 # full satiety
     @life = 2 # maximum life
     @health = 100 # full health
     @time_in_game = Time.new # time start game

@@ -36,11 +36,12 @@ module Requests
       elsif @req.path.include?('4')
         [200, {}, [template_start("4444444444444")]]
       elsif @req.path.include?('5')
-        [200, {}, [template_start("5555555555555")]]
+        @satiety = go_eat(@satiety)
+        [200, {}, [template_start(go_eat_page, regulations_battle_link)]]
       elsif @req.path.include?('6')
-        [200, {}, [template_start("6666666666666")]]
+        [200, {}, [template_start(total_time, regulations_battle_link)]]
       elsif @req.path.include?('7')
-        [200, {}, [template_start("7777777777777")]]
+        [200, {}, [template_start(regulations_battle, regulations_battle_link)]]
       elsif @req.path.include?('8') || @req.path.include?('name')
         [200, {}, [forma_html]]
       elsif @req.path.include?('9')
@@ -49,8 +50,11 @@ module Requests
         if @req.params['step'] == "2"
           @health = Battle.new(@health).start
           [200, {}, [template_start(battle_with_dragon, battle_links)]]
-        else 
-          [200, {}, [text_battle]]
+        elsif
+          @req.params['step'] == "3"
+          [200, {}, [template_start(regulations_battle, regulations_battle_link)]]
+        else
+          handle_default_requests
         end
       else
         handle_default_requests
