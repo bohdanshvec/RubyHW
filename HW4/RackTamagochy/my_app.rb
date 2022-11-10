@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'erb'
 require 'byebug'
 require './modules/html_forms'
 require './modules/requests'
@@ -16,7 +16,7 @@ class MyApp
   include Options
 
   def initialize
-    @name = nil
+    @name = "Dan"
     @race = 'Elf'
     @level = 0 # elementary level
     @satiety = 10 # full satiety
@@ -37,9 +37,7 @@ class MyApp
       handle_post_requests
     when @req.get?
       return [200, {}, [forma_html]] if @name.nil?
-      # if @satiety < 4
-      #   MyRackMiddleware.new(env).call(env) 
-      # end
+ 
       handle_get_requests
     else
       handle_default_requests

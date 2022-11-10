@@ -8,6 +8,7 @@ module Options
   def health_down
     rand_down = rand(50)
     @health -= rand_down
+    life
   end
 
   def health_up
@@ -17,9 +18,18 @@ module Options
 
   def satiety_down
     @satiety -= 1
+    life
   end
 
   def level_up
     @level += 1
+  end
+
+  def life
+    if @health < 1 || @satiety < 1
+      @life -=1 
+      @health = 100
+      @satiety = 10
+    end
   end
 end
