@@ -59,7 +59,7 @@ module Requests
           health_down
           level_up
           satiety_down
-          @life 
+          @life < 1 ? [200, {}, [game_end]] : [200, {}, [template_start(battle_with_dragon, battle_links)]]
         elsif
           @req.params['step'] == "3"
           [200, {}, [template_start(regulations_game, menu_link)]]
@@ -72,8 +72,12 @@ module Requests
     end
 
     def handle_default_requests
-
       [200, {}, [template_start(menu)]]
     end
 
-end 
+    # def render(template)
+    #   path = File.expand_path("../views/#{template}", __FILE__)
+    #   ERB.new(File.read(path)).result(binding)
+    # end
+
+end

@@ -1,15 +1,8 @@
 module HtmlPages
   protected
 
-
-  # Метод выводящий характеристики героя.
-  def characteristics
-    "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
-  end
-
   def menu
     "<h3>Выбирайте, что будете делать:<br/>
-    <br/>
     1. Сражусь с драконом.<br/>
     2. Попытаюсь взломать сейф.<br/>
     3. Посплю, оно и немного силы восстановит.<br/>
@@ -65,14 +58,12 @@ module HtmlPages
   end
   
   def total_time
-    # t = Time.now - @time_in_game
-    # if t < 60
-    #   "Вы в игре всего лишь #{t.to_i} секунд."
-    # elsif t.to_i.between?(60, 3600)
-    #   "Вы в игре #{t.to_i / 60} минут и #{t.to_i % 60} секунд."
-    # end
-    @time_in_game
-    Time.now
+    t = Time.now - @time_in_game
+    if t < 60
+      "Вы в игре всего лишь #{t.to_i} секунд."
+    elsif t.to_i.between?(60, 3600)
+      "Вы в игре #{t.to_i / 60} минут и #{t.to_i % 60} секунд."
+    end
   end
 
   def exit_gem

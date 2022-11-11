@@ -1,15 +1,49 @@
-module HtmlPages
-  protected
+require 'erb'
+require 'byebug'
+# require './modules/html_pages'
+
+class Heros
 
 
-  # Метод выводящий характеристики героя.
-  def characteristics
-    "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
+  def self.call(env)
+    new(env).response.finish
+  end
+  # include HtmlPages  
+
+  def initialize(env)
+    @request = Rack::Request.new(env).finish
+    @name = "Dan"
+    @race = 'Elf'
+    @level = 0 # elementary level
+    @satiety = 10 # full satiety
+    @life = 2 # maximum life
+    @health = 100 # full health
+    @time_in_game = Time.new # time start game
+  end
+
+  def response
+    case @request.path
+    when '/'
+      # Rack::Response.new(render("menu.html.erb"))
+      Rack::Response.new(render("index.html.erb"))
+
+    when "/change"
+      @name = @request.params[("name")]
+      Rack::Response.new do |response|
+        response.set_cookie("name", @request.params[("name")])
+        response.redirect("/")
+      end
+    else response("Not Found", 404)
+    end
+  end
+
+  def render(template)
+    path = File.expand_path("../views/#{template}", __FILE__)
+    ERB.new(File.read(path)).result(binding)
   end
 
   def menu
     "<h3>Выбирайте, что будете делать:<br/>
-    <br/>
     1. Сражусь с драконом.<br/>
     2. Попытаюсь взломать сейф.<br/>
     3. Посплю, оно и немного силы восстановит.<br/>
@@ -65,14 +99,12 @@ module HtmlPages
   end
   
   def total_time
-    # t = Time.now - @time_in_game
-    # if t < 60
-    #   "Вы в игре всего лишь #{t.to_i} секунд."
-    # elsif t.to_i.between?(60, 3600)
-    #   "Вы в игре #{t.to_i / 60} минут и #{t.to_i % 60} секунд."
-    # end
-    @time_in_game
-    Time.now
+    t = Time.now - @time_in_game
+    if t < 60
+      "Вы в игре всего лишь #{t.to_i} секунд."
+    elsif t.to_i.between?(60, 3600)
+      "Вы в игре #{t.to_i / 60} минут и #{t.to_i % 60} секунд."
+    end
   end
 
   def exit_gem

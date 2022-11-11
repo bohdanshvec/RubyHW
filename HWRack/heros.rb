@@ -15,10 +15,6 @@ class Heros
   include HtmlPages
   include Options
 
-  def self.call(env)
-    new(env).response
-  end
-
   def initialize(env)
     @name = "Dan"
     @race = 'Elf'
@@ -32,9 +28,8 @@ class Heros
 
 
 
-  # def call(env)
+  def call(env)
 
-  def response
     # read cookie from req and validate it, if valid go to next steps, else not valid redirect to auth path
 
     handle_auth_request
@@ -49,11 +44,6 @@ class Heros
     else
       handle_default_requests
     end
-  end
-
-  # Метод выводящий характеристики героя.
-  def characteristics
-    "#{@name}, #{@race}, #{@level} уровень, у Вас #{@life} жизни, #{@health} здоровья и #{@satiety} сытости."
   end
 
 end
