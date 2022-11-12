@@ -1,33 +1,27 @@
-require 'erb'
+# require 'erb'
 
+# Модуль основного дерева страниц
 module Requests
 
   private
 
-    def handle_auth_request
-      # convert request body string ruby hash
-      # body = { email: 'abc@mail.com', password: 'password' }
-      # body[:email]
-    end
-
+    # Метод обработки POST запросов
     def handle_post_requests
       if @req.path.include?('name')
-        @name = @req.body.read.split('=')[1] # get value from fname
+        @name = @req.params['name'] # get value from name
+        @race = @req.params['race'] # get value from race
         
         if @name.nil?
           [302, {'location' => 'http://localhost:9292/name'}, []]
         else
           [302, {'location' => 'http://localhost:9292'}, []]
         end
-      elsif @req.path.include?('auth')
-        # read cookie from req
-        # auth user with password and email - generate in initializer with hardcoded values
-        # create new response with cookie
       else
         [302, {'location' => 'http://localhost:9292'}, []]
       end
     end
 
+    # Метод обработки GET запросов
     def handle_get_requests
       if @req.path.include?('1')
         [200, {}, [template_start(battle_with_dragon, battle_links)]]
@@ -59,6 +53,7 @@ module Requests
           health_down
           level_up
           satiety_down
+          @life 
           @life < 1 ? [200, {}, [game_end]] : [200, {}, [template_start(battle_with_dragon, battle_links)]]
         elsif
           @req.params['step'] == "3"
@@ -66,18 +61,21 @@ module Requests
         else
           handle_default_requests
         end
+      elsif @req.path.include?('start')
+        @name = nil
+        @life = 2
+        @level = 0
+        @health = 100
+        @satiety = 10
+        [200, {}, [forma_html]]
       else
         handle_default_requests
       end
     end
 
+    # Хелпер метод ссылки на основную страницу меню 
     def handle_default_requests
       [200, {}, [template_start(menu)]]
     end
 
-    # def render(template)
-    #   path = File.expand_path("../views/#{template}", __FILE__)
-    #   ERB.new(File.read(path)).result(binding)
-    # end
-
-end
+end 

@@ -6,6 +6,7 @@ require './modules/requests'
 require './modules/html_pages'
 require './modules/options'
 
+# Основной класс игры
 class Heros
   include HtmlForms
   include Requests
@@ -13,45 +14,27 @@ class Heros
   include Options
 
   def initialize
-    @name = "Dan"
-    @race = 'Elf'
+    @name = nil # name
+    @race = nil # race
     @level = 0 # elementary level
     @satiety = 10 # full satiety
     @life = 2 # maximum life
     @health = 100 # full health
     @time_in_game = Time.new # time start game
-    
   end
 
-
-
+  # Основной метод вызова страниц
   def call(env)
     @req = Rack::Request.new(env)
-    # read cookie from req and validate it, if valid go to next steps, else not valid redirect to auth path
-
-    handle_auth_request
 
     case
     when @req.post? 
       handle_post_requests
     when @req.get?
       return [200, {}, [forma_html]] if @name.nil?
- 
       handle_get_requests
     else
       handle_default_requests
     end
   end
-
 end
-
-  # class MyRackMiddleware
-  #   def initialize(appl)
-  #     @appl = appl
-  #   end
-  #   def call(env)
-  #     status, headers, body = @appl.call(env)
-  #     append_s = "... Вы проголодались, подкрепитесь !!!"
-  #     [status, headers, body << append_s]
-  #   end
-  # end
