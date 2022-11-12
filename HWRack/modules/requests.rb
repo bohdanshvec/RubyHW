@@ -1,4 +1,4 @@
-require 'erb'
+# require 'erb'
 
 module Requests
 
@@ -60,12 +60,20 @@ module Requests
           level_up
           satiety_down
           @life 
+          @life < 1 ? [200, {}, [game_end]] : [200, {}, [template_start(battle_with_dragon, battle_links)]]
         elsif
           @req.params['step'] == "3"
           [200, {}, [template_start(regulations_game, menu_link)]]
         else
           handle_default_requests
         end
+      elsif @req.path.include?('start')
+        @name = nil
+        @life = 2
+        @level = 0
+        @health = 100
+        @satiety = 10
+        [200, {}, [forma_html]]
       else
         handle_default_requests
       end

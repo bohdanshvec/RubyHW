@@ -9,32 +9,40 @@ class Greeter1
 
   def initialize(env)
     @request = Rack::Request.new(env)
-    @name = nil#"Dan"
-    @race = nil#'Elf'
-    @level = 0 # elementary level
-    @satiety = 10 # full satiety
-    @life = 2 # maximum life
-    @health = 100 # full health
-    @time = Time.new # time start game
+    @name = @request.cookies['name'] 
+    @race = @request.cookies['race']
+    @level = @request.cookies['level'] || 0 # elementary level
+    @satiety = @request.cookies['satiety'] || 10 # full satiety
+    @life = @request.cookies['life'] || 2 # maximum life
+    @health = @request.cookies['health'] || 100 # full health
+    @time = @request.cookies['time'] || Time.new # time start game
+    # byebug
   end
 
   def response
     case @request.path
     when '/'
-      @name.nil? || @race.nil? ? Rack::Response.new(render("form.html.erb")) : Rack::Response.new(render("menu.html.erb"))
+      # byebug
+      tmpl = ['name', 'race'].none? { |x| @request.cookies[x] } ? 'form' : 'menu' 
+      Rack::Response.new(render(tmpl + '.html.erb'))
+      # @name.nil? || @race.nil? ? Rack::Response.new(render("form.html.erb")) : Rack::Response.new(render("menu.html.erb"))
     when "/change"
-      @name = @request.params[("name")]
-      @race = @request.params[("race")]
+      # byebug
+      # @name = @request.params[("name")]
+      # @race = @request.params[("race")]
       # @request.redirect("/")
+      
       Rack::Response.new do |response|
-        response.set_cookie("name", @name)
-        response.set_cookie("race", @rase)
-        response.set_cookie("level", @level)
-        response.set_cookie("satiety", @satiety)
-        response.set_cookie("life", @life)
-        response.set_cookie("health", @health)
-        response.set_cookie("time", @time)
+        response.set_cookie('health', @health)
+        response.set_cookie('name', @request.params['name'])
+        response.set_cookie('race', @request.params['race'])
+        response.set_cookie('level', @level)
+        response.set_cookie('satiety', @satiety)
+        response.set_cookie('life', @life)
+        response.set_cookie('time', @time)
+        # byebug
         response.redirect("menu")
+        byebug
       end
     when '/8'
       Rack::Response.new(render("form.html.erb"))
@@ -50,7 +58,7 @@ class Greeter1
   end
 
   def get(arg)
-    @request.cookies["#{arg}"].to_i
+    @request.cookies[arg]
   end
 
   def menu
@@ -199,6 +207,8 @@ class Greeter1
     "#{get('name')}, #{get('race')}, #{@level} уровень, у Вас #{get('life')} жизни, #{get('health')} здоровья и #{get('satiety')} сытости."
   end
 
+  # def characteristics
+  #   "#{@request.cookies[("name")]}, #{@request.cookies[("race")]}, #{@request.cookies[("level")]} уровень, у Вас #{@request.cookies[("life")]} жизни, #{@request.cookies[("health")]} здоровья и #{@request.cookies[("satiety")]} сытости."
+  # end
 
-  
 end

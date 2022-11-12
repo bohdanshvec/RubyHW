@@ -3,19 +3,16 @@ require 'erb'
 require 'byebug'
 require './modules/html_forms'
 require './modules/requests'
-# require './modules/html_battle'
 require './modules/html_pages'
 require './modules/options'
-# require 'json'
 
 class Heros
   include HtmlForms
   include Requests
-  # include HtmlBattle
   include HtmlPages
   include Options
 
-  def initialize(env)
+  def initialize
     @name = "Dan"
     @race = 'Elf'
     @level = 0 # elementary level
@@ -23,13 +20,13 @@ class Heros
     @life = 2 # maximum life
     @health = 100 # full health
     @time_in_game = Time.new # time start game
-    @req = Rack::Request.new(env)
+    
   end
 
 
 
   def call(env)
-
+    @req = Rack::Request.new(env)
     # read cookie from req and validate it, if valid go to next steps, else not valid redirect to auth path
 
     handle_auth_request
