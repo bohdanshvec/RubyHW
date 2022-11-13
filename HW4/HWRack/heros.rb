@@ -5,6 +5,8 @@ require './modules/html_forms'
 require './modules/requests'
 require './modules/html_pages'
 require './modules/options'
+require './modules/html_game'
+
 
 # Основной класс игры
 class Heros
@@ -12,6 +14,7 @@ class Heros
   include Requests
   include HtmlPages
   include Options
+  include HtmlGame
 
   def initialize
     @name = nil # name

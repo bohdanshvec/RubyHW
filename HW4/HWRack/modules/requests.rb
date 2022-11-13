@@ -16,6 +16,15 @@ module Requests
         else
           [302, {'location' => 'http://localhost:9292'}, []]
         end
+      elsif @req.path.include?('game')
+        @number = @req.params['number']
+        logic_game
+        if @number.chars == @array_game
+          satiety_down
+          [200, {}, [victory]]
+        else
+          [200, {}, [game_list]]
+        end
       else
         [302, {'location' => 'http://localhost:9292'}, []]
       end
@@ -26,7 +35,11 @@ module Requests
       if @req.path.include?('1')
         [200, {}, [template_start(battle_with_dragon, battle_links)]]
       elsif @req.path.include?('2')
-        [200, {}, [template_start("Данный функционал не подключён.", menu_link)]]
+        @array_game = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].shuffle.pop(4)
+        @array_views = []
+        @number = ""
+        # byebug
+        [200, {}, [game_menu(game_link)]]
       elsif @req.path.include?('3')
         health_up
         satiety_down
@@ -48,6 +61,8 @@ module Requests
         [200, {}, [forma_html]]
       elsif @req.path.include?('9')
         [200, {}, [game_end]]
+      elsif @req.path.include?('startgame')
+        [200, {}, [game_list]]
       elsif @req.path.include?('battle')
         if @req.params['step'] == "2"
           health_down
@@ -77,5 +92,6 @@ module Requests
     def handle_default_requests
       [200, {}, [template_start(menu)]]
     end
+
 
 end 
