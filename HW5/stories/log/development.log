@@ -1,0 +1,393 @@
+Started GET "/" for ::1 at 2022-11-16 20:51:25 +0200
+  
+ActiveRecord::NoDatabaseError (We could not find your database: Stories_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2022-11-16 20:51:26 +0200
+  
+ActiveRecord::NoDatabaseError (We could not find your database: Stories_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (1669.1ms)[0m  [1m[35mCREATE DATABASE "Stories_development" ENCODING = 'unicode'[0m
+  [1m[35m (682.1ms)[0m  [1m[35mCREATE DATABASE "Stories_test" ENCODING = 'unicode'[0m
+  [1m[35m (268.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (92.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7399495298708468970)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221116202528)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (148.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (25.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221116202528"]]
+  [1m[36mTRANSACTION (15.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-16 20:26:21.434690"], ["updated_at", "2022-11-16 20:26:21.434690"]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7399495298708468970)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-16 23:11:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as HTML
+Completed 204 No Content in 193ms (ActiveRecord: 0.0ms | Allocations: 14443)
+
+
+Started GET "/" for ::1 at 2022-11-16 23:15:12 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-11-16 23:15:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/routes" for ::1 at 2022-11-16 23:15:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/api/v1/articles" for ::1 at 2022-11-16 23:16:26 +0200
+Processing by Api::V1::ArticlesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 107)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-16 23:16:46 +0200
+Processing by Api::V1::ArticlesController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 76)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (34.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title"], ["body", "Body"], ["created_at", "2022-11-16 21:21:42.547240"], ["updated_at", "2022-11-16 21:21:42.547240"]]
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/articles" for ::1 at 2022-11-16 23:22:35 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 18.1ms | Allocations: 20267)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-16 23:36:49 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 9.2ms | Allocations: 1487)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'tille' for Article.):
+  
+app/controllers/api/v1/articles_controller.rb:9:in `create'
+Started GET "/api/v1/articles" for ::1 at 2022-11-16 23:37:33 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 1.0ms | Allocations: 1075)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-16 23:38:23 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Two"], ["body", "Body two"], ["created_at", "2022-11-16 21:38:24.034962"], ["updated_at", "2022-11-16 21:38:24.034962"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+Completed 200 OK in 32ms (Views: 0.5ms | ActiveRecord: 23.4ms | Allocations: 3748)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-16 23:39:09 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Two"], ["body", "Body two"], ["created_at", "2022-11-16 21:39:09.842608"], ["updated_at", "2022-11-16 21:39:09.842608"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+Completed 200 OK in 24ms (Views: 0.6ms | ActiveRecord: 15.1ms | Allocations: 1796)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-16 23:39:42 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 1049)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-16 23:39:49 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mArticle Create (13.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Two"], ["body", "Body two"], ["created_at", "2022-11-16 21:39:49.624262"], ["updated_at", "2022-11-16 21:39:49.624262"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (26.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 39.4ms | Allocations: 1795)
+
+
+Started GET "/api/v1/articles/2" for ::1 at 2022-11-16 23:51:26 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "id"=>"2", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:16:in `show'
+Completed 200 OK in 61ms (Views: 0.6ms | ActiveRecord: 10.2ms | Allocations: 3183)
+
+
+Started PATCH "/api/v1/articles/1" for ::1 at 2022-11-16 23:57:11 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "id"=>"1", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+  [1m[36mArticle Update (0.7ms)[0m  [1m[33mUPDATE "articles" SET "body" = $1, "updated_at" = $2 WHERE "articles"."id" = $3[0m  [["body", "Body two"], ["updated_at", "2022-11-16 21:57:11.948186"], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (35.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+Completed 200 OK in 53ms (Views: 0.6ms | ActiveRecord: 45.2ms | Allocations: 4129)
+
+
+Started PATCH "/api/v1/articles/1" for ::1 at 2022-11-16 23:58:57 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"body"=>"Body one", "id"=>"1", "article"=>{"body"=>"Body one"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+  [1m[36mArticle Update (22.6ms)[0m  [1m[33mUPDATE "articles" SET "body" = $1, "updated_at" = $2 WHERE "articles"."id" = $3[0m  [["body", "Body one"], ["updated_at", "2022-11-16 21:58:57.290889"], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (20.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `update'
+Completed 200 OK in 54ms (Views: 0.5ms | ActiveRecord: 43.4ms | Allocations: 2216)
+
+
+Started DELETE "/api/v1/articles/3" for ::1 at 2022-11-17 00:07:19 +0200
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for Api::V1::ArticlesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started DELETE "/api/v1/articles/3" for ::1 at 2022-11-17 00:07:52 +0200
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for Api::V1::ArticlesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/articles" for ::1 at 2022-11-17 00:08:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 44ms (Views: 31.4ms | ActiveRecord: 14.1ms | Allocations: 7671)
+
+
+Started DELETE "/api/v1/articles/4" for ::1 at 2022-11-17 00:09:46 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:29:in `destroy'
+  [1m[36mArticle Destroy (26.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/articles_controller.rb:30:in `destroy'
+Completed 200 OK in 52ms (Views: 0.4ms | ActiveRecord: 37.6ms | Allocations: 3755)
+
+
