@@ -391,3 +391,41 @@ Processing by Api::V1::ArticlesController#destroy as */*
 Completed 200 OK in 52ms (Views: 0.4ms | ActiveRecord: 37.6ms | Allocations: 3755)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (49.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (49.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/articles" for ::1 at 2022-11-18 10:39:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (78.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 286ms (Views: 18.6ms | ActiveRecord: 136.6ms | Allocations: 30548)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-18 13:00:29 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (26.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (17.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 302ms (Views: 43.5ms | ActiveRecord: 48.2ms | Allocations: 30500)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-18 13:02:39 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"four", "body"=>"Body fpur 4", "article"=>{"title"=>"four", "body"=>"Body fpur 4"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mArticle Create (110.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "four"], ["body", "Body fpur 4"], ["created_at", "2022-11-18 11:02:39.989105"], ["updated_at", "2022-11-18 11:02:39.989105"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (30.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `create'
+Completed 200 OK in 149ms (Views: 1.8ms | ActiveRecord: 140.4ms | Allocations: 2492)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-18 13:07:59 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1032)
+
+
