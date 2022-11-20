@@ -429,3 +429,174 @@ Processing by Api::V1::ArticlesController#index as */*
 Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1032)
 
 
+Started GET "/api/v1/articles" for ::1 at 2022-11-20 18:37:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (71.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (51.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 302ms (Views: 36.7ms | ActiveRecord: 101.5ms | Allocations: 30856)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 18:38:15 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"55555", "body"=>"Body 55555", "article"=>{"title"=>"55555", "body"=>"Body 55555"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (58.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "55555"], ["body", "Body 55555"], ["created_at", "2022-11-20 16:38:15.729288"], ["updated_at", "2022-11-20 16:38:15.729288"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 200 OK in 76ms (Views: 0.4ms | ActiveRecord: 69.7ms | Allocations: 2672)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-20 18:39:57 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1122)
+
+
+Started PATCH "/api/v1/articles/6" for ::1 at 2022-11-20 18:42:29 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"5-5-5-5-5", "body"=>"5-5-5-5-5-5", "id"=>"6", "article"=>{"title"=>"5-5-5-5-5", "body"=>"5-5-5-5-5-5"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mArticle Update (0.8ms)[0m  [1m[33mUPDATE "articles" SET "title" = $1, "body" = $2, "updated_at" = $3 WHERE "articles"."id" = $4[0m  [["title", "5-5-5-5-5"], ["body", "5-5-5-5-5-5"], ["updated_at", "2022-11-20 16:42:29.577621"], ["id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (19.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+Completed 200 OK in 63ms (Views: 0.3ms | ActiveRecord: 21.3ms | Allocations: 5030)
+
+
+Started PATCH "/api/v1/articles/6" for ::1 at 2022-11-20 18:42:37 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"5-5-5-5-5", "body"=>"5-5-5-5-5-5", "id"=>"6", "article"=>{"title"=>"5-5-5-5-5", "body"=>"5-5-5-5-5-5"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 814)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-20 18:42:59 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1089)
+
+
+Started DELETE "/api/v1/articles/6" for ::1 at 2022-11-20 18:43:16 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mArticle Destroy (41.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:32:in `destroy'
+Completed 200 OK in 46ms (Views: 0.3ms | ActiveRecord: 42.1ms | Allocations: 954)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-20 18:43:23 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 992)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 18:59:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"5", "body"=>"Body 55555", "article"=>{"title"=>"5", "body"=>"Body 55555"}}
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 5.2ms | Allocations: 32694)
+
+
+  
+NoMethodError (undefined method `arrors' for #<Article id: nil, title: "5", body: "Body 55555", created_at: nil, updated_at: nil>
+Did you mean?  errors):
+  
+app/controllers/api/v1/articles_controller.rb:15:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:02:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"5", "body"=>"Body 55555", "article"=>{"title"=>"5", "body"=>"Body 55555"}}
+Completed 422 Unprocessable Entity in 271ms (Views: 158.3ms | ActiveRecord: 4.7ms | Allocations: 33967)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:08:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"5", "body"=>"Body 55555", "article"=>{"title"=>"5", "body"=>"Body 55555"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "5"], ["body", "Body 55555"], ["created_at", "2022-11-20 17:08:25.899152"], ["updated_at", "2022-11-20 17:08:25.899152"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 21.3ms | Allocations: 32740)
+
+
+  
+ArgumentError (Unrecognized status code :create):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:11:24 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"5", "body"=>"Body 55555", "article"=>{"title"=>"5", "body"=>"Body 55555"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 4.4ms | Allocations: 1851)
+
+
+  
+ArgumentError (Unrecognized status code :create):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:11:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"5", "body"=>"Body 55555", "article"=>{"title"=>"5", "body"=>"Body 55555"}}
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 4.7ms | Allocations: 30785)
+
+
+  
+ArgumentError (Unrecognized status code :create):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:12:36 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"555", "body"=>"Body 55555", "article"=>{"title"=>"555", "body"=>"Body 55555"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "555"], ["body", "Body 55555"], ["created_at", "2022-11-20 17:12:36.074335"], ["updated_at", "2022-11-20 17:12:36.074335"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 12.6ms | Allocations: 2436)
+
+
+  
+ArgumentError (Unrecognized status code :create):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:13:42 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"555", "body"=>"Body 55555", "article"=>{"title"=>"555", "body"=>"Body 55555"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "555"], ["body", "Body 55555"], ["created_at", "2022-11-20 17:13:42.276932"], ["updated_at", "2022-11-20 17:13:42.276932"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (41.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 200 OK in 53ms (Views: 0.5ms | ActiveRecord: 46.2ms | Allocations: 3545)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-20 19:15:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"6666", "body"=>"Body 6666666", "article"=>{"title"=>"6666", "body"=>"Body 6666666"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "6666"], ["body", "Body 6666666"], ["created_at", "2022-11-20 17:15:22.732658"], ["updated_at", "2022-11-20 17:15:22.732658"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (20.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 201 Created in 145ms (Views: 0.7ms | ActiveRecord: 26.8ms | Allocations: 32993)
+
+
