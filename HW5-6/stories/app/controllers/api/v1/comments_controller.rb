@@ -6,14 +6,18 @@ module Api
     class CommentsController < ApplicationController
       before_action :set_comment, only: %i[update]
 
+      # GET /api/v1/comments
       def index
-        @comments = Comment.where(status: params[:status] || :unpublished) # get_all_comments
+        @comments = Comment.where(status: params[:status] || :unpublished)
+        # or 
+        # @comments = Comment.get_all_comments
 
         render json: @comments
       end
 
+      # PUT/PATCH /api/v1/comments/:id
       def update
-        @comment.update(params_comment)
+        @comment.update(comment_params)
 
         render json: @comment
       end
@@ -24,7 +28,7 @@ module Api
         @comment = Comment.find(params[:id])
       end
 
-      def params_comment
+      def comment_params
         params.require(:comment).permit(:status, :body)
       end
     end

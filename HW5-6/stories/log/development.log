@@ -837,3 +837,78 @@ Processing by Api::V1::CommentsController#index as */*
 Completed 200 OK in 37ms (Views: 12.2ms | ActiveRecord: 13.0ms | Allocations: 7101)
 
 
+Started GET "/api/v1/comments" for ::1 at 2022-11-27 14:43:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (79.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (532.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 2501ms (Views: 377.2ms | ActiveRecord: 1391.6ms | Allocations: 36160)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-27 14:45:05 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 966)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-11-27 15:37:42 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"body"=>"000000", "id"=>"1", "comment"=>{"body"=>"000000"}}
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mAuthor Load (31.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mArticle Load (28.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mComment Update (1.1ms)[0m  [1m[33mUPDATE "comments" SET "body" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["body", "000000"], ["updated_at", "2022-11-27 13:37:43.357837"], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+Completed 200 OK in 819ms (Views: 1.1ms | ActiveRecord: 172.1ms | Allocations: 45216)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-11-27 15:38:29 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"unpublished", "id"=>"1", "comment"=>{"status"=>"unpublished"}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:28:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mComment Update (0.4ms)[0m  [1m[33mUPDATE "comments" SET "status" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["status", 0], ["updated_at", "2022-11-27 13:38:29.187192"], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:20:in `update'
+Completed 200 OK in 27ms (Views: 0.4ms | ActiveRecord: 16.1ms | Allocations: 4048)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-27 15:38:44 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1008)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-27 15:38:59 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 700)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-27 15:40:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" IN ($1, $2)[0m  [["status", 0], ["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 65ms (Views: 23.7ms | ActiveRecord: 6.2ms | Allocations: 36888)
+
+
