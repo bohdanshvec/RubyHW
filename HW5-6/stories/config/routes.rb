@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :articles
-      resources :comments, only: %i[index update]
+      resources :comments, only: %i[index update create]
     end
     # v2 created for visibility
     namespace :v2 do

@@ -15,6 +15,13 @@ module Api
         render json: @comments
       end
 
+      def create
+        @comment = Comment.new(comment_create_params)
+        @comment.save
+
+        render json: @comment
+      end
+
       # PUT/PATCH /api/v1/comments/:id
       def update
         @comment.update(comment_params)
@@ -30,6 +37,10 @@ module Api
 
       def comment_params
         params.require(:comment).permit(:status, :body)
+      end
+
+      def comment_create_params
+        params.require(:comment).permit(:status, :body, :article_id, :author_id)
       end
     end
   end
