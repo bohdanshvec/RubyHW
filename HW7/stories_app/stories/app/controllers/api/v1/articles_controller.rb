@@ -1,5 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show update destroy]
+  before_action :set_article, only: %i[like show update destroy]
 
   # GET /api/v1/articles
   def index
@@ -18,8 +18,8 @@ class Api::V1::ArticlesController < ApplicationController
 
   # GET /api/v1/articles/:id
   def show
-    render json: { article: @article, comment: @article.comments.get_lastten_comments, tag: @article.tags }
-    # render json: { article: @article, comment: @article.comments.get_all_comments, tag: @article.tags }
+    render json: { article: @article, comment: @article.comments.get_lastten_comments, tag: @article.tags, like: @article.likes }
+    # render json: { article: @article, comment: @article.comments.get_all_comments, tag: @article.tags, like: @article.likes }
   end
 
   # PUT/PATCH /api/v1/articles/:id
@@ -36,7 +36,20 @@ class Api::V1::ArticlesController < ApplicationController
     render json: :ok
   end
 
+  # POST /api/v1/articles/:id/like
+  def like
+    @like = Like.new(like_params)
+    @like.liked = @article
+    @like.save
+
+    render json: @like
+  end
+
   private
+
+  def like_params
+    params.require(:article).permit(:title)
+  end
 
   def set_article
     @article = Article.find(params[:id])

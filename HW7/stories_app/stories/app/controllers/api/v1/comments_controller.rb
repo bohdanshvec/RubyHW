@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_comment, only: %i[update destroy]
+  before_action :set_comment, only: %i[like show update destroy]
 
   # GET /api/v1/comments
   # or
@@ -27,6 +27,11 @@ class Api::V1::CommentsController < ApplicationController
     render json: @comment
   end
 
+  # GET /api/v1/comments/:id
+  def show
+    render json: { comment: @comment, like: @comment.likes }
+  end
+
    # DELETE /api/v1/comments/:id
   def destroy
     @comment.delete
@@ -34,7 +39,20 @@ class Api::V1::CommentsController < ApplicationController
     render json: :ok
   end
 
+   # POST /api/v1/comments/:id/like
+  def like
+    @like = Like.new(like_params)
+    @like.liked = @comment
+    @like.save
+
+    render json: @like
+  end
+
   private
+
+  def like_params
+    params.require(:like).permit(:title)
+  end
 
   def set_comment
     @comment = Comment.find(params[:id])

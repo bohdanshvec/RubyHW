@@ -2143,3 +2143,531 @@ Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 7.0ms | Allocations: 6815
   [1m[36mTRANSACTION (28.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 14:53:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (72.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"LIKE-1", "id"=>"6", "article"=>{"title"=>"LIKE-1"}}
+  [1m[36mArticle Load (74.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+Completed 400 Bad Request in 178ms (ActiveRecord: 182.2ms | Allocations: 9319)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/api/v1/articles_controller.rb:50:in `params_title'
+app/controllers/api/v1/articles_controller.rb:41:in `like'
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 14:55:05 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"like"=>{"title"=>"LIKE-1"}, "id"=>"6", "article"=>{}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+  [1m[36mLike Create (68.9ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "{\"title\"=>\"LIKE-1\"}"], ["liked_type", "Article"], ["liked_id", 6], ["created_at", "2022-12-05 12:55:05.106429"], ["updated_at", "2022-12-05 12:55:05.106429"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+  [1m[36mTRANSACTION (51.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+Completed 200 OK in 172ms (Views: 0.7ms | ActiveRecord: 124.3ms | Allocations: 8082)
+
+
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 14:55:59 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"like"=>"LIKE-1", "id"=>"6", "article"=>{}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 2293)
+
+
+  
+NoMethodError (undefined method `permit' for "LIKE-1":String
+
+    params.require(:like).permit(:title)
+                         ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:50:in `params_title'
+app/controllers/api/v1/articles_controller.rb:41:in `like'
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:03:00 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"abc"=>{"def"=>"LIKE-1"}, "id"=>"6", "article"=>{}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+Completed 400 Bad Request in 12ms (ActiveRecord: 9.1ms | Allocations: 3293)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/api/v1/articles_controller.rb:50:in `like_params'
+app/controllers/api/v1/articles_controller.rb:41:in `like'
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:05:39 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"like"=>{"def"=>"LIKE-1"}, "id"=>"6", "article"=>{}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+[31mUnpermitted parameter: :def. Context: { controller: Api::V1::ArticlesController, action: like, request: #<ActionDispatch::Request:0x00007fbb54279478>, params: {"like"=>{"def"=>"LIKE-1"}, "controller"=>"api/v1/articles", "action"=>"like", "id"=>"6", "article"=>{}} }[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2735)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-12-05 15:06:45 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 1501)
+
+
+  
+SyntaxError (/home/dan/RubyHW/HW7/stories_app/stories/app/models/author.rb:6: syntax error, unexpected ',', expecting =>
+...ates :name, uniqueness: { true, message: 'The selected name ...
+...                              ^
+/home/dan/RubyHW/HW7/stories_app/stories/app/models/author.rb:6: syntax error, unexpected '}', expecting `end'
+...selected name already exists' }
+...                              ^
+):
+  
+app/models/author.rb:6: syntax error, unexpected ',', expecting =>
+app/models/author.rb:6: syntax error, unexpected '}', expecting `end'
+app/models/author.rb:6: syntax error, unexpected ',', expecting =>
+app/models/author.rb:6: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started POST "/api/v1/articles" for ::1 at 2022-12-05 15:09:06 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `create'
+  [1m[36mAuthor Load (31.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `create'
+  [1m[36mArticle Create (36.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Title_1"], ["body", "Body_1"], ["created_at", "2022-12-05 13:09:06.891470"], ["updated_at", "2022-12-05 13:09:06.891470"], ["author_id", 2], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (71.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `create'
+Completed 200 OK in 199ms (Views: 0.5ms | ActiveRecord: 152.3ms | Allocations: 9712)
+
+
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:13:18 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>{"ti"=>"LIKE-1"}, "id"=>"6", "article"=>{"title"=>{"ti"=>"LIKE-1"}}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+[31mUnpermitted parameters: :title, :id, :article. Context: { controller: Api::V1::ArticlesController, action: like, request: #<ActionDispatch::Request:0x00007fbb56b6c380>, params: {"title"=>{"ti"=>"LIKE-1"}, "controller"=>"api/v1/articles", "action"=>"like", "id"=>"6", "article"=>{"title"=>{"ti"=>"LIKE-1"}}} }[0m
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 8.3ms | Allocations: 5506)
+
+
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:14:08 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>{"ti"=>"LIKE-1"}, "id"=>"6", "article"=>{"title"=>{"ti"=>"LIKE-1"}}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+[31mUnpermitted parameter: :title. Context: { controller: Api::V1::ArticlesController, action: like, request: #<ActionDispatch::Request:0x00007fbb569ff948>, params: {"title"=>{"ti"=>"LIKE-1"}, "controller"=>"api/v1/articles", "action"=>"like", "id"=>"6", "article"=>{"title"=>{"ti"=>"LIKE-1"}}} }[0m
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 9.0ms | Allocations: 5507)
+
+
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:14:41 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"ti", "id"=>"6", "article"=>{"title"=>"ti"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `set_article'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+  [1m[36mLike Create (0.9ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "ti"], ["liked_type", "Article"], ["liked_id", 6], ["created_at", "2022-12-05 13:14:41.492699"], ["updated_at", "2022-12-05 13:14:41.492699"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `like'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 13.2ms | Allocations: 2666)
+
+
+Started POST "/api/v1/articles/6/like" for ::1 at 2022-12-05 15:18:13 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"abc", "id"=>"6", "article"=>{"title"=>"abc"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "abc"], ["liked_type", "Article"], ["liked_id", 6], ["created_at", "2022-12-05 13:18:14.025607"], ["updated_at", "2022-12-05 13:18:14.025607"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mTRANSACTION (11.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 20.4ms | Allocations: 7308)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Dan"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (63.1ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Yura"], ["LIMIT", 1]]
+  [1m[36mAuthor Create (126.7ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-05 13:54:46.585760"], ["updated_at", "2022-12-05 13:54:46.585760"], ["name", "Yura"]]
+  [1m[36mTRANSACTION (50.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Yura"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Grisha"], ["LIMIT", 1]]
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-05 13:56:23.226013"], ["updated_at", "2022-12-05 13:56:23.226013"], ["name", "Grisha"]]
+  [1m[36mTRANSACTION (73.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Grisha"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Grisha"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started POST "/api/v1/tags" for ::1 at 2022-12-05 16:08:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"sub-zero", "article_id"=>5, "tag"=>{"name"=>"sub-zero"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (54.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sub-zero"], ["created_at", "2022-12-05 14:08:06.855933"], ["updated_at", "2022-12-05 14:08:06.855933"]]
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+Completed 200 OK in 140ms (Views: 0.7ms | ActiveRecord: 80.7ms | Allocations: 8838)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-05 20:05:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mComment Load (139.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 6], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (48.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 6], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 500ms (Views: 68.9ms | ActiveRecord: 217.9ms | Allocations: 32612)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-12-05 20:09:38 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (24.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+Completed 200 OK in 46ms (Views: 9.0ms | ActiveRecord: 29.9ms | Allocations: 6573)
+
+
+Started POST "/api/v1/comments/2/like" for ::1 at 2022-12-05 20:15:00 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"2", "comment"=>{}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 400 Bad Request in 12ms (ActiveRecord: 4.6ms | Allocations: 3280)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:49:in `like_params'
+app/controllers/api/v1/comments_controller.rb:39:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:18:21 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:53:in `set_comment'
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.4ms | Allocations: 723)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:49:in `like_params'
+app/controllers/api/v1/comments_controller.rb:39:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:21:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 26ms (ActiveRecord: 6.4ms | Allocations: 9324)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-05 20:22:31 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 1085)
+
+
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:24:08 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.5ms | Allocations: 652)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started POST "/api/v1/articles/5/like" for ::1 at 2022-12-05 20:28:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"new", "id"=>"5", "article"=>{"title"=>"new"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "new"], ["liked_type", "Article"], ["liked_id", 5], ["created_at", "2022-12-05 18:28:45.485592"], ["updated_at", "2022-12-05 18:28:45.485592"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mTRANSACTION (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+Completed 200 OK in 86ms (Views: 0.6ms | ActiveRecord: 50.8ms | Allocations: 15841)
+
+
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:30:08 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 23ms (ActiveRecord: 5.5ms | Allocations: 3489)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:31:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 25ms (ActiveRecord: 5.7ms | Allocations: 9325)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:31:39 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"body"=>"smil", "id"=>"1", "comment"=>{"body"=>"smil"}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 6.8ms | Allocations: 4518)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'body' for Like.
+
+          raise UnknownAttributeError.new(self, k.to_s)
+          ^^^^^):
+  
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:32:06 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.4ms | Allocations: 634)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:33:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"title"=>"smil", "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 400 Bad Request in 26ms (ActiveRecord: 6.0ms | Allocations: 9300)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: like):
+  
+app/controllers/api/v1/comments_controller.rb:53:in `like_params'
+app/controllers/api/v1/comments_controller.rb:43:in `like'
+Started POST "/api/v1/comments/1/like" for ::1 at 2022-12-05 20:34:01 +0200
+Processing by Api::V1::CommentsController#like as */*
+  Parameters: {"like"=>{"title"=>"smil"}, "id"=>"1", "comment"=>{}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:45:in `like'
+  [1m[36mLike Create (1.0ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "smil"], ["liked_type", "Comment"], ["liked_id", 1], ["created_at", "2022-12-05 18:34:01.067179"], ["updated_at", "2022-12-05 18:34:01.067179"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:45:in `like'
+  [1m[36mTRANSACTION (32.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:45:in `like'
+Completed 200 OK in 85ms (Views: 0.5ms | ActiveRecord: 40.5ms | Allocations: 8348)
+
+
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-05 20:37:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 6.4ms | Allocations: 16789)
+
+
+  
+NoMethodError (undefined method `lakes' for #<Comment id: 1, created_at: "2022-11-30 20:35:51.359548000 +0000", updated_at: "2022-12-01 01:47:17.368491000 +0000", body: "New comment", status: "published", article_id: 5, author_id: 2>
+Did you mean?  likes
+               likes=):
+  
+app/controllers/api/v1/comments_controller.rb:31:in `show'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 1], ["liked_type", "Comment"]]
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-05 20:39:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 9.2ms | Allocations: 16789)
+
+
+  
+NoMethodError (undefined method `lakes' for #<Comment id: 1, created_at: "2022-11-30 20:35:51.359548000 +0000", updated_at: "2022-12-01 01:47:17.368491000 +0000", body: "New comment", status: "published", article_id: 5, author_id: 2>
+Did you mean?  likes
+               likes=):
+  
+app/controllers/api/v1/comments_controller.rb:31:in `show'
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-05 20:39:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:57:in `set_comment'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 1], ["liked_type", "Comment"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:31:in `show'
+Completed 200 OK in 62ms (Views: 14.2ms | ActiveRecord: 14.0ms | Allocations: 19550)
+
+
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (23.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "articles_tags" ON "articles"."id" = "articles_tags"."article_id" WHERE "articles_tags"."tag_id" = $1[0m  [["tag_id", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (1.0ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sport"], ["created_at", "2022-12-05 19:15:02.014804"], ["updated_at", "2022-12-05 19:15:02.014804"]]
+  [1m[36mTRANSACTION (24.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "sport"], ["LIMIT", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "articles_tags" ON "articles"."id" = "articles_tags"."article_id" WHERE "articles_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "articles_tags" ON "articles"."id" = "articles_tags"."article_id" WHERE "articles_tags"."tag_id" = $1[0m  [["tag_id", 8]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTag Destroy (13.7ms)[0m  [1m[31mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 8]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+Started POST "/api/v1/articles/5/like" for ::1 at 2022-12-05 21:47:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"new_new", "id"=>"5", "article"=>{"title"=>"new_new"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "new_new"], ["liked_type", "Article"], ["liked_id", 5], ["created_at", "2022-12-05 19:47:43.516042"], ["updated_at", "2022-12-05 19:47:43.516042"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:43:in `like'
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 27.3ms | Allocations: 16019)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-05 21:47:55 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1251)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-05 21:48:25 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 6], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 6], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 197ms (Views: 19.4ms | ActiveRecord: 12.5ms | Allocations: 15536)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-05 21:49:08 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 20ms (Views: 6.5ms | ActiveRecord: 1.9ms | Allocations: 6509)
+
+
+Started POST "/api/v1/articles/5/like" for ::1 at 2022-12-05 21:50:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"new_new", "id"=>"5", "article"=>{"title"=>"new_new"}}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."title" = $1 LIMIT $2[0m  [["title", "new_new"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:41:in `like'
+Completed 200 OK in 52ms (Views: 0.7ms | ActiveRecord: 11.7ms | Allocations: 14749)
+
+
+Started POST "/api/v1/articles/5/like" for ::1 at 2022-12-05 21:50:21 +0200
+Processing by Api::V1::ArticlesController#like as */*
+  Parameters: {"title"=>"new_new", "id"=>"5", "article"=>{"title"=>"new_new"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."title" = $1 LIMIT $2[0m  [["title", "new_new"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:41:in `like'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1585)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-05 21:50:26 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 67ms (Views: 18.3ms | ActiveRecord: 11.8ms | Allocations: 17472)
+
+
+Started GET "/api/v1/tags" for ::1 at 2022-12-05 22:00:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 35ms (Views: 12.6ms | ActiveRecord: 4.7ms | Allocations: 10953)
+
+
+Started POST "/api/v1/tags" for ::1 at 2022-12-05 22:02:24 +0200
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"zero", "tag"=>{"name"=>"zero"}}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "zero"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:13:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3035)
+
+

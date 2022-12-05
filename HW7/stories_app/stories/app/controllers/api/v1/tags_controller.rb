@@ -10,19 +10,20 @@ class Api::V1::TagsController < ApplicationController
 
   # POST /api/v1/tags
   def create
-    @tag = Tag.new(tag_params)
+    @tag = Tag.find_or_initialize_by(tag_params)
     @tag.save
-    Article.find(params[:ar]).tags << @tag if params[:ar]
+    # Article.find(params[:ar]).tags << @tag if params[:ar]
 
     render json: @tag
   end
 
+  # This is an experimental method, do not use it. For personal use.
   # GET /api/v1/tags/:id
-  def show
-    Article.find(params[:ar]).tags << @tag if params[:ar]
+  # def show
+  #   Article.find(params[:ar]).tags << @tag if params[:ar]
 
-    render json: @tag
-  end
+  #   render json: @tag
+  # end
 
   # DELETE /api/v1/tags/:id
   def destroy
@@ -38,6 +39,6 @@ class Api::V1::TagsController < ApplicationController
   end
 
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :article_id)
   end
 end
