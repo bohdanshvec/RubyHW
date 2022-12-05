@@ -1242,3 +1242,32 @@ Processing by Api::V1::CommentsController#create as */*
 Completed 200 OK in 271ms (Views: 0.5ms | ActiveRecord: 94.2ms | Allocations: 71690)
 
 
+Started GET "/api/v1/comments" for ::1 at 2022-11-29 21:08:09 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:15:in `index'
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 8.0ms | Allocations: 4552)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-29 22:08:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `create'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `create'
+  [1m[36mArticle Create (1.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Title_1"], ["body", "Body_1"], ["created_at", "2022-11-29 20:08:39.307497"], ["updated_at", "2022-11-29 20:08:39.307497"], ["author_id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `create'
+Completed 200 OK in 398ms (Views: 0.6ms | ActiveRecord: 29.0ms | Allocations: 53586)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-29 22:08:47 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:13:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms | Allocations: 2009)
+
+

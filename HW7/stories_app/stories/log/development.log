@@ -1,0 +1,2145 @@
+  [1m[35m (950.7ms)[0m  [1m[35mCREATE DATABASE "hw5_6_development" ENCODING = 'unicode'[0m
+  [1m[35m (664.9ms)[0m  [1m[35mCREATE DATABASE "hw5_6_test" ENCODING = 'unicode'[0m
+  [1m[35m (139.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (115.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221127141005)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221127141005"]]
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-27 14:11:32.609613"], ["updated_at", "2022-11-27 14:11:32.609613"]]
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title_1"], ["body", "Body_1"], ["created_at", "2022-11-27 14:13:05.670679"], ["updated_at", "2022-11-27 14:13:05.670679"]]
+  [1m[36mTRANSACTION (31.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title_2"], ["body", "Body_2"], ["created_at", "2022-11-27 14:14:11.586637"], ["updated_at", "2022-11-27 14:14:11.586637"]]
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title_3"], ["body", "Body_3"], ["created_at", "2022-11-27 14:18:31.973234"], ["updated_at", "2022-11-27 14:18:31.973234"]]
+  [1m[36mTRANSACTION (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:34:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+    render :json @articles
+                 ^~~~~~~~~
+):
+  
+app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:35:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+    render :json @articles
+                 ^~~~~~~~~
+):
+  
+app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+app/controllers/api/v1/articles_controller.rb:6: syntax error, unexpected instance variable, expecting `end'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:37:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 59ms (ActiveRecord: 0.0ms | Allocations: 13909)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:37:31 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started PATCH "/api/v1/articles" for ::1 at 2022-11-27 16:41:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#update as */*
+Completed 204 No Content in 99ms (ActiveRecord: 0.0ms | Allocations: 15265)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:41:43 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 60)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:41:58 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:42:07 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:43:35 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:43:42 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:47:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 12ms (ActiveRecord: 0.0ms | Allocations: 13092)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 16:47:15 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:39:26 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (Allocations: 102)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:42:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 35ms (ActiveRecord: 0.0ms | Allocations: 13098)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:42:34 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:42:50 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:49:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::ArticlesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:54:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 204 No Content in 14ms (ActiveRecord: 0.0ms | Allocations: 13092)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:56:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 52ms (ActiveRecord: 3.7ms | Allocations: 14685)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:14:in `show'
+Started GET "/api/v1/articles/1" for ::1 at 2022-11-27 17:56:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1"):
+  
+Started GET "/api/v1/article/1" for ::1 at 2022-11-27 17:56:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/article/1"):
+  
+Started GET "/api/v1/articles/1" for ::1 at 2022-11-27 17:57:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1"):
+  
+Started GET "/api/v1/articles/" for ::1 at 2022-11-27 17:57:27 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+Completed 404 Not Found in 0ms (ActiveRecord: 1.6ms | Allocations: 157)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:14:in `show'
+Started GET "/api/v1/articles/" for ::1 at 2022-11-27 17:57:40 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 134)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:14:in `show'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 17:57:48 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 128)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:14:in `show'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:09:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 20ms (ActiveRecord: 3.1ms | Allocations: 14685)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:17:in `show'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:10:21 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 161)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:17:in `show'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:11:53 +0200
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 134)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:17:in `show'
+Started GET "/api/v1/articles/" for ::1 at 2022-11-27 18:12:04 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+Completed 404 Not Found in 0ms (ActiveRecord: 2.0ms | Allocations: 133)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:17:in `show'
+Started POST "/api/v1/articles" for ::1 at 2022-11-27 18:12:13 +0200
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for Api::V1::ArticlesController
+Did you mean?  cteate):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:14:29 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+Completed 404 Not Found in 7ms (ActiveRecord: 2.9ms | Allocations: 1726)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:80:in `set_article'
+Started GET "/api/v1/articles/" for ::1 at 2022-11-27 18:15:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"Two", "body"=>"Body two", "article"=>{"title"=>"Two", "body"=>"Body two"}}
+Completed 404 Not Found in 4ms (ActiveRecord: 4.8ms | Allocations: 934)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:80:in `set_article'
+Started GET "/api/v1/articles/1" for ::1 at 2022-11-27 18:15:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1"):
+  
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:21:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 45ms (Views: 25.0ms | ActiveRecord: 5.8ms | Allocations: 30502)
+
+
+Started GET "/api/v1/articles/2" for ::1 at 2022-11-27 18:26:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+Completed 200 OK in 46ms (Views: 0.7ms | ActiveRecord: 6.1ms | Allocations: 31338)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-27 18:31:24 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for Api::V1::ArticlesController
+Did you mean?  cteate):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/articles" for ::1 at 2022-11-27 18:33:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for Api::V1::ArticlesController
+Did you mean?  cteate):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/articles" for ::1 at 2022-11-27 18:35:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_4", "body"=>"Body_4", "article"=>{"title"=>"Title_4", "body"=>"Body_4"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (13.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Title_4"], ["body", "Body_4"], ["created_at", "2022-11-27 16:35:41.518550"], ["updated_at", "2022-11-27 16:35:41.518550"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (31.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 200 OK in 171ms (Views: 0.7ms | ActiveRecord: 50.2ms | Allocations: 32893)
+
+
+Started PATCH "/api/v1/articles/4" for ::1 at 2022-11-27 18:38:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"444", "body"=>"44444", "id"=>"4", "article"=>{"title"=>"444", "body"=>"44444"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mArticle Update (0.5ms)[0m  [1m[33mUPDATE "articles" SET "title" = $1, "body" = $2, "updated_at" = $3 WHERE "articles"."id" = $4[0m  [["title", "444"], ["body", "44444"], ["updated_at", "2022-11-27 16:38:51.306711"], ["id", 4]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (94.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+Completed 200 OK in 224ms (Views: 1.2ms | ActiveRecord: 100.4ms | Allocations: 34471)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:38:57 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 1221)
+
+
+Started DELETE "/api/v1/articles/4" for ::1 at 2022-11-27 18:41:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mArticle Destroy (16.6ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/articles_controller.rb:32:in `destroy'
+Completed 200 OK in 144ms (Views: 0.3ms | ActiveRecord: 22.3ms | Allocations: 33829)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-27 18:41:13 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 1240)
+
+
+  [1m[35m (14.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (39.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuthors (20221129180848)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (368.9ms)[0m  [1m[35mCREATE TABLE "authors" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129180848"]]
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20221129180948)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129180948"]]
+  [1m[36mTRANSACTION (18.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (55.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToAuthor (20221129192510)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (61.7ms)[0m  [1m[35mALTER TABLE "author" ADD "name" character varying[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToAuthor (20221129192510)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToAuthor (20221129192510)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (171.8ms)[0m  [1m[35mALTER TABLE "authors" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129192510"]]
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnsToComments (20221129193440)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnsToComments (20221129193440)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.2ms)[0m  [1m[35mALTER TABLE "comments" ADD "body" taxt[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnsToComments (20221129193440)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.2ms)[0m  [1m[35mALTER TABLE "comments" ADD "body" text[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" ADD "ststus" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129193440"]]
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAuthorToArticles (20221129194739)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.5ms)[0m  [1m[35mALTER TABLE "articles" ADD "author_id" bigint[0m
+  [1m[35m (120.2ms)[0m  [1m[35mCREATE INDEX "index_articles_on_author_id" ON "articles" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129194739"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAuthorToComments (20221129200007)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" ADD "article_id" bigint[0m
+  [1m[35m (132.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "comments" ADD "author_id" bigint[0m
+  [1m[35m (95.9ms)[0m  [1m[35mCREATE INDEX "index_comments_on_author_id" ON "comments" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129200007"]]
+  [1m[36mTRANSACTION (28.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/articles" for ::1 at 2022-11-30 15:39:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (63.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (99.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 479ms (Views: 65.8ms | ActiveRecord: 161.8ms | Allocations: 34585)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-11-30 15:40:59 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (19.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:6:in `index'
+Completed 200 OK in 41ms (Views: 2.9ms | ActiveRecord: 19.1ms | Allocations: 3274)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-11-30 15:42:31 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Dan", "author"=>{"name"=>"Dan"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (45.3ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-11-30 13:42:31.985545"], ["updated_at", "2022-11-30 13:42:31.985545"], ["name", "Dan"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 66.0ms | Allocations: 15525)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-11-30 15:42:49 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Anton", "author"=>{"name"=>"Anton"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-11-30 13:42:49.441125"], ["updated_at", "2022-11-30 13:42:49.441125"], ["name", "Anton"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 14.2ms | Allocations: 1886)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-11-30 15:43:01 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Oleg", "author"=>{"name"=>"Oleg"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-11-30 13:43:01.975765"], ["updated_at", "2022-11-30 13:43:01.975765"], ["name", "Oleg"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (30.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 31.2ms | Allocations: 1871)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-11-30 15:43:23 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.5ms | Allocations: 1014)
+
+
+Started DELETE "/api/v1/authors/3" for ::1 at 2022-11-30 15:44:53 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:28:in `set_author'
+  [1m[36mAuthor Destroy (14.7ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/authors_controller.rb:20:in `destroy'
+Completed 200 OK in 52ms (Views: 0.3ms | ActiveRecord: 15.2ms | Allocations: 3469)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-11-30 15:45:03 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 824)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:01:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/comments"):
+  
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:03:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (63.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:5:in `index'
+Completed 200 OK in 261ms (Views: 6.1ms | ActiveRecord: 63.8ms | Allocations: 17739)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:03:48 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"1", "article_id"=>"1", "comment"=>{"body"=>"New comment", "article_id"=>"1", "author_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 221ms (Views: 0.4ms | ActiveRecord: 43.6ms | Allocations: 41221)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-11-30 22:05:16 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.3ms | Allocations: 1210)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:05:32 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 634)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:06:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"1", "article_id"=>"1", "comment"=>{"body"=>"New comment", "article_id"=>"1", "author_id"=>"1"}}
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 12.1ms | Allocations: 30723)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'status' for Comment.):
+  
+app/controllers/api/v1/comments_controller.rb:9:in `create'
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:11:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"1", "article_id"=>"1", "comment"=>{"body"=>"New comment", "article_id"=>"1", "author_id"=>"1", "status"=>"unpublished"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 117ms (Views: 0.6ms | ActiveRecord: 9.7ms | Allocations: 55815)
+
+
+  [1m[35m (54.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnComments (20221130202314)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.4ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "ststus" TO "status"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221130202314"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (42.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:26:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"1", "article_id"=>"1", "comment"=>{"body"=>"New comment", "status"=>"unpublished", "article_id"=>"1", "author_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 129ms (Views: 0.4ms | ActiveRecord: 9.9ms | Allocations: 55358)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-30 22:26:40 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 4.7ms | Allocations: 15052)
+
+
+Started DELETE "/api/v1/articles/1" for ::1 at 2022-11-30 22:27:15 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mArticle Destroy (11.2ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:32:in `destroy'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 11.5ms | Allocations: 1224)
+
+
+Started DELETE "/api/v1/articles/2" for ::1 at 2022-11-30 22:27:20 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mArticle Destroy (11.3ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:32:in `destroy'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 11.7ms | Allocations: 900)
+
+
+Started DELETE "/api/v1/articles/3" for ::1 at 2022-11-30 22:27:24 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mArticle Destroy (15.2ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:32:in `destroy'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 15.5ms | Allocations: 902)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-11-30 22:27:29 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 644)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-11-30 22:27:36 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1131)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-30 22:27:57 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}}
+[31mUnpermitted parameter: :author_id. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00007ff6c00f21e8>, params: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}} }[0m
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 691)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-11-30 22:29:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2", "article"=>{"title"=>"Title_1", "body"=>"Body_1", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mArticle Create (69.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Title_1"], ["body", "Body_1"], ["created_at", "2022-11-30 20:29:15.359806"], ["updated_at", "2022-11-30 20:29:15.359806"], ["author_id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (23.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `create'
+Completed 200 OK in 197ms (Views: 0.5ms | ActiveRecord: 101.8ms | Allocations: 53413)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:29:36 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"1", "article_id"=>"5", "comment"=>{"body"=>"New comment", "status"=>"unpublished", "article_id"=>"5", "author_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 16326)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-11-30 22:31:08 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1128)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:31:42 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"2", "article_id"=>"5", "comment"=>{"body"=>"New comment", "status"=>"unpublished", "article_id"=>"5", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2138)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:35:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"unpublished", "body"=>"New comment", "author_id"=>"2", "article_id"=>"5", "comment"=>{"body"=>"New comment", "status"=>"unpublished", "article_id"=>"5", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mComment Create (18.0ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-11-30 20:35:51.359548"], ["updated_at", "2022-11-30 20:35:51.359548"], ["body", "New comment"], ["status", 1], ["article_id", 5], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (16.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 156ms (Views: 0.5ms | ActiveRecord: 49.6ms | Allocations: 71330)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:36:16 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"New comment", "author_id"=>"2", "article_id"=>"5", "comment"=>{"body"=>"New comment", "article_id"=>"5", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-11-30 20:36:16.491478"], ["updated_at", "2022-11-30 20:36:16.491478"], ["body", "New comment"], ["status", 1], ["article_id", 5], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (30.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `create'
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 31.7ms | Allocations: 3610)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-11-30 22:42:33 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+Completed 200 OK in 50ms (Views: 0.6ms | ActiveRecord: 7.4ms | Allocations: 34807)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-11-30 22:43:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" IN ($2, $3)[0m  [["article_id", 5], ["status", 1], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+Completed 200 OK in 139ms (Views: 17.1ms | ActiveRecord: 12.0ms | Allocations: 59469)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 22:49:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:6:in `index'
+Completed 200 OK in 52ms (Views: 21.6ms | ActiveRecord: 7.2ms | Allocations: 36060)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:49:49 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 864)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:50:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:6:in `index'
+Completed 200 OK in 53ms (Views: 24.5ms | ActiveRecord: 6.3ms | Allocations: 35078)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-11-30 22:51:46 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"New comment", "author_id"=>"2", "article_id"=>"5", "status"=>"unpublished", "comment"=>{"body"=>"New comment", "status"=>"unpublished", "article_id"=>"5", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `create'
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `create'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `create'
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-11-30 20:51:46.335177"], ["updated_at", "2022-11-30 20:51:46.335177"], ["body", "New comment"], ["status", 0], ["article_id", 5], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (25.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:11:in `create'
+Completed 200 OK in 99ms (Views: 0.4ms | ActiveRecord: 36.5ms | Allocations: 41952)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 22:53:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ')', expecting =>
+...s] || :unpublished, :published)
+...                              ^
+):
+  
+app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ')', expecting =>
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 22:54:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ':', expecting ')'
+...rams[:status] || :unpublished :published)
+...                              ^
+):
+  
+app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ':', expecting ')'
+app/controllers/api/v1/comments_controller.rb:4: syntax error, unexpected ':', expecting ')'
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 22:56:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected ':', expecting `end'
+    status: params[:status] ? @comments ...
+          ^
+):
+  
+app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected ':', expecting `end'
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:57:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected label
+    (status: params[:status]) ? @comments...
+     ^~~~~~~
+):
+  
+app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected label
+app/controllers/api/v1/comments_controller.rb:5: syntax error, unexpected label
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 22:59:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 15015)
+
+
+  
+NoMethodError (undefined method `Comment' for #<Api::V1::CommentsController:0x00000000009600>):
+  
+app/controllers/api/v1/comments_controller.rb:5:in `index'
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 23:00:24 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:7:in `index'
+Completed 200 OK in 53ms (Views: 22.5ms | ActiveRecord: 6.1ms | Allocations: 36070)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 23:00:39 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" IS NULL[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 875)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 23:02:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/dan/Repozitoriy_GeekHub/HW5-6 repetition/hw5_6/app/controllers/api/v1/comments_controller.rb:6: syntax error, unexpected ':', expecting `end'
+...here(status: params[:status]) : @comments = Comment.all
+...                              ^
+):
+  
+app/controllers/api/v1/comments_controller.rb:6: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/comments_controller.rb:6: syntax error, unexpected ':', expecting `end'
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 23:04:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" IS NULL[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+Completed 200 OK in 30ms (Views: 3.6ms | ActiveRecord: 2.6ms | Allocations: 20228)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-11-30 23:05:37 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 3.4ms | Allocations: 18066)
+
+
+Started GET "/api/v1/comments?status=unpublished" for ::1 at 2022-11-30 23:05:47 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"unpublished"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1010)
+
+
+Started GET "/api/v1/comments?status=unpublished" for ::1 at 2022-11-30 23:07:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"unpublished"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:14:in `index'
+Completed 200 OK in 50ms (Views: 22.1ms | ActiveRecord: 5.8ms | Allocations: 35169)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-11-30 23:07:22 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:14:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1045)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-11-30 23:14:30 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"O", "author"=>{"name"=>"O"}}
+Completed 200 OK in 81ms (Views: 0.4ms | ActiveRecord: 5.6ms | Allocations: 30001)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:36:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (39.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"O", "author"=>{"name"=>"O"}}
+Completed 200 OK in 286ms (Views: 0.8ms | ActiveRecord: 101.4ms | Allocations: 30009)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-12-01 03:39:05 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"000", "comment"=>{"status"=>"000"}}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.3ms | Allocations: 14360)
+
+
+  
+ArgumentError ('000' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:20:in `create'
+Started GET "/api/v1/comments" for ::1 at 2022-12-01 03:40:10 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (82.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:16:in `index'
+Completed 200 OK in 100ms (Views: 17.2ms | ActiveRecord: 82.9ms | Allocations: 1478)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:40:39 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"000", "id"=>"1", "comment"=>{"status"=>"000"}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+[31mUnpermitted parameter: :status. Context: { controller: Api::V1::CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f7ba8017158>, params: {"status"=>"000", "controller"=>"api/v1/comments", "action"=>"update", "id"=>"1", "comment"=>{"status"=>"000"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (32.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mArticle Load (45.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 250ms (Views: 0.4ms | ActiveRecord: 82.6ms | Allocations: 24941)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:41:35 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"unpublished", "id"=>"1", "comment"=>{"status"=>"unpublished"}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+[31mUnpermitted parameter: :status. Context: { controller: Api::V1::CommentsController, action: update, request: #<ActionDispatch::Request:0x00007f7ba0015f68>, params: {"status"=>"unpublished", "controller"=>"api/v1/comments", "action"=>"update", "id"=>"1", "comment"=>{"status"=>"unpublished"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 23ms (Views: 0.8ms | ActiveRecord: 1.7ms | Allocations: 3497)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-12-01 03:44:09 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "body": "New comment000",
+    "author_id": "2",
+    "article_id": "5",
+}
+Processing by Api::V1::CommentsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/comments_controller.rb:45:in `comment_params'
+app/controllers/api/v1/comments_controller.rb:20:in `create'
+Started POST "/api/v1/comments" for ::1 at 2022-12-01 03:45:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"New comment000", "author_id"=>"2", "article_id"=>"5", "comment"=>{"body"=>"New comment000", "article_id"=>"5", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:21:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:21:in `create'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:21:in `create'
+  [1m[36mComment Create (45.6ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-12-01 01:45:37.471560"], ["updated_at", "2022-12-01 01:45:37.471560"], ["body", "New comment000"], ["status", 0], ["article_id", 5], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (16.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:21:in `create'
+Completed 200 OK in 203ms (Views: 0.5ms | ActiveRecord: 75.1ms | Allocations: 71725)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:47:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"unpublished", "id"=>"1", "comment"=>{"status"=>"unpublished"}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mComment Update (0.5ms)[0m  [1m[33mUPDATE "comments" SET "updated_at" = $1, "status" = $2 WHERE "comments"."id" = $3[0m  [["updated_at", "2022-12-01 01:47:01.515488"], ["status", 0], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (22.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 163ms (Views: 0.5ms | ActiveRecord: 37.6ms | Allocations: 72463)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:47:17 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"published", "id"=>"1", "comment"=>{"status"=>"published"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mComment Update (0.4ms)[0m  [1m[33mUPDATE "comments" SET "updated_at" = $1, "status" = $2 WHERE "comments"."id" = $3[0m  [["updated_at", "2022-12-01 01:47:17.368491"], ["status", 1], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 13.9ms | Allocations: 4045)
+
+
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:47:24 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"pub", "id"=>"1", "comment"=>{"status"=>"pub"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms | Allocations: 724)
+
+
+  
+ArgumentError ('pub' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:27:in `update'
+Started PATCH "/api/v1/comments/1" for ::1 at 2022-12-01 03:47:47 +0200
+Processing by Api::V1::CommentsController#update as */*
+  Parameters: {"status"=>"published", "id"=>"1", "comment"=>{"status"=>"published"}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:41:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:27:in `update'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 3370)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:52:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Thry", "author"=>{"name"=>"Thry"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (11.6ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-01 01:52:28.063911"], ["updated_at", "2022-12-01 01:52:28.063911"], ["name", "Thry"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (16.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 125ms (Views: 0.5ms | ActiveRecord: 34.4ms | Allocations: 32163)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:52:39 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"T", "author"=>{"name"=>"T"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 376)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:54:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"T", "author"=>{"name"=>"T"}}
+Completed 200 OK in 192ms (Views: 0.2ms | ActiveRecord: 10.3ms | Allocations: 32820)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+rack (2.2.4) lib/rack/etag.rb:71:in `<<'
+rack (2.2.4) lib/rack/etag.rb:71:in `block in digest_body'
+actionpack (7.0.4) lib/action_dispatch/http/response.rb:145:in `each'
+actionpack (7.0.4) lib/action_dispatch/http/response.rb:145:in `each_chunk'
+actionpack (7.0.4) lib/action_dispatch/http/response.rb:127:in `each'
+actionpack (7.0.4) lib/action_dispatch/http/response.rb:75:in `each'
+actionpack (7.0.4) lib/action_dispatch/http/response.rb:480:in `each'
+rack (2.2.4) lib/rack/etag.rb:69:in `digest_body'
+rack (2.2.4) lib/rack/etag.rb:33:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:55:16 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Author 4", "author"=>{"name"=>"Author 4"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (3.3ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-01 01:55:16.739406"], ["updated_at", "2022-12-01 01:55:16.739406"], ["name", "Author 4"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+Completed 200 OK in 24ms (Views: 1.2ms | ActiveRecord: 13.1ms | Allocations: 2590)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:56:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"A", "author"=>{"name"=>"A"}}
+Completed 200 OK in 93ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 31213)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:57:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"A", "author"=>{"name"=>"A"}}
+Completed 200 OK in 96ms (Views: 0.2ms | ActiveRecord: 6.4ms | Allocations: 31223)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-01 03:58:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"A", "author"=>{"name"=>"A"}}
+Completed 200 OK in 95ms (Views: 0.3ms | ActiveRecord: 5.0ms | Allocations: 31285)
+
+
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/authors" for ::1 at 2022-12-01 04:03:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+Completed 200 OK in 43ms (Views: 16.4ms | ActiveRecord: 6.7ms | Allocations: 32495)
+
+
+Started DELETE "/api/v1/authors/5" for ::1 at 2022-12-01 04:04:02 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:35:in `set_author'
+  [1m[36mAuthor Destroy (24.1ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/authors_controller.rb:26:in `destroy'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 24.8ms | Allocations: 2218)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-12-01 12:26:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:17:in `index'
+Completed 200 OK in 45ms (Views: 18.1ms | ActiveRecord: 6.0ms | Allocations: 35506)
+
+
+Started GET "/api/v1/comments?status=unpublished" for ::1 at 2022-12-01 12:26:40 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"unpublished"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 0]]
+  ↳ app/controllers/api/v1/comments_controller.rb:17:in `index'
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.5ms | Allocations: 3270)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-12-02 19:54:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (73.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (111.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 286ms (Views: 33.3ms | ActiveRecord: 194.2ms | Allocations: 12900)
+
+
+Started GET "/api/v1/comments?status=published" for ::1 at 2022-12-02 19:54:25 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"status"=>"published"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."status" = $1[0m  [["status", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 1987)
+
+
+  [1m[35m (21.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTags (20221202181756)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (451.1ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (19.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221202181756"]]
+  [1m[36mTRANSACTION (24.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (41.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ArticleAndTag (20221202184223)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "article_tag" ("article_id" bigint, "Tag_id" bigint)[0m
+  [1m[35m (72.5ms)[0m  [1m[35mCREATE INDEX "index_article_tag_on_article_id" ON "article_tag" ("article_id")[0m
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE INDEX "index_article_tag_on_Tag_id" ON "article_tag" ("Tag_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221202184223"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ArticleAndTag (20221202184223)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.5ms)[0m  [1m[35mDROP TABLE "article_tag"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221202184223"]]
+  [1m[36mTRANSACTION (23.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ArticleAndTag (20221202184223)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ArticleAndTag (20221202184223)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "article_tag" ("article_id" bigint, "tag_id" bigint)[0m
+  [1m[35m (56.5ms)[0m  [1m[35mCREATE INDEX "index_article_tag_on_article_id" ON "article_tag" ("article_id")[0m
+  [1m[35m (299.0ms)[0m  [1m[35mCREATE INDEX "index_article_tag_on_tag_id" ON "article_tag" ("tag_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221202184223"]]
+  [1m[36mTRANSACTION (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArticle Pluck (45.0ms)[0m  [1m[34mSELECT "articles"."id" FROM "articles"[0m
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mComment Pluck (1.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments"[0m
+  [1m[36mTag Pluck (35.3ms)[0m  [1m[34mSELECT "tags"."id" FROM "tags"[0m
+  [1m[36mAuthor Pluck (35.5ms)[0m  [1m[34mSELECT "authors"."id" FROM "authors"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Create (14.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Title_2"], ["body", "Body_2"], ["created_at", "2022-12-03 08:50:08.786532"], ["updated_at", "2022-12-03 08:50:08.786532"], ["author_id", 1]]
+  [1m[36mTRANSACTION (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Pluck (0.8ms)[0m  [1m[34mSELECT "articles"."id" FROM "articles"[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameTableArticleTag (20221203090349)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (71.4ms)[0m  [1m[35mALTER TABLE "article_tag" RENAME TO "articles_tags"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER INDEX "index_article_tag_on_article_id" RENAME TO "index_articles_tags_on_article_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_article_tag_on_tag_id" RENAME TO "index_articles_tags_on_tag_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203090349"]]
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (1.7ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "politics"], ["created_at", "2022-12-03 09:08:13.543735"], ["updated_at", "2022-12-03 09:08:13.543735"]]
+  [1m[36mTRANSACTION (28.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (30.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "life"], ["created_at", "2022-12-03 09:09:08.685490"], ["updated_at", "2022-12-03 09:09:08.685490"]]
+  [1m[36mTRANSACTION (30.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.8ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sport"], ["created_at", "2022-12-03 09:09:50.986651"], ["updated_at", "2022-12-03 09:09:50.986651"]]
+  [1m[36mTRANSACTION (26.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle::HABTM_Tags Create (45.4ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 1]]
+  [1m[36mTRANSACTION (24.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle::HABTM_Tags Create (0.8ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 2]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle::HABTM_Tags Create (0.6ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 6], ["tag_id", 3]]
+  [1m[36mTRANSACTION (29.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+Started GET "/api/v1/articles" for ::1 at 2022-12-03 12:10:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 95ms (Views: 21.8ms | ActiveRecord: 11.4ms | Allocations: 12435)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 12:10:29 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 2.8ms | Allocations: 6020)
+
+
+  
+SyntaxError (/home/dan/RubyHW/HW7/stories/app/models/tag.rb:4: syntax error, unexpected ->, expecting `end'
+  scoupe :get_all_tags -> { whert(name: true) }
+                       ^~
+):
+  
+app/models/tag.rb:4: syntax error, unexpected ->, expecting `end'
+app/models/tag.rb:4: syntax error, unexpected ->, expecting `end'
+app/controllers/api/v1/articles_controller.rb:19:in `show'
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 12:11:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 8.1ms | Allocations: 22388)
+
+
+  
+NameError (Rails couldn't find a valid model for Tag association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.
+
+          raise NameError, msg
+          ^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:19:in `show'
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 12:14:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mComment Load (28.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" IN ($2, $3)[0m  [["article_id", 5], ["status", 0], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+Completed 200 OK in 140ms (Views: 38.1ms | ActiveRecord: 44.6ms | Allocations: 28640)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-03 12:14:37 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" IN ($2, $3)[0m  [["article_id", 6], ["status", 0], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+Completed 200 OK in 85ms (Views: 25.6ms | ActiveRecord: 1.4ms | Allocations: 2638)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (26.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToArticles (20221203111311)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.5ms)[0m  [1m[35mALTER TABLE "articles" ADD "status" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203111311"]]
+  [1m[36mTRANSACTION (68.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/articles" for ::1 at 2022-12-03 13:16:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 91ms (Views: 14.1ms | ActiveRecord: 5.2ms | Allocations: 13424)
+
+
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (12.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Update (1.0ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 11:25:56.335526"], ["status", 0], ["id", 5]]
+  [1m[36mTRANSACTION (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Update (0.8ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 11:27:04.590475"], ["status", 0], ["id", 6]]
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Started GET "/api/v1/articles" for ::1 at 2022-12-03 13:31:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 43ms (Views: 14.7ms | ActiveRecord: 7.5ms | Allocations: 13385)
+
+
+Started PATCH "/api/v1/articles/5" for ::1 at 2022-12-03 13:32:06 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"status"=>"published", "id"=>"5", "article"=>{"status"=>"published"}}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `update'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `update'
+  [1m[36mArticle Update (0.6ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 11:32:07.030846"], ["status", 1], ["id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `update'
+Completed 200 OK in 52ms (Views: 0.4ms | ActiveRecord: 16.5ms | Allocations: 11174)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-03 13:32:13 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (3.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 3.4ms | Allocations: 938)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-03 13:33:24 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" IN ($2, $3)[0m  [["article_id", 6], ["status", 0], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+Completed 200 OK in 100ms (Views: 30.5ms | ActiveRecord: 9.3ms | Allocations: 11800)
+
+
+  [1m[36mComment Load (20.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 2]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 13:42:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:39:in `set_article'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" IN ($2, $3)[0m  [["article_id", 5], ["status", 0], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:19:in `show'
+Completed 200 OK in 99ms (Views: 24.1ms | ActiveRecord: 16.4ms | Allocations: 29244)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 13:48:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:8:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:18:in `show'
+Completed 200 OK in 98ms (Views: 13.0ms | ActiveRecord: 16.7ms | Allocations: 28835)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-03 13:49:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 2]]
+  ↳ app/models/comment.rb:8:in `block in <class:Comment>'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:18:in `show'
+Completed 200 OK in 105ms (Views: 13.6ms | ActiveRecord: 15.9ms | Allocations: 28942)
+
+
+  [1m[36mArticle Load (17.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Update (25.6ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 17:01:58.708741"], ["status", nil], ["id", 6]]
+  [1m[36mTRANSACTION (34.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Update (0.5ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 17:01:58.774505"], ["status", nil], ["id", 5]]
+  [1m[36mTRANSACTION (26.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (17.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (26.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToArticles (20221203111311)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.3ms)[0m  [1m[35mALTER TABLE "articles" DROP COLUMN "status"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221203111311"]]
+  [1m[36mTRANSACTION (24.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToArticles (20221203111311)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.9ms)[0m  [1m[35mALTER TABLE "articles" ADD "status" integer DEFAULT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203111311"]]
+  [1m[36mTRANSACTION (18.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArticle Load (61.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (32.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Update (0.7ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 17:21:31.025371"], ["status", 0], ["id", 6]]
+  [1m[36mTRANSACTION (19.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Update (0.6ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 17:21:31.050547"], ["status", 0], ["id", 5]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+Started PATCH "/api/v1/articles/5" for ::1 at 2022-12-03 19:23:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"status"=>"published", "id"=>"5", "article"=>{"status"=>"published"}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `set_article'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mArticle Update (17.9ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 17:23:32.073589"], ["status", 1], ["id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `update'
+Completed 200 OK in 97ms (Views: 0.6ms | ActiveRecord: 46.4ms | Allocations: 17628)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-03 19:23:40 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 1119)
+
+
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (101.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle::HABTM_Tags Create (1.4ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 6], ["tag_id", 2]]
+  [1m[36mTRANSACTION (39.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (75.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (6.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Update (62.1ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 18:29:20.519871"], ["status", nil], ["id", 6]]
+  [1m[36mTRANSACTION (66.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticle Update (0.8ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-03 18:29:20.999271"], ["status", nil], ["id", 5]]
+  [1m[36mTRANSACTION (25.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToArticles (20221203111311)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.8ms)[0m  [1m[35mALTER TABLE "articles" DROP COLUMN "status"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221203111311"]]
+  [1m[36mTRANSACTION (23.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToArticles (20221203111311)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (230.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "status" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203111311"]]
+  [1m[36mTRANSACTION (44.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (28.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20221203193841)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (541.8ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "title" character varying, "liked_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (30.8ms)[0m  [1m[35mCREATE INDEX "index_likes_on_liked_id" ON "likes" ("liked_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203193841"]]
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20221203193841)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (78.2ms)[0m  [1m[35mDROP TABLE "likes"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221203193841"]]
+  [1m[36mTRANSACTION (55.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20221203193841)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (264.6ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "title" character varying, "imageable_type" character varying, "imageable_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (53.9ms)[0m  [1m[35mCREATE INDEX "index_likes_on_imageable" ON "likes" ("imageable_type", "imageable_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203193841"]]
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20221203193841)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "likes"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221203193841"]]
+  [1m[36mTRANSACTION (31.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20221203193841)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (146.8ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "title" character varying, "liked_type" character varying, "liked_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE INDEX "index_likes_on_liked" ON "likes" ("liked_type", "liked_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221203193841"]]
+  [1m[36mTRANSACTION (22.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" ORDER BY "likes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" ORDER BY "likes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/articles/1/comments" for ::1 at 2022-12-04 18:11:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (61.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/comments"):
+  
+Started GET "/api/v1/articles" for ::1 at 2022-12-04 18:11:39 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (278.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 674ms (Views: 31.9ms | ActiveRecord: 495.4ms | Allocations: 13771)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-04 18:11:51 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `set_article'
+  [1m[36mComment Load (46.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 2]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (87.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 330ms (Views: 19.3ms | ActiveRecord: 147.1ms | Allocations: 17129)
+
+
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 18:13:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tags"):
+  
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 18:14:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 37ms (Views: 10.6ms | ActiveRecord: 6.2ms | Allocations: 10642)
+
+
+Started POST "/api/v1/tags" for ::1 at 2022-12-04 18:17:47 +0200
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"geekhub", "tag"=>{"name"=>"geekhub"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (49.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "geekhub"], ["created_at", "2022-12-04 16:17:47.162111"], ["updated_at", "2022-12-04 16:17:47.162111"]]
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (38.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+Completed 200 OK in 95ms (Views: 0.3ms | ActiveRecord: 88.1ms | Allocations: 2916)
+
+
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 18:17:54 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1041)
+
+
+Started POST "/api/v1/tags?ar=5" for ::1 at 2022-12-04 18:18:38 +0200
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"geekhub", "ar"=>"5", "tag"=>{"name"=>"geekhub"}}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "geekhub"], ["created_at", "2022-12-04 16:18:38.179120"], ["updated_at", "2022-12-04 16:18:38.179120"]]
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (28.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:15:in `create'
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 34.5ms | Allocations: 16096)
+
+
+  
+NoMethodError (undefined method `<<' for #<Article id: 5, title: "Title_1", body: "Body_1", created_at: "2022-11-30 20:29:15.359806000 +0000", updated_at: "2022-12-03 18:29:20.999271000 +0000", author_id: 2, status: "unpublished">):
+  
+app/controllers/api/v1/tags_controller.rb:15:in `create'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTag Load (1.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle::HABTM_Tags Create (0.9ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 5]]
+  [1m[36mTRANSACTION (31.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTag Count (27.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tags"[0m
+  [1m[36mTag Pluck (0.8ms)[0m  [1m[34mSELECT "tags"."id" FROM "tags"[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1[0m  [["name", "sport"]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1[0m  [["name", "sport"]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1[0m  [["name", "sport"]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1[0m  [["name", "sport"]]
+Started POST "/api/v1/tags?ar=5" for ::1 at 2022-12-04 18:58:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"zero", "ar"=>"5", "tag"=>{"name"=>"zero"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (0.6ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "zero"], ["created_at", "2022-12-04 16:58:05.874475"], ["updated_at", "2022-12-04 16:58:05.874475"]]
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:15:in `create'
+  [1m[36mArticle::HABTM_Tags Create (0.4ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 6]]
+  ↳ app/controllers/api/v1/tags_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:15:in `create'
+Completed 200 OK in 104ms (Views: 0.5ms | ActiveRecord: 39.3ms | Allocations: 25047)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-04 18:58:27 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `set_article'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 2]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 54ms (Views: 20.8ms | ActiveRecord: 7.2ms | Allocations: 8647)
+
+
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 19:01:24 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1263)
+
+
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 19:39:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 14.2ms | ActiveRecord: 6.1ms | Allocations: 10874)
+
+
+Started GET "/api/v1/articles/4/assign_to_article?ar=6" for ::1 at 2022-12-04 19:40:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/4/assign_to_article"):
+  
+Started GET "/api/v1/tags/4/assign_to_article?ar=6" for ::1 at 2022-12-04 19:41:13 +0200
+Processing by Api::V1::TagsController#assign_to_article as */*
+  Parameters: {"ar"=>"6", "tag_id"=>"4"}
+Completed 404 Not Found in 6ms (ActiveRecord: 0.0ms | Allocations: 1272)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tag without an ID):
+  
+app/controllers/api/v1/tags_controller.rb:37:in `set_tag'
+Started GET "/api/v1/tags/4" for ::1 at 2022-12-04 19:43:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tags/4"):
+  
+Started GET "/api/v1/tags/4/assign_to_article" for ::1 at 2022-12-04 19:45:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#assign_to_article as */*
+  Parameters: {"tag_id"=>"4"}
+Completed 404 Not Found in 17ms (ActiveRecord: 2.9ms | Allocations: 4322)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tag without an ID):
+  
+app/controllers/api/v1/tags_controller.rb:37:in `set_tag'
+Started GET "/api/v1/tags" for ::1 at 2022-12-04 19:45:16 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (1.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 48ms (Views: 24.1ms | ActiveRecord: 4.2ms | Allocations: 7044)
+
+
+Started GET "/api/v1/tags/1/assign_to_article" for ::1 at 2022-12-04 19:46:03 +0200
+Processing by Api::V1::TagsController#assign_to_article as */*
+  Parameters: {"tag_id"=>"1"}
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 143)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tag without an ID):
+  
+app/controllers/api/v1/tags_controller.rb:37:in `set_tag'
+Started GET "/api/v1/tags/1" for ::1 at 2022-12-04 19:46:11 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tags/1"):
+  
+Started GET "/api/v1/tags/6" for ::1 at 2022-12-04 20:09:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:37:in `set_tag'
+Completed 200 OK in 35ms (Views: 0.8ms | ActiveRecord: 7.8ms | Allocations: 11176)
+
+
+Started GET "/api/v1/tags/6?ar=6" for ::1 at 2022-12-04 20:09:39 +0200
+Processing by Api::V1::TagsController#show as */*
+  Parameters: {"ar"=>"6", "id"=>"6"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:37:in `set_tag'
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:22:in `show'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:22:in `show'
+  [1m[36mArticle::HABTM_Tags Create (0.4ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 6], ["tag_id", 6]]
+  ↳ app/controllers/api/v1/tags_controller.rb:22:in `show'
+  [1m[36mTRANSACTION (53.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:22:in `show'
+Completed 200 OK in 123ms (Views: 0.5ms | ActiveRecord: 61.5ms | Allocations: 16631)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-04 20:09:55 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:42:in `set_article'
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 6], ["LIMIT", 2]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:21:in `show'
+Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 7.0ms | Allocations: 6815)
+
+
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (1.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "articles_tags" ON "articles"."id" = "articles_tags"."article_id" WHERE "articles_tags"."tag_id" = $1[0m  [["tag_id", 1]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" ORDER BY "tags"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "articles_tags" ON "articles"."id" = "articles_tags"."article_id" WHERE "articles_tags"."tag_id" = $1[0m  [["tag_id", 6]]
+  [1m[36mArticle Load (19.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Create (146.1ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Smile"], ["liked_type", "Article"], ["liked_id", 6], ["created_at", "2022-12-04 19:35:18.769343"], ["updated_at", "2022-12-04 19:35:18.769343"]]
+  [1m[36mTRANSACTION (40.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mComment Load (20.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Create (0.9ms)[0m  [1m[32mINSERT INTO "likes" ("title", "liked_type", "liked_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Comment"], ["liked_type", "Comment"], ["liked_id", 4], ["created_at", "2022-12-04 19:36:16.320917"], ["updated_at", "2022-12-04 19:36:16.320917"]]
+  [1m[36mTRANSACTION (28.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
