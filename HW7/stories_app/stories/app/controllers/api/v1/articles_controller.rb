@@ -1,5 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[like show update destroy]
+  before_action :set_tag, only: %i[tag_add]
 
   # GET /api/v1/articles
   def index
@@ -45,6 +46,17 @@ class Api::V1::ArticlesController < ApplicationController
     render json: @like
   end
 
+  def tag_add
+    @article = Article.find(params[:article_id])
+    if @article.tags.include?(@tag)
+      render plain: "Tag '#{@tag.name}' has is."
+    else
+      @article.tags << @tag
+      render plain: "Tag '#{@tag.name}' added in Article #{@article.title}"
+    end
+    # byebug
+  end
+
   private
 
   def like_params
@@ -53,6 +65,11 @@ class Api::V1::ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+    # byebug
+  end
+
+  def set_tag
+    @tag = Tag.find(params[:id])
   end
 
   def article_params

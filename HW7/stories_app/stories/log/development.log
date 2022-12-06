@@ -2671,3 +2671,400 @@ Processing by Api::V1::TagsController#create as */*
 Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3035)
 
 
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-05 22:13:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:55:in `set_article'
+Completed 500 Internal Server Error in 44307ms (ActiveRecord: 7.5ms | Allocations: 76935)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `set_article'
+app/controllers/api/v1/articles_controller.rb:57:in `set_article'
+Started GET "/api/v1/tags" for ::1 at 2022-12-06 20:04:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (72.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (62.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+Completed 200 OK in 542ms (Views: 31.4ms | ActiveRecord: 465.2ms | Allocations: 10952)
+
+
+Started GET "/api/v1/articles/5/tags/1/tag_assignment" for ::1 at 2022-12-06 20:05:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/5/tags/1/tag_assignment"):
+  
+Started GET "/api/v1/articles/5/tags/1/tag_assignment" for ::1 at 2022-12-06 20:07:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (51.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Completed 404 Not Found in 115ms (ActiveRecord: 73.7ms | Allocations: 7659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1/tag_assignment" for ::1 at 2022-12-06 20:10:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Completed 404 Not Found in 29ms (ActiveRecord: 6.6ms | Allocations: 7665)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/5/tag_assignment" for ::1 at 2022-12-06 20:10:56 +0200
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:65:in `set_tag'
+Completed 500 Internal Server Error in 60787ms (ActiveRecord: 5.0ms | Allocations: 72999)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `tag_assignment'
+app/controllers/api/v1/articles_controller.rb:51:in `tag_assignment'
+Started GET "/api/v1/articles/1/tags/5/tag_assignment" for ::1 at 2022-12-06 20:12:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"1", "id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:65:in `set_tag'
+Completed 500 Internal Server Error in 62567ms (ActiveRecord: 13.1ms | Allocations: 70464)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `tag_assignment'
+app/controllers/api/v1/articles_controller.rb:51:in `tag_assignment'
+Started GET "/api/v1/articles/5/tags/1/tag_assignment" for ::1 at 2022-12-06 20:14:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'tag_assignment' could not be found for Api::V1::TagsController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/tags/1/articles/5/tag_assignment" for ::1 at 2022-12-06 20:17:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"tag_id"=>"1", "id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:65:in `set_tag'
+Completed 500 Internal Server Error in 93679ms (ActiveRecord: 10.8ms | Allocations: 70549)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `tag_assignment'
+app/controllers/api/v1/articles_controller.rb:51:in `tag_assignment'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:21:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Completed 404 Not Found in 31ms (ActiveRecord: 6.3ms | Allocations: 7659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:30:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "tag_id"=>"1"}
+Completed 404 Not Found in 22ms (ActiveRecord: 3.2ms | Allocations: 5863)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:31:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"id"=>"5", "tag_id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:65:in `set_tag'
+Completed 500 Internal Server Error in 159927ms (ActiveRecord: 12.4ms | Allocations: 70843)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `tag_assignment'
+app/controllers/api/v1/articles_controller.rb:51:in `tag_assignment'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:35:58 +0200
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "id"=>"1"}
+  [1m[36mArticle Load (3.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Completed 404 Not Found in 336ms (ActiveRecord: 16.7ms | Allocations: 1656718)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:36:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Completed 404 Not Found in 27ms (ActiveRecord: 6.7ms | Allocations: 7659)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:38:53 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "tage_id"=>"1"}
+Completed 404 Not Found in 23ms (ActiveRecord: 3.6ms | Allocations: 5863)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:60:in `set_article'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:42:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "tage_id"=>"1"}
+Completed 404 Not Found in 23ms (ActiveRecord: 4.6ms | Allocations: 4335)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tag without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:66:in `set_tag'
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 20:43:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_assignment as */*
+  Parameters: {"article_id"=>"5", "id"=>"1"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:66:in `set_tag'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_assignment'
+Completed 500 Internal Server Error in 1608455ms (ActiveRecord: 10.1ms | Allocations: 70360)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `tag_assignment'
+app/controllers/api/v1/articles_controller.rb:52:in `tag_assignment'
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-06 21:10:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:62:in `set_article'
+  [1m[36mComment Load (56.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (49.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (30.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 312ms (Views: 47.4ms | ActiveRecord: 156.9ms | Allocations: 35341)
+
+
+Started GET "/api/v1/articles/5/tags/3" for ::1 at 2022-12-06 21:17:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"5", "id"=>"3"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:69:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_add'
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 11.7ms | Allocations: 23622)
+
+
+  
+NoMethodError (undefined method `<<' for #<Article id: 5, title: "Title_1", body: "Body_1", created_at: "2022-11-30 20:29:15.359806000 +0000", updated_at: "2022-12-03 18:29:20.999271000 +0000", author_id: 2, status: "unpublished">):
+  
+app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+Started GET "/api/v1/articles/5/tags/3" for ::1 at 2022-12-06 21:20:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"5", "id"=>"3"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:69:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_add'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+  [1m[36mArticle::HABTM_Tags Create (0.6ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+  [1m[36mTRANSACTION (65.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 78.1ms | Allocations: 31280)
+
+
+  
+NoMethodError (undefined method `name' for #<Article id: 5, title: "Title_1", body: "Body_1", created_at: "2022-11-30 20:29:15.359806000 +0000", updated_at: "2022-12-03 18:29:20.999271000 +0000", author_id: 2, status: "unpublished">):
+  
+app/controllers/api/v1/articles_controller.rb:53:in `tag_add'
+Started GET "/api/v1/articles/5/tags/3" for ::1 at 2022-12-06 21:20:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"5", "id"=>"3"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:69:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_add'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+  [1m[36mArticle::HABTM_Tags Create (0.5ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+  [1m[36mTRANSACTION (20.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+Completed 200 OK in 109ms (Views: 0.2ms | ActiveRecord: 37.0ms | Allocations: 26745)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-06 21:22:49 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:64:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 97ms (Views: 26.5ms | ActiveRecord: 25.7ms | Allocations: 24455)
+
+
+Started GET "/api/v1/articles/5/tags/3" for ::1 at 2022-12-06 21:34:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"5", "id"=>"3"}
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:72:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_add'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `tag_add'
+  [1m[36mArticle::HABTM_Tags Create (0.5ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 5], ["tag_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `tag_add'
+  [1m[36mTRANSACTION (34.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `tag_add'
+Completed 200 OK in 118ms (Views: 0.2ms | ActiveRecord: 47.3ms | Allocations: 26755)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-06 21:35:06 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 82ms (Views: 44.6ms | ActiveRecord: 10.5ms | Allocations: 15282)
+
+
+Started GET "/api/v1/articles/5/tags/1" for ::1 at 2022-12-06 21:36:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"5", "id"=>"1"}
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:72:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:50:in `tag_add'
+  [1m[36mTag Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1 AND "tags"."id" = $2 LIMIT $3[0m  [["article_id", 5], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:51:in `tag_add'
+Completed 200 OK in 79ms (Views: 0.2ms | ActiveRecord: 15.0ms | Allocations: 22963)
+
+
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-06 21:37:07 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 AND "likes"."liked_type" = $2[0m  [["liked_id", 5], ["liked_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 85ms (Views: 21.8ms | ActiveRecord: 10.9ms | Allocations: 15970)
+
+
