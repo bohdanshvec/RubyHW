@@ -6,6 +6,13 @@ class Api::V1::ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @articles = @articles.where("title || body LIKE ?", "%#{params[:q]}%") if params[:q]
+    @articles = @articles.where(status: params[:status]) if params[:status]
+    @articles = @articles.joins(:author).where("authors.name LIKE ?", "%#{params[:author]}%") if params[:author]
+    @articles = @articles.joins(:tags).where("tags.name IN (?)", params[:tags].split(',')) if params[:tags]
+    @articles = @articles.order(title: params[:order]) if params[:order]
+
+    @pagy, @articles = pagy(@articles)
+    # @pagy, @records = pagy(Product.all)
 
     render json: @articles
   end
