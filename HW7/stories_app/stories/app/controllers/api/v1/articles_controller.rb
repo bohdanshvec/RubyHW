@@ -40,7 +40,7 @@ class Api::V1::ArticlesController < ApplicationController
   # POST /api/v1/articles/:id/like
   def like
     @like = Like.new(like_params)
-    @like.liked = @article
+    @like.likeable = @article
     @like.save
 
     render json: @like
@@ -60,7 +60,7 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def like_params
-    params.require(:article).permit(:title)
+    params.require(:like).permit(:title)
   end
 
   def set_article

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
         post 'like', on: :member
       end
       resources :tags, only: %i[index create show destroy]
+      resources :likes, only: %i[index] do
+        post 'like', on: :collection
+      end
       get 'articles/:article_id/tags/:id', to: 'articles#tag_add'
     end
   end

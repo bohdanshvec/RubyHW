@@ -42,7 +42,7 @@ class Api::V1::CommentsController < ApplicationController
    # POST /api/v1/comments/:id/like
   def like
     @like = Like.new(like_params)
-    @like.liked = @comment
+    @like.likeable = @comment
     @like.save
 
     render json: @like

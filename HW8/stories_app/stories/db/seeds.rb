@@ -6,5 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-p author = Author.create(name: "Grisha")
-p author.errors.messages
+author_name_massive = ["Alex", "Bob", "Jon", "Anna", "Janis", "Den", "Wowa", "Alan", "Victor", "Olga"]
+
+10.times do |t|
+  name = author_name_massive[t-1]
+  Author.create(name: name)
+  # author.errors.messages
+end

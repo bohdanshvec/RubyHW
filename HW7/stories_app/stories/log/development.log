@@ -3068,3 +3068,229 @@ Processing by Api::V1::ArticlesController#show as */*
 Completed 200 OK in 85ms (Views: 21.8ms | ActiveRecord: 10.9ms | Allocations: 15970)
 
 
+  [1m[35m (50.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (51.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnLikes (20221213164713)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (151.1ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "liked_type" TO "likeable_type"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "liked_id" TO "likeable_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221213164713"]]
+  [1m[36mTRANSACTION (650.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (50.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-13 18:54:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (31.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (54.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 102.4ms | Allocations: 31495)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column likes.liked_id does not exist
+LINE 1: SELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 ...
+                                            ^
+):
+  
+app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (44.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 5], ["likeable_type", "Article"]]
+  [1m[36mComment Load (20.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 14], ["likeable_type", "Article"]]
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/articles/5" for ::1 at 2022-12-13 18:59:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 5], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 5]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 5], ["likeable_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 146ms (Views: 31.3ms | ActiveRecord: 34.8ms | Allocations: 35115)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-13 18:59:41 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 6], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 6], ["likeable_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 30ms (Views: 23.8ms | ActiveRecord: 1.7ms | Allocations: 3892)
+
+
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-13 19:01:18 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:58:in `set_comment'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 1732)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column likes.liked_id does not exist
+LINE 1: SELECT "likes".* FROM "likes" WHERE "likes"."liked_id" = $1 ...
+                                            ^
+):
+  
+app/controllers/api/v1/comments_controller.rb:32:in `show'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Comment"]]
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-13 19:06:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:58:in `set_comment'
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:32:in `show'
+Completed 200 OK in 74ms (Views: 18.3ms | ActiveRecord: 12.1ms | Allocations: 19560)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameIndexLikes (20221213170939)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (69.4ms)[0m  [1m[35mALTER INDEX "index_likes_on_liked" RENAME TO "index_likes_on_likeable"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221213170939"]]
+  [1m[36mTRANSACTION (27.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/comments/2" for ::1 at 2022-12-13 19:12:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:58:in `set_comment'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 2], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:32:in `show'
+Completed 200 OK in 52ms (Views: 6.0ms | ActiveRecord: 8.2ms | Allocations: 16346)
+
+
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-13 19:12:16 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:58:in `set_comment'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:32:in `show'
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 2.9ms | Allocations: 4776)
+
+
+Started GET "/api/v1/articles/6" for ::1 at 2022-12-13 19:12:28 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 6], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 6], ["likeable_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 82ms (Views: 37.9ms | ActiveRecord: 10.5ms | Allocations: 17175)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnNullComments (20221213171702)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.4ms)[0m  [1m[35mALTER TABLE "comments" ALTER COLUMN "article_id" SET NOT NULL[0m
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE "comments" ALTER COLUMN "author_id" SET NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221213171702"]]
+  [1m[36mTRANSACTION (40.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/likes" for ::1 at 2022-12-13 20:26:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (62.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (91.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:6:in `index'
+Completed 200 OK in 261ms (Views: 16.4ms | ActiveRecord: 158.4ms | Allocations: 10389)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-13 21:16:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (47.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 159ms (Views: 15.4ms | ActiveRecord: 72.2ms | Allocations: 14635)
+
+
+Started GET "/api/v1/articles/14" for ::1 at 2022-12-13 21:16:47 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:67:in `set_article'
+  [1m[36mComment Load (57.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 14], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+  [1m[36mTag Load (69.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 14]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 14], ["likeable_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:22:in `show'
+Completed 200 OK in 289ms (Views: 12.4ms | ActiveRecord: 140.1ms | Allocations: 14735)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-13 21:19:31 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/likes"):
+  
+Started POST "/api/v1/likes/like" for ::1 at 2022-12-13 21:20:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#like as */*
+  Parameters: {"title"=>"0", "likeable_type"=>"Article", "likeable_id"=>"14", "like"=>{"title"=>"0", "likeable_type"=>"Article", "likeable_id"=>"14"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+  [1m[36mTRANSACTION (22.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 32.2ms | Allocations: 19362)
+
+
+Started POST "/api/v1/likes/like" for ::1 at 2022-12-13 21:23:23 +0200
+Processing by Api::V1::LikesController#like as */*
+  Parameters: {"title"=>"A", "likeable_type"=>"Article", "likeable_id"=>14, "like"=>{"title"=>"A", "likeable_type"=>"Article", "likeable_id"=>14}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:12:in `like'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2387)
+
+
+Started POST "/api/v1/likes/like" for ::1 at 2022-12-13 21:25:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#like as */*
+  Parameters: {"title"=>"A", "likeable_type"=>"Article", "likeable_id"=>14, "like"=>{"title"=>"A", "likeable_type"=>"Article", "likeable_id"=>14}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `like'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `like'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `like'
+Completed 200 OK in 55ms (Views: 0.6ms | ActiveRecord: 10.7ms | Allocations: 19383)
+
+

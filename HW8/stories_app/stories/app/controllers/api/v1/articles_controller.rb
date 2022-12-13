@@ -27,8 +27,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   # GET /api/v1/articles/:id
   def show
-    render json: { article: @article, comment: @article.comments.get_lastten_comments, tag: @article.tags, like: @article.likes }
-    # render json: { article: @article, comment: @article.comments.get_all_comments, tag: @article.tags, like: @article.likes }
+    render json: @article, include: "comments"
   end
 
   # PUT/PATCH /api/v1/articles/:id
