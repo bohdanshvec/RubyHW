@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :author
   has_and_belongs_to_many :tags
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 
   enum :status, %i[unpublished published]#, default: :unpublished
 

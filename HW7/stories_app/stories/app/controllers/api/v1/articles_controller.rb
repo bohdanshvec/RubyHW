@@ -38,13 +38,13 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   # POST /api/v1/articles/:id/like
-  def like
-    @like = Like.new(like_params)
-    @like.likeable = @article
-    @like.save
+  # def like
+  #   @like = Like.new(like_params)
+  #   @like.likeable = @article
+  #   @like.save
 
-    render json: @like
-  end
+  #   render json: @like
+  # end
 
   def tag_add
     @article = Article.find(params[:article_id])
@@ -59,9 +59,9 @@ class Api::V1::ArticlesController < ApplicationController
 
   private
 
-  def like_params
-    params.require(:like).permit(:title)
-  end
+  # def like_params
+  #   params.require(:article).permit(:title)
+  # end
 
   def set_article
     @article = Article.find(params[:id])

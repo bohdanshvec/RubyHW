@@ -40,19 +40,19 @@ class Api::V1::CommentsController < ApplicationController
   end
 
    # POST /api/v1/comments/:id/like
-  def like
-    @like = Like.new(like_params)
-    @like.likeable = @comment
-    @like.save
+  # def like
+  #   @like = Like.new(like_params)
+  #   @like.likeable = @comment
+  #   @like.save
 
-    render json: @like
-  end
+  #   render json: @like
+  # end
 
   private
 
-  def like_params
-    params.require(:like).permit(:title)
-  end
+  # def like_params
+  #   params.require(:like).permit(:title)
+  # end
 
   def set_comment
     @comment = Comment.find(params[:id])
