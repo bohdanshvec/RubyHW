@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_193841) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_14_120513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,19 +42,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_193841) do
     t.datetime "updated_at", null: false
     t.text "body"
     t.integer "status"
-    t.bigint "article_id"
-    t.bigint "author_id"
+    t.bigint "article_id", null: false
+    t.bigint "author_id", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["author_id"], name: "index_comments_on_author_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.string "title"
-    t.string "liked_type"
-    t.bigint "liked_id"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["liked_type", "liked_id"], name: "index_likes_on_liked"
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
   end
 
   create_table "tags", force: :cascade do |t|
