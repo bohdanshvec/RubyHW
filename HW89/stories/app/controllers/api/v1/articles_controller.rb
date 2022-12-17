@@ -1,0 +1,90 @@
+class Api::V1::ArticlesController < ApplicationController
+  before_action :set_article, only: %i[like show update destroy]
+  before_action :set_tag, only: %i[tag_add]
+
+  # GET /api/v1/articles
+  def index
+    @articles = Article.all
+    @articles = @articles.where("title || body LIKE ?", "%#{params[:q]}%") if params[:q]
+    @articles = @articles.where(status: params[:status]) if params[:status]
+    @articles = @articles.joins(:author).where("authors.name LIKE ?", "%#{params[:author]}%") if params[:author]
+    @articles = @articles.joins(:tags).where("tags.name IN (?)", params[:tags].split(',')) if params[:tags]
+    @articles = @articles.order(title: params[:order]) if params[:order]
+
+    @pagy, @articles = pagy(@articles)
+    # @pagy, @records = pagy(Product.all)
+
+    render json: @articles
+  end
+
+  # POST /api/v1/articles
+  def create
+    @article = Article.new(article_params)
+    @article.save
+
+    render json: @article
+  end
+
+  # GET /api/v1/articles/:id
+  def show
+    # render json: { article: @article, comment: @article.comments.get_lastten_comments, tag: @article.tags, like: @article.likes }
+    render json: @article, include: "comments"
+  end
+
+  # PUT/PATCH /api/v1/articles/:id
+  def update
+    @article.update(article_params)
+
+    render json: @article
+  end
+
+  # DELETE /api/v1/articles/:id
+  def destroy
+    @article.delete
+
+    render json: :ok
+  end
+
+  # POST /api/v1/articles/:id/like
+  def like
+    @like = Like.new(like_params)
+    @like.liked = @article
+    @like.save
+
+    render json: @like
+  end
+
+  def tag_add
+    @article = Article.find(params[:article_id])
+    if @article.tags.include?(@tag)
+      render json: { data: "Tag '#{@tag.name}' has is." }
+    else
+      @article.tags << @tag
+      render json: { data: "Tag '#{@tag.name}' added in Article #{@article.title}" }
+    end
+    # byebug
+  end
+
+  private
+
+  def like_params
+    params.require(:article).permit(:title)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
+    # byebug
+  end
+
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :body, :author_id, :status)
+  end
+
+  # def article_status_update_params
+  #   params.require(:article).permit(:status)
+  # end
+end

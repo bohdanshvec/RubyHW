@@ -1,0 +1,378 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/":
+    get:
+      summary: list articles
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: []
+  "/api/v1/articles":
+    get:
+      summary: list articles
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: []
+    post:
+      summary: create article
+      tags:
+      - Articles
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 163
+                title: Jurassic Park
+                body: Go ahead, make my day.
+                created_at: '2022-12-16T18:18:00.431Z'
+                author: Jarred Russel PhD
+                comments: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                status:
+                  type: string
+                author_id:
+                  type: integer
+              required:
+              - title
+              - body
+              - author_id
+              - status
+  "/api/v1/articles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 164
+                title: 'Mad Max: Fury Road'
+                body: Here's looking at you, kid.
+                created_at: '2022-12-16T18:18:00.465Z'
+                author: Hisako Quitzon
+                comments: []
+    patch:
+      summary: update article
+      tags:
+      - Articles
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 165
+                title: The Apartment
+                body: All right, Mr. DeMille, I'm ready for my closeup.
+                created_at: '2022-12-16T18:18:00.485Z'
+                author: Trey Medhurst
+                comments: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                status:
+                  type: string
+                author_id:
+                  type: integer
+              required:
+              - title
+              - body
+              - author_id
+              - status
+    put:
+      summary: update article
+      tags:
+      - Articles
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 166
+                title: Before Sunrise
+                body: Greetings, programs!
+                created_at: '2022-12-16T18:18:00.506Z'
+                author: Lahoma Greenholt
+                comments: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                status:
+                  type: string
+                author_id:
+                  type: integer
+              required:
+              - title
+              - body
+              - author_id
+              - status
+    delete:
+      summary: delete article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: ok
+  "/api/v1/articles/{article_id}/tags/{id}":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    post:
+      summary: tag_add article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                data: Tag 'csf' added in Article The Grand Budapest Hotel
+  "/api/v1/comments":
+    get:
+      summary: list comments
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: []
+    post:
+      summary: create comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 35
+                body: Frankly, my dear, I don’t give a damn.
+                status: unpublished
+                author: Lavina Marvin
+                created_at: '2022-12-16T18:18:00.625Z'
+                article:
+                  id: 169
+                  title: City Lights
+                  body: Toto, I've got a feeling we're not in Kansas anymore.
+                  created_at: '2022-12-16T18:18:00.609Z'
+                  author: Lavina Marvin
+        '422':
+          description: abc
+          content:
+            application/json:
+              example:
+                article:
+                - must exist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                status:
+                  type: string
+                article_id:
+                  type: integer
+                author_id:
+                  type: integer
+              required:
+              - body
+              - author_id
+              - article_id
+              - status
+  "/api/v1/comments/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                comment:
+                  id: 36
+                  created_at: '2022-12-16T18:18:00.693Z'
+                  updated_at: '2022-12-16T18:18:00.693Z'
+                  body: What we've got here is failure to communicate.
+                  status: unpublished
+                  article_id: 170
+                  author_id: 184
+                like: []
+    patch:
+      summary: update comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 37
+                body: What we've got here is failure to communicate.
+                status: unpublished
+                author: Brittani Wilderman
+                created_at: '2022-12-16T18:18:00.722Z'
+                article:
+                  id: 171
+                  title: Whiplash
+                  body: Go ahead, make my day.
+                  created_at: '2022-12-16T18:18:00.717Z'
+                  author: Brittani Wilderman
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                status:
+                  type: string
+                article_id:
+                  type: integer
+                author_id:
+                  type: integer
+              required:
+              - body
+              - author_id
+              - article_id
+              - status
+    put:
+      summary: update comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 38
+                body: What we've got here is failure to communicate.
+                status: unpublished
+                author: Raleigh Haley CPA
+                created_at: '2022-12-16T18:18:00.778Z'
+                article:
+                  id: 172
+                  title: North by Northwest
+                  body: Go ahead, make my day.
+                  created_at: '2022-12-16T18:18:00.745Z'
+                  author: Raleigh Haley CPA
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                status:
+                  type: string
+                article_id:
+                  type: integer
+                author_id:
+                  type: integer
+              required:
+              - body
+              - author_id
+              - article_id
+              - status
+    delete:
+      summary: delete comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: ok
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
