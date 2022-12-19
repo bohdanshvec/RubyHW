@@ -50,12 +50,12 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['body']).to eq(body)
-          # expect(data['article']).to eq(article.id)
+          expect(data['article']['id']).to eq(article.id)
           expect(data['author']).to eq(author.name)
         end
       end
 
-      response '422', 'abc' do
+      response(422, 'invalid request') do
         consumes 'application/json'
         parameter name: :comment, in: :body, schema: {
           type: :object,
@@ -142,10 +142,39 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['body']).to eq(body)
-          # expect(data['article']).to eq(article.id)
-          # expect(data['author']).to eq(author.id)
+          expect(data['article']['id']).to eq(article.id)
+          expect(data['author']).to eq(author.name)
         end
       end
+
+      # response(422, 'invalid request') do
+      #   consumes 'application/json'
+      #   parameter name: :comment, in: :body, schema: {
+      #     type: :object,
+      #     properties: {
+      #       body: { type: :string },
+      #       status: { type: :string },
+      #       article_id: { type: :integer },
+      #       author_id: { type: :integer }
+      #     },
+      #     required: %w[body author_id article_id status]
+      #   }
+
+      #   after do |example|
+      #     example.metadata[:response][:content] = {
+      #       'application/json' => {
+      #         example: JSON.parse(response.body, symbolize_names: true)
+      #       }
+      #     }
+      #   end
+
+      #   let(:body)  { Faker::Movie.quote }
+      #   let(:author) { Author.create(name: Faker::Name.name) }
+      #   let(:article) { Article.create(title: Faker::Movie.title, body: Faker::Movie.quote, author_id: author.id) }
+      #   let(:comment) { Comment.create(body: body, author_id: author.id, article_id: article.id) }
+      #   let(:id) { comment.id }
+      #   run_test!
+      # end
     end
 
     put('update comment') do
@@ -180,8 +209,8 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['body']).to eq(body)
-          # expect(data['article']).to eq(article)
-          # expect(data['author']).to eq(author)
+          expect(data['article']['id']).to eq(article.id)
+          expect(data['author']).to eq(author.name)
         end
       end
     end

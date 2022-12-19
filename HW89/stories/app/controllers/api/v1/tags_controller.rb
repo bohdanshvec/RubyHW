@@ -1,31 +1,21 @@
 class Api::V1::TagsController < ApplicationController
-  before_action :set_tag, only: %i[show destroy]
+  before_action :set_tag, only: %i[destroy]
 
-  # GET /api/v1/tags
   def index
     @tags = Tag.all
 
     render json: @tags
   end
 
-  # POST /api/v1/tags
   def create
     @tag = Tag.find_or_initialize_by(tag_params)
-    @tag.save
-    # Article.find(params[:ar]).tags << @tag if params[:ar]
-
-    render json: @tag
+    if @tag.save
+      render json: @tag
+    else
+      render json: @tag.errors.messages, status: 422
+    end
   end
 
-  # This is an experimental method, do not use it. For personal use.
-  # GET /api/v1/tags/:id
-  # def show
-  #   Article.find(params[:ar]).tags << @tag if params[:ar]
-
-  #   render json: @tag
-  # end
-
-  # DELETE /api/v1/tags/:id
   def destroy
     @tag.delete
 

@@ -7066,3 +7066,1382 @@ Processing by Api::V1::CommentsController#create as */*
 Completed 200 OK in 58ms (Views: 3.3ms | ActiveRecord: 31.8ms | Allocations: 7978)
 
 
+Started GET "/api-docs/index.html" for ::1 at 2022-12-17 20:49:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (20.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-17 20:49:52 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-17 20:49:52 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-17 20:49:52 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-17 20:49:52 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-17 20:49:52 +0200
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 20:50:46 +0200
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"body"=>"string", "status"=>"string", "author_id"=>0, "comment"=>{"body"=>"string", "status"=>"string", "author_id"=>0}}
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 252.1ms | Allocations: 7258)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:17:in `create'
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 20:55:04 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"New comment000", "article_id"=>"6", "status"=>"published", "comment"=>{"body"=>"New comment000", "status"=>"published", "article_id"=>"6"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mArticle Load (9.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 3204ms (Views: 10.0ms | ActiveRecord: 14.4ms | Allocations: 290736)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 20:55:50 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"New comment001", "author_id"=>"2", "article_id"=>"6", "status"=>"published", "comment"=>{"body"=>"New comment001", "status"=>"published", "article_id"=>"6", "author_id"=>"2"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mAuthor Load (31.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (10.4ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-12-17 18:55:50.699267"], ["updated_at", "2022-12-17 18:55:50.699267"], ["body", "New comment001"], ["status", 1], ["article_id", 6], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (22.55ms)
+Completed 200 OK in 302ms (Views: 221.1ms | ActiveRecord: 64.0ms | Allocations: 12437)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-17 20:58:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-17 20:58:20 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-17 20:58:20 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-17 20:58:20 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-17 20:58:21 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-17 20:58:21 +0200
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 20:58:46 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"string", "status"=>"string", "author_id"=>0, "comment"=>{"body"=>"string", "status"=>"string", "author_id"=>0}}
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 5.3ms | Allocations: 7265)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:17:in `create'
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 20:59:55 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"string", "status"=>"string", "article_id"=>1, "author_id"=>1, "comment"=>{"body"=>"string", "status"=>"string", "article_id"=>1, "author_id"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 237)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:17:in `create'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-17 21:00:07 +0200
+Started GET "/api/v1/comments" for ::1 at 2022-12-17 21:00:41 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:12:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (163.83ms)
+Completed 200 OK in 189ms (Views: 171.0ms | ActiveRecord: 17.3ms | Allocations: 49086)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 21:01:44 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"string", "status"=>"string", "article_id"=>2, "author_id"=>2, "comment"=>{"body"=>"string", "status"=>"string", "article_id"=>2, "author_id"=>2}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 239)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:17:in `create'
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 21:02:33 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"Author", "status"=>"published", "article_id"=>2, "author_id"=>2, "comment"=>{"body"=>"Author", "status"=>"published", "article_id"=>2, "author_id"=>2}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-12-17 19:02:33.832610"], ["updated_at", "2022-12-17 19:02:33.832610"], ["body", "Author"], ["status", 1], ["article_id", 2], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (47.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (2.79ms)
+Completed 200 OK in 70ms (Views: 3.2ms | ActiveRecord: 49.8ms | Allocations: 5546)
+
+
+Started POST "/api/v1/comments" for ::1 at 2022-12-17 21:02:58 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"Author000", "article_id"=>2, "author_id"=>2, "comment"=>{"body"=>"Author000", "article_id"=>2, "author_id"=>2}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mComment Create (4.6ms)[0m  [1m[32mINSERT INTO "comments" ("created_at", "updated_at", "body", "status", "article_id", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2022-12-17 19:02:58.267875"], ["updated_at", "2022-12-17 19:02:58.267875"], ["body", "Author000"], ["status", 0], ["article_id", 2], ["author_id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (39.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (4.03ms)
+Completed 200 OK in 64ms (Views: 4.7ms | ActiveRecord: 45.6ms | Allocations: 4820)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (42.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:35:40 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:35:40 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:35:40 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:35:41 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:35:41 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:36:11 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:39:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:39:23 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:39:23 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:39:23 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:39:23 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:39:23 +0200
+Started POST "/api/v1/tags" for ::1 at 2022-12-18 10:39:58 +0200
+Processing by Api::V1::TagsController#create as */*
+  Parameters: {"name"=>"sport", "article_id"=>1, "tag"=>{"name"=>"sport"}}
+  [1m[36mTag Load (15.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "sport"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tags_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTag Create (87.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sport"], ["created_at", "2022-12-18 08:39:59.129300"], ["updated_at", "2022-12-18 08:39:59.129300"]]
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (70.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Tag (1.21ms)
+Completed 200 OK in 239ms (Views: 5.8ms | ActiveRecord: 245.8ms | Allocations: 11020)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:40:27 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (46.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+[active_model_serializers]   [1m[36mAuthor Load (13.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mComment Load (23.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:33:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (101.26ms)
+Completed 200 OK in 190ms (Views: 64.5ms | ActiveRecord: 96.0ms | Allocations: 25542)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:42:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:42:55 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:42:55 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:42:55 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:42:55 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:42:56 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:43:11 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+[active_model_serializers]   [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:33:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (66.1ms)
+Completed 200 OK in 149ms (Views: 66.7ms | ActiveRecord: 16.8ms | Allocations: 34918)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:47:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:47:08 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:47:08 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:47:08 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:47:08 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:47:08 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:47:18 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 8.9ms | Allocations: 20885)
+
+
+  
+NoMethodError (undefined method `has_and_belongs_to_many' for Api::V1::ArticleSerializer:Class
+
+  has_and_belongs_to_many :tags
+  ^^^^^^^^^^^^^^^^^^^^^^^):
+  
+app/serializers/api/v1/article_serializer.rb:10:in `<class:ArticleSerializer>'
+app/serializers/api/v1/article_serializer.rb:1:in `<main>'
+app/controllers/api/v1/articles_controller.rb:33:in `show'
+Started GET "/api/v1/tags" for ::1 at 2022-12-18 10:47:54 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+No serializer found for resource: #<Tag id: 1, name: "post-ironic", created_at: "2022-12-14 13:56:24.572983000 +0000", updated_at: "2022-12-14 13:56:24.572983000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Tag::ActiveRecord_Relation (1.35ms)
+Completed 200 OK in 20ms (Views: 13.1ms | ActiveRecord: 6.4ms | Allocations: 5108)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:48:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:48:34 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:48:34 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:48:34 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:48:34 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:48:34 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:48:54 +0200
+  
+SyntaxError (/home/dan/RubyHW/HW89/stories/app/controllers/api/v1/articles_controller.rb:33: syntax error, unexpected '\n', expecting =>
+...le, include: "comments", "tags"
+...                               ^
+/home/dan/RubyHW/HW89/stories/app/controllers/api/v1/articles_controller.rb:94: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/articles_controller.rb:33: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/articles_controller.rb:94: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/articles_controller.rb:33: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/articles_controller.rb:94: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:50:06 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:50:20 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 6.9ms | Allocations: 17390)
+
+
+  
+NoMethodError (undefined method `has_and_belongs_to_many' for Api::V1::ArticleSerializer:Class
+
+  has_and_belongs_to_many :tags
+  ^^^^^^^^^^^^^^^^^^^^^^^):
+  
+app/serializers/api/v1/article_serializer.rb:10:in `<class:ArticleSerializer>'
+app/serializers/api/v1/article_serializer.rb:1:in `<main>'
+app/controllers/api/v1/articles_controller.rb:33:in `show'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:55:49 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:55:49 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:55:49 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:55:49 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:55:50 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:55:50 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:55:59 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:33:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (82.75ms)
+Completed 200 OK in 131ms (Views: 70.6ms | ActiveRecord: 25.3ms | Allocations: 26888)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 10:56:21 +0200
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:56:31 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+[active_model_serializers]   [1m[36mTag Load (48.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `show'
+[active_model_serializers]   [1m[36mLike Load (38.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (168.55ms)
+Completed 200 OK in 253ms (Views: 77.9ms | ActiveRecord: 105.7ms | Allocations: 25172)
+
+
+Started GET "/api/v1/tags" for ::1 at 2022-12-18 10:57:47 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+No serializer found for resource: #<Tag id: 1, name: "post-ironic", created_at: "2022-12-14 13:56:24.572983000 +0000", updated_at: "2022-12-14 13:56:24.572983000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Tag::ActiveRecord_Relation (1.22ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.5ms | Allocations: 2317)
+
+
+Started POST "/api/v1/articles/1/tags/11" for ::1 at 2022-12-18 10:58:01 +0200
+Processing by Api::V1::ArticlesController#tag_add as */*
+  Parameters: {"article_id"=>"1", "id"=>"11"}
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_tag'
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:62:in `tag_add'
+  [1m[36mTag Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1 AND "tags"."id" = $2 LIMIT $3[0m  [["article_id", 1], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:63:in `tag_add'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:66:in `tag_add'
+  [1m[36mArticle::HABTM_Tags Create (0.4ms)[0m  [1m[32mINSERT INTO "articles_tags" ("article_id", "tag_id") VALUES ($1, $2)[0m  [["article_id", 1], ["tag_id", 11]]
+  ↳ app/controllers/api/v1/articles_controller.rb:66:in `tag_add'
+  [1m[36mTRANSACTION (30.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:66:in `tag_add'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 64ms (Views: 0.5ms | ActiveRecord: 33.6ms | Allocations: 6564)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 10:58:23 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:79:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:9:in `block in <class:Comment>'
+[active_model_serializers]   [1m[36mTag Load (1.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "articles_tags" ON "tags"."id" = "articles_tags"."tag_id" WHERE "articles_tags"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `show'
+[active_model_serializers]   [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:32:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.79ms)
+Completed 200 OK in 19ms (Views: 9.2ms | ActiveRecord: 3.1ms | Allocations: 4154)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 15:49:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 15:49:54 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 15:49:54 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 15:49:54 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 15:49:54 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 15:49:54 +0200
+Started GET "/api/v1/tags/11" for ::1 at 2022-12-18 15:50:09 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::TagsController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/tags" for ::1 at 2022-12-18 15:50:33 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+No serializer found for resource: #<Tag id: 1, name: "post-ironic", created_at: "2022-12-14 13:56:24.572983000 +0000", updated_at: "2022-12-14 13:56:24.572983000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Tag::ActiveRecord_Relation (1.28ms)
+Completed 200 OK in 58ms (Views: 18.2ms | ActiveRecord: 5.0ms | Allocations: 13314)
+
+
+Started GET "/api/v1/tags/1" for ::1 at 2022-12-18 15:51:04 +0200
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::TagsController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 15:53:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 15:53:59 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 15:53:59 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 15:53:59 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 15:53:59 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 15:53:59 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 15:55:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 15:55:39 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 15:55:39 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 15:55:39 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 15:55:39 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 15:55:39 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 16:41:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 16:41:19 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 16:41:19 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 16:41:19 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 16:41:19 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 16:41:19 +0200
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 16:41:28 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (3.34ms)
+Completed 200 OK in 45ms (Views: 19.6ms | ActiveRecord: 5.4ms | Allocations: 11012)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-18 16:42:02 +0200
+Processing by Api::V1::AuthorsController#create as */*
+  Parameters: {"name"=>"Dan", "author"=>{"name"=>"Dan"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Dan"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (20.1ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-18 14:42:02.464960"], ["updated_at", "2022-12-18 14:42:02.464960"], ["name", "Dan"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (22.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Author (0.28ms)
+Completed 200 OK in 67ms (Views: 1.5ms | ActiveRecord: 43.3ms | Allocations: 5748)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 16:42:15 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (3.94ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.5ms | Allocations: 1890)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 17:09:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 17:09:15 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 17:09:15 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 17:09:15 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 17:09:16 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 17:09:16 +0200
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 17:09:35 +0200
+Processing by Api::V1::AuthorsController#index as JSON
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (1.7ms)
+Completed 200 OK in 42ms (Views: 19.1ms | ActiveRecord: 5.2ms | Allocations: 11091)
+
+
+Started POST "/api/v1/authors" for ::1 at 2022-12-18 17:10:04 +0200
+Processing by Api::V1::AuthorsController#create as JSON
+  Parameters: {"name"=>"Nill", "author"=>{"name"=>"Nill"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "authors" WHERE "authors"."name" = $1 LIMIT $2[0m  [["name", "Nill"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-12-18 15:10:04.313712"], ["updated_at", "2022-12-18 15:10:04.313712"], ["name", "Nill"]]
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Author (0.26ms)
+Completed 200 OK in 46ms (Views: 1.5ms | ActiveRecord: 22.1ms | Allocations: 5758)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 17:10:14 +0200
+Processing by Api::V1::AuthorsController#index as JSON
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (2.73ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.5ms | Allocations: 1984)
+
+
+Started DELETE "/api/v1/authors/12" for ::1 at 2022-12-18 17:10:32 +0200
+Processing by Api::V1::AuthorsController#destroy as */*
+  Parameters: {"id"=>"12"}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/authors_controller.rb:34:in `set_author'
+  [1m[36mAuthor Destroy (28.0ms)[0m  [1m[31mDELETE FROM "authors" WHERE "authors"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/api/v1/authors_controller.rb:25:in `destroy'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 29.3ms | Allocations: 1345)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 17:11:20 +0200
+Processing by Api::V1::AuthorsController#index as JSON
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (2.19ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 1730)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:13:53 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:13:53 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:13:53 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:13:53 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:13:53 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:13:53 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:16:04 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:16:05 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:16:05 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:16:05 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:16:05 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:16:05 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:16:29 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:16:29 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:16:29 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:16:29 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:16:30 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:16:30 +0200
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 19:16:40 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, title: "emk", likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (4.03ms)
+Completed 200 OK in 47ms (Views: 22.3ms | ActiveRecord: 6.2ms | Allocations: 11642)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:21:56 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:22:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:22:18 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:22:18 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:22:18 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:22:18 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:22:18 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:22:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:22:52 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:22:52 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:22:52 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:22:53 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:22:53 +0200
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 19:39:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 19:39:08 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 19:39:08 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 19:39:08 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 19:39:08 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 19:39:08 +0200
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 19:39:46 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, title: "emk", likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (5.16ms)
+Completed 200 OK in 46ms (Views: 22.1ms | ActiveRecord: 6.5ms | Allocations: 11641)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 19:41:39 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, title: "emk", likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (2.48ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 1947)
+
+
+Started POST "/api/v1/likes/like" for ::1 at 2022-12-18 19:42:39 +0200
+Processing by Api::V1::LikesController#like as */*
+  Parameters: {"title"=>"Like_0", "likeable_type"=>"Comment", "likeable_id"=>1, "like"=>{"title"=>"Like_0", "likeable_type"=>"Comment", "likeable_id"=>1}}
+  [1m[36mComment Load (21.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:16:in `like'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:18:in `like'
+  [1m[36mLike Create (9.1ms)[0m  [1m[32mINSERT INTO "likes" ("title", "likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Like_0"], ["likeable_type", "Comment"], ["likeable_id", 1], ["created_at", "2022-12-18 17:42:39.988942"], ["updated_at", "2022-12-18 17:42:39.988942"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:18:in `like'
+  [1m[36mTRANSACTION (110.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:18:in `like'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Like (0.47ms)
+Completed 200 OK in 211ms (Views: 2.5ms | ActiveRecord: 147.3ms | Allocations: 12408)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 19:42:56 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, title: "emk", likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (3.09ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.4ms | Allocations: 2095)
+
+
+  [1m[35m (33.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnTitleLikes (20221218193234)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (250.5ms)[0m  [1m[35mALTER TABLE "likes" DROP COLUMN "title"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221218193234"]]
+  [1m[36mTRANSACTION (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (28.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 21:35:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (1.34ms)
+Completed 200 OK in 35ms (Views: 12.8ms | ActiveRecord: 6.3ms | Allocations: 11113)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:37:18 +0200
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Comment", "likeable_id"=>5, "like"=>{"likeable_type"=>"Comment", "likeable_id"=>5}}
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.42ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 4.0ms | Allocations: 4572)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:39:44 +0200
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>5, "like"=>{"likeable_type"=>"Article", "likeable_id"=>5}}
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.46ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 1807)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:40:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>5, "like"=>{"likeable_type"=>"Article", "likeable_id"=>5}}
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.46ms)
+Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 4.9ms | Allocations: 8852)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:41:21 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (3.65ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 1919)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:43:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>5, "like"=>{"likeable_type"=>"Article", "likeable_id"=>5}}
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.7ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 6.5ms | Allocations: 8853)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:44:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>5, "like"=>{"likeable_type"=>"Article", "likeable_id"=>5}}
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.4ms)
+Completed 200 OK in 24ms (Views: 13.3ms | ActiveRecord: 5.3ms | Allocations: 8853)
+
+
+Started GET "/api/v1/authors" for ::1 at 2022-12-18 21:46:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (2.33ms)
+Completed 200 OK in 36ms (Views: 14.8ms | ActiveRecord: 5.8ms | Allocations: 11113)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-18 21:46:44 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Count (47.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `index'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 15], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (141.75ms)
+Completed 200 OK in 225ms (Views: 148.0ms | ActiveRecord: 63.0ms | Allocations: 48919)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:47:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>1, "like"=>{"likeable_type"=>"Article", "likeable_id"=>1}}
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.39ms)
+Completed 200 OK in 23ms (Views: 12.8ms | ActiveRecord: 5.0ms | Allocations: 8853)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:48:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>1, "like"=>{"likeable_type"=>"Article", "likeable_id"=>1}}
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.73ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 7.0ms | Allocations: 8853)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 21:49:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>1, "like"=>{"likeable_type"=>"Article", "likeable_id"=>1}}
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.35ms)
+Completed 200 OK in 23ms (Views: 12.3ms | ActiveRecord: 5.0ms | Allocations: 8853)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-18 21:49:58 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>1, "like"=>{"likeable_type"=>"Article", "likeable_id"=>1}}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["likeable_type", "Article"], ["likeable_id", 1], ["created_at", "2022-12-18 19:49:58.644761"], ["updated_at", "2022-12-18 19:49:58.644761"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (28.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Like (0.26ms)
+Completed 200 OK in 140ms (Views: 1.6ms | ActiveRecord: 36.1ms | Allocations: 13155)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnAuthorIdLikes (20221218211329)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (139.5ms)[0m  [1m[35mALTER TABLE "likes" ADD "author_id" bigint[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221218211329"]]
+  [1m[36mTRANSACTION (65.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnAuthorIdLikes (20221218211329)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.0ms)[0m  [1m[35mALTER TABLE "likes" DROP COLUMN "author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221218211329"]]
+  [1m[36mTRANSACTION (43.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnAuthorIdLikes (20221218211329)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (78.4ms)[0m  [1m[35mALTER TABLE "likes" ADD "author_id" bigint NOT NULL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnAuthorIdLikes (20221218211329)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (224.5ms)[0m  [1m[35mALTER TABLE "likes" ADD "author_id" bigint DEFAULT 1 NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221218211329"]]
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6135664039442227605)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 23:20:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.76ms)
+Completed 200 OK in 35ms (Views: 17.2ms | ActiveRecord: 5.0ms | Allocations: 11690)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-18 23:21:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>2, "like"=>{"likeable_type"=>"Article", "likeable_id"=>2, "author_id"=>11}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Article"], ["likeable_id", 2], ["created_at", "2022-12-18 21:21:47.983154"], ["updated_at", "2022-12-18 21:21:47.983154"], ["author_id", 11]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/likes_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (46.0ms)
+Completed 200 OK in 157ms (Views: 47.5ms | ActiveRecord: 59.7ms | Allocations: 37284)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 23:23:15 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (2.12ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 2572)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-18 23:24:44 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Comment", "likeable_id"=>2, "like"=>{"likeable_type"=>"Comment", "likeable_id"=>2, "author_id"=>11}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Comment"], ["likeable_id", 2], ["created_at", "2022-12-18 21:24:44.804977"], ["updated_at", "2022-12-18 21:24:44.804977"], ["author_id", 11]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/likes_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (9.29ms)
+Completed 200 OK in 33ms (Views: 8.8ms | ActiveRecord: 16.5ms | Allocations: 6067)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-18 23:26:49 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:14:in `index'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 15], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (140.35ms)
+Completed 200 OK in 167ms (Views: 135.0ms | ActiveRecord: 17.6ms | Allocations: 44793)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-18 23:27:35 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>3, "like"=>{"likeable_type"=>"Article", "likeable_id"=>3, "author_id"=>11}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Article"], ["likeable_id", 3], ["created_at", "2022-12-18 21:27:35.600731"], ["updated_at", "2022-12-18 21:27:35.600731"], ["author_id", 11]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (19.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/likes_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (9.73ms)
+Completed 200 OK in 47ms (Views: 9.9ms | ActiveRecord: 25.3ms | Allocations: 7787)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-18 23:55:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-18 23:55:58 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-18 23:55:58 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-18 23:55:58 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-18 23:56:09 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-18 23:56:11 +0200
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 23:58:00 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (1.9ms)
+Completed 200 OK in 43ms (Views: 20.6ms | ActiveRecord: 7.2ms | Allocations: 11935)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-18 23:58:55 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Comment", "likeable_id"=>2, "like"=>{"likeable_type"=>"Comment", "likeable_id"=>2, "author_id"=>11}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Comment"], ["likeable_id", 2], ["created_at", "2022-12-18 21:58:55.873927"], ["updated_at", "2022-12-18 21:58:55.873927"], ["author_id", 11]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (21.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/comment_serializer.rb:5:in `author'
+[active_model_serializers]   [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/likes_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/api/v1/article_serializer.rb:6:in `author'
+[active_model_serializers] Rendered Api::V1::CommentSerializer with ActiveModelSerializers::Adapter::Attributes (52.39ms)
+Completed 200 OK in 135ms (Views: 52.8ms | ActiveRecord: 35.7ms | Allocations: 29477)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-18 23:59:25 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (2.79ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.6ms | Allocations: 2372)
+
+
+Started POST "/api/v1/likes" for ::1 at 2022-12-19 00:01:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>11, "likeable_type"=>"Article", "likeable_id"=>4, "like"=>{"likeable_type"=>"Article", "likeable_id"=>4, "author_id"=>11}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mLike Create (0.8ms)[0m  [1m[32mINSERT INTO "likes" ("likeable_type", "likeable_id", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["likeable_type", "Article"], ["likeable_id", 4], ["created_at", "2022-12-18 22:01:43.463745"], ["updated_at", "2022-12-18 22:01:43.463745"], ["author_id", 11]]
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (25.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:17:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Like (0.37ms)
+Completed 200 OK in 97ms (Views: 2.5ms | ActiveRecord: 35.3ms | Allocations: 20252)
+
+
+Started GET "/api/v1/likes" for ::1 at 2022-12-19 00:01:56 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (2.47ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 3095)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-19 00:02:26 +0200
+Started GET "/api/v1/likes" for ::1 at 2022-12-19 00:02:40 +0200
+Processing by Api::V1::LikesController#index as */*
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:7:in `index'
+No serializer found for resource: #<Like id: 1, likeable_type: "Article", likeable_id: 5, created_at: "2022-12-14 13:56:25.693657000 +0000", updated_at: "2022-12-14 13:56:25.693657000 +0000", author_id: 1>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Like::ActiveRecord_Relation (3.7ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.6ms | Allocations: 2432)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-19 12:26:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-19 12:26:22 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-19 12:26:22 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-19 12:26:22 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-19 12:26:22 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-19 12:26:22 +0200
+Started GET "/api/v1/authors" for ::1 at 2022-12-19 12:26:30 +0200
+Processing by Api::V1::AuthorsController#index as */*
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/controllers/api/v1/authors_controller.rb:8:in `index'
+No serializer found for resource: #<Author id: 1, created_at: "2022-12-14 13:56:23.243127000 +0000", updated_at: "2022-12-14 13:56:23.243127000 +0000", name: "Fr. Cortez Bauch">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Author::ActiveRecord_Relation (1.76ms)
+Completed 200 OK in 40ms (Views: 17.8ms | ActiveRecord: 6.2ms | Allocations: 11092)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-12-19 13:54:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"body"=>"Body_Ass_3", "author_id"=>"4", "article"=>{"body"=>"Body_Ass_3", "author_id"=>"4"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 422 Unprocessable Entity in 499ms (Views: 40.5ms | ActiveRecord: 12.3ms | Allocations: 292475)
+
+
+Started POST "/api/v1/articles" for ::1 at 2022-12-19 13:55:27 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"Ork_xxx", "body"=>"Body_Ass_3", "author_id"=>"4", "article"=>{"title"=>"Ork_xxx", "body"=>"Body_Ass_3", "author_id"=>"4"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (106.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "author_id", "status") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Ork_xxx"], ["body", "Body_Ass_3"], ["created_at", "2022-12-19 11:55:27.700654"], ["updated_at", "2022-12-19 11:55:27.700654"], ["author_id", 4], ["status", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:20:in `create'
+[active_model_serializers]   [1m[36mComment Load (23.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:21:in `create'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (46.78ms)
+Completed 200 OK in 250ms (Views: 72.6ms | ActiveRecord: 152.8ms | Allocations: 11861)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2022-12-19 14:55:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (40.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-19 14:55:15 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-19 14:55:15 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-19 14:55:15 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-19 14:55:19 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-19 14:55:20 +0200
+Started POST "/api/v1/comments" for ::1 at 2022-12-19 14:56:09 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"status"=>"string", "article_id"=>0, "author_id"=>0, "comment"=>{"status"=>"string", "article_id"=>0, "author_id"=>0}}
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 179.9ms | Allocations: 7265)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:12:in `create'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-19 14:56:44 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-19 14:56:44 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-19 14:56:44 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-19 14:56:44 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-19 14:56:45 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-19 14:56:45 +0200
+Started POST "/api/v1/comments" for ::1 at 2022-12-19 14:57:09 +0200
+Processing by Api::V1::CommentsController#create as */*
+  Parameters: {"body"=>"string", "status"=>"string", "author_id"=>2, "comment"=>{"body"=>"string", "status"=>"string", "author_id"=>2}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 233)
+
+
+  
+ArgumentError ('string' is not a valid status):
+  
+app/controllers/api/v1/comments_controller.rb:12:in `create'
+Started GET "/api/v1/comments/10000" for ::1 at 2022-12-19 14:58:34 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"10000"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 10000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:48:in `set_comment'
+Completed 404 Not Found in 16ms (ActiveRecord: 0.8ms | Allocations: 2612)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10000):
+  
+app/controllers/api/v1/comments_controller.rb:48:in `set_comment'
+Started GET "/api-docs/index.html" for ::1 at 2022-12-19 15:00:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2022-12-19 15:00:22 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2022-12-19 15:00:22 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2022-12-19 15:00:22 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2022-12-19 15:00:22 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2022-12-19 15:00:22 +0200
+Started GET "/api/v1/comments/10000000" for ::1 at 2022-12-19 15:00:48 +0200
+Processing by Api::V1::CommentsController#show as */*
+  Parameters: {"id"=>"10000000"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 10000000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:48:in `set_comment'
+Completed 404 Not Found in 27ms (ActiveRecord: 6.9ms | Allocations: 5877)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10000000):
+  
+app/controllers/api/v1/comments_controller.rb:48:in `set_comment'

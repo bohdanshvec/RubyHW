@@ -37,11 +37,11 @@ paths:
           content:
             application/json:
               example:
-                id: 163
-                title: Jurassic Park
+                id: 1482
+                title: 'The Lord of the Rings: The Return of the King'
                 body: Go ahead, make my day.
-                created_at: '2022-12-16T18:18:00.431Z'
-                author: Jarred Russel PhD
+                created_at: '2022-12-19T16:39:18.913Z'
+                author: Leta Altenwerth
                 comments: []
       requestBody:
         content:
@@ -80,11 +80,11 @@ paths:
           content:
             application/json:
               example:
-                id: 164
-                title: 'Mad Max: Fury Road'
-                body: Here's looking at you, kid.
-                created_at: '2022-12-16T18:18:00.465Z'
-                author: Hisako Quitzon
+                id: 1483
+                title: There Will Be Blood
+                body: Go ahead, make my day.
+                created_at: '2022-12-19T16:39:18.940Z'
+                author: Cheryll Kemmer
                 comments: []
     patch:
       summary: update article
@@ -97,11 +97,11 @@ paths:
           content:
             application/json:
               example:
-                id: 165
-                title: The Apartment
-                body: All right, Mr. DeMille, I'm ready for my closeup.
-                created_at: '2022-12-16T18:18:00.485Z'
-                author: Trey Medhurst
+                id: 1484
+                title: Donnie Darko
+                body: I'm going to make him an offer he can't refuse.
+                created_at: '2022-12-19T16:39:18.980Z'
+                author: Linn Walker
                 comments: []
       requestBody:
         content:
@@ -133,11 +133,11 @@ paths:
           content:
             application/json:
               example:
-                id: 166
-                title: Before Sunrise
-                body: Greetings, programs!
-                created_at: '2022-12-16T18:18:00.506Z'
-                author: Lahoma Greenholt
+                id: 1485
+                title: Judgment at Nuremberg
+                body: What we've got here is failure to communicate.
+                created_at: '2022-12-19T16:39:19.003Z'
+                author: Noe Kihn
                 comments: []
       requestBody:
         content:
@@ -192,7 +192,86 @@ paths:
           content:
             application/json:
               example:
-                data: Tag 'csf' added in Article The Grand Budapest Hotel
+                data: Tag 'dli' added in Article Stalker
+  "/api/v1/authors":
+    get:
+      summary: list authors
+      tags:
+      - Authors
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+              - id: 641
+                created_at: '2022-12-19T10:18:36.036Z'
+                updated_at: '2022-12-19T10:18:36.036Z'
+                name: Odis Rowe Ret.
+              - id: 696
+                created_at: '2022-12-19T10:23:27.382Z'
+                updated_at: '2022-12-19T10:23:27.382Z'
+                name: Versie Moen IV
+              - id: 657
+                created_at: '2022-12-19T10:19:46.524Z'
+                updated_at: '2022-12-19T10:19:46.524Z'
+                name: Domingo Crist
+              - id: 673
+                created_at: '2022-12-19T10:20:51.590Z'
+                updated_at: '2022-12-19T10:20:51.590Z'
+                name: Evonne Kemmer
+              - id: 618
+                created_at: '2022-12-19T10:17:30.824Z'
+                updated_at: '2022-12-19T10:17:30.824Z'
+                name: Salvatore Dach
+              - id: 689
+                created_at: '2022-12-19T10:21:29.591Z'
+                updated_at: '2022-12-19T10:21:29.591Z'
+                name: Allen Schumm
+              - id: 634
+                created_at: '2022-12-19T10:17:45.393Z'
+                updated_at: '2022-12-19T10:17:45.393Z'
+                name: Rep. Gary Bauch
+    post:
+      summary: create author
+      tags:
+      - Authors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 1885
+                created_at: '2022-12-19T16:39:19.102Z'
+                updated_at: '2022-12-19T16:39:19.102Z'
+                name: Freddy Mraz Ret.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+  "/api/v1/authors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete author
+      tags:
+      - Authors
+      responses:
+        '200':
+          description: successful
   "/api/v1/comments":
     get:
       summary: list comments
@@ -215,19 +294,19 @@ paths:
           content:
             application/json:
               example:
-                id: 35
-                body: Frankly, my dear, I don’t give a damn.
+                id: 596
+                body: Greetings, programs!
                 status: unpublished
-                author: Lavina Marvin
-                created_at: '2022-12-16T18:18:00.625Z'
+                author: Daisy Deckow
+                created_at: '2022-12-19T16:39:19.167Z'
                 article:
-                  id: 169
-                  title: City Lights
-                  body: Toto, I've got a feeling we're not in Kansas anymore.
-                  created_at: '2022-12-16T18:18:00.609Z'
-                  author: Lavina Marvin
+                  id: 1488
+                  title: The Third Man
+                  body: Here's looking at you, kid.
+                  created_at: '2022-12-19T16:39:19.154Z'
+                  author: Daisy Deckow
         '422':
-          description: abc
+          description: invalid request
           content:
             application/json:
               example:
@@ -271,13 +350,13 @@ paths:
             application/json:
               example:
                 comment:
-                  id: 36
-                  created_at: '2022-12-16T18:18:00.693Z'
-                  updated_at: '2022-12-16T18:18:00.693Z'
-                  body: What we've got here is failure to communicate.
+                  id: 597
+                  created_at: '2022-12-19T16:39:19.197Z'
+                  updated_at: '2022-12-19T16:39:19.197Z'
+                  body: You talking to me?
                   status: unpublished
-                  article_id: 170
-                  author_id: 184
+                  article_id: 1489
+                  author_id: 1889
                 like: []
     patch:
       summary: update comment
@@ -290,17 +369,17 @@ paths:
           content:
             application/json:
               example:
-                id: 37
-                body: What we've got here is failure to communicate.
+                id: 598
+                body: Toto, I've got a feeling we're not in Kansas anymore.
                 status: unpublished
-                author: Brittani Wilderman
-                created_at: '2022-12-16T18:18:00.722Z'
+                author: Sheldon Reinger
+                created_at: '2022-12-19T16:39:19.221Z'
                 article:
-                  id: 171
-                  title: Whiplash
-                  body: Go ahead, make my day.
-                  created_at: '2022-12-16T18:18:00.717Z'
-                  author: Brittani Wilderman
+                  id: 1490
+                  title: Heat
+                  body: Greetings, programs!
+                  created_at: '2022-12-19T16:39:19.217Z'
+                  author: Sheldon Reinger
       requestBody:
         content:
           application/json:
@@ -331,17 +410,17 @@ paths:
           content:
             application/json:
               example:
-                id: 38
-                body: What we've got here is failure to communicate.
+                id: 599
+                body: Greetings, programs!
                 status: unpublished
-                author: Raleigh Haley CPA
-                created_at: '2022-12-16T18:18:00.778Z'
+                author: Ida Braun
+                created_at: '2022-12-19T16:39:19.243Z'
                 article:
-                  id: 172
-                  title: North by Northwest
-                  body: Go ahead, make my day.
-                  created_at: '2022-12-16T18:18:00.745Z'
-                  author: Raleigh Haley CPA
+                  id: 1491
+                  title: Snatch
+                  body: I'm going to make him an offer he can't refuse.
+                  created_at: '2022-12-19T16:39:19.239Z'
+                  author: Ida Braun
       requestBody:
         content:
           application/json:
@@ -365,6 +444,100 @@ paths:
       summary: delete comment
       tags:
       - Comments
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: ok
+  "/api/v1/likes":
+    get:
+      summary: list likes
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: []
+    post:
+      summary: create like
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 202
+                likeable_type: Article
+                likeable_id: 1493
+                created_at: '2022-12-19T16:39:19.301Z'
+                updated_at: '2022-12-19T16:39:19.301Z'
+                author_id: 1893
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                author_id:
+                  type: integer
+                likeable_type:
+                  type: string
+                likeable_id:
+                  type: integer
+              required:
+              - author_id
+              - likeable_type
+              - likeable_id
+  "/api/v1/tags":
+    get:
+      summary: list tags
+      tags:
+      - Tags
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example: []
+    post:
+      summary: create tag
+      tags:
+      - Tags
+      parameters: []
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              example:
+                id: 360
+                name: marfa
+                created_at: '2022-12-19T16:39:19.317Z'
+                updated_at: '2022-12-19T16:39:19.317Z'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+  "/api/v1/tags/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete tag
+      tags:
+      - Tags
       responses:
         '200':
           description: successful

@@ -1,5 +1,5 @@
 class Api::V1::LikesController < ApplicationController
-  before_action :like_params, only: %i[like]
+  before_action :like_params, only: %i[create]
 
   def index
     @likes = Like.all
@@ -7,22 +7,19 @@ class Api::V1::LikesController < ApplicationController
     render json: @likes
   end
 
-  def like
+  def create
     @like = Like.new(like_params)
-    # @numb = @like.likeable_id
-    # @essence = @like.likeable_type.constantize.find(@numb)
-    # @like.likeable = @essence
-    # @likeable = params[:likeable_type].constantize.find(params[:likeable_id])
     @like.likeable = @like.likeable_type.constantize.find(@like.likeable_id)
-    # byebug
-    @like.save
-
-    render json: @like
+    if @like.save
+      render json: @like
+    else
+      render json: @like.errors.messages, status: 422
+    end
   end
 
   private
 
   def like_params
-  params.require(:like).permit(:title, :likeable_id, :likeable_type)
+    params.require(:like).permit(:author_id, :likeable_id, :likeable_type)
   end
 end

@@ -32,6 +32,7 @@ RSpec.describe 'api/v1/articles', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -69,6 +70,33 @@ RSpec.describe 'api/v1/articles', type: :request do
           expect(data['author']).to eq(author.name)
         end
       end
+
+      # response(422, 'invalid request') do
+      #   consumes 'application/json'
+      #   parameter name: :article, in: :body, schema: {
+      #     type: :object,
+      #     properties: {
+      #       title: { type: :string },
+      #       body: { type: :string },
+      #       status: { type: :string },
+      #       author_id: { type: :integer }
+      #     },
+      #     required: %w[title body author_id status]
+      #   }
+      #   after do |example|
+      #     example.metadata[:response][:content] = {
+      #       'application/json' => {
+      #         example: JSON.parse(response.body, symbolize_names: true)
+      #       }
+      #     }
+      #   end
+      #   let(:title) { Faker::Movie.title }
+      #   let(:body)  { Faker::Movie.quote }
+      #   let(:author) { Author.create(name: Faker::Name.name) }
+      #   let(:article) { { title: title, body: body, author_id: author.id } }
+
+      #   run_test!
+      # end
     end
   end
 
@@ -84,7 +112,6 @@ RSpec.describe 'api/v1/articles', type: :request do
         let(:author) { Author.create(name: Faker::Name.name) }
         let(:article) { Article.create(title: title, body: body, author_id: author.id) }
         let(:id) { article.id }
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
