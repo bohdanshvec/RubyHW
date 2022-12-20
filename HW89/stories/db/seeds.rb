@@ -36,10 +36,10 @@ end
 end
 
 10.times do
-  title = Faker::Alphanumeric.alpha(number: 3)
+  # title = Faker::Alphanumeric.alpha(number: 3)
   likeable_type = ["Article", "Comment"].sample
   likeable_id = (likeable_type == "Article" ? Article.ids.sample : Comment.ids.sample)
   likeable = likeable_type.constantize.find(likeable_id)
 
-  Like.create(likeable: likeable, title: title)
+  Like.create(likeable: likeable)#, title: title)
 end
