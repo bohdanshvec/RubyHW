@@ -2036,3 +2036,743 @@ Processing by Admin::ProductsController#index as HTML
 Completed 200 OK in 127ms (Views: 104.2ms | ActiveRecord: 2.2ms | Allocations: 43156)
 
 
+Started GET "/" for ::1 at 2022-12-26 21:41:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (17.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:7
+  Rendered categories/index.html.erb within layouts/application (Duration: 28.7ms | Allocations: 3079)
+  Rendered layouts/_alerts.html.erb (Duration: 10.0ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 15257.4ms | Allocations: 318820)
+Completed 200 OK in 15361ms (Views: 15273.0ms | ActiveRecord: 12.4ms | Allocations: 330560)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-26 21:42:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 1.0ms | Allocations: 2091)
+
+
+Started GET "/" for ::1 at 2022-12-26 21:42:21 +0200
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:7
+  Rendered categories/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 644)
+  Rendered layouts/_alerts.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 8530)
+Completed 200 OK in 44ms (Views: 34.6ms | ActiveRecord: 1.4ms | Allocations: 10177)
+
+
+Started GET "/admin" for ::1 at 2022-12-26 21:43:32 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (1.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/page/index.html.arb (Duration: 50.6ms | Allocations: 15973)
+Completed 200 OK in 111ms (Views: 54.4ms | ActiveRecord: 7.4ms | Allocations: 24862)
+
+
+Started GET "/admin/products" for ::1 at 2022-12-26 21:43:38 +0200
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 331.0ms | Allocations: 54850)
+Completed 200 OK in 382ms (Views: 332.2ms | ActiveRecord: 11.6ms | Allocations: 60054)
+
+
+Started GET "/admin/categories" for ::1 at 2022-12-26 21:43:43 +0200
+Processing by Admin::CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 93.4ms | Allocations: 33325)
+Completed 200 OK in 115ms (Views: 95.8ms | ActiveRecord: 2.4ms | Allocations: 37150)
+
+
+Started GET "/admin/products" for ::1 at 2022-12-26 21:43:46 +0200
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 101.3ms | Allocations: 39920)
+Completed 200 OK in 127ms (Views: 100.6ms | ActiveRecord: 2.9ms | Allocations: 43021)
+
+
+Started GET "/admin/products?q%5Bcategory_id_eq%5D=1&commit=Filter&order=id_desc" for ::1 at 2022-12-26 21:43:58 +0200
+Processing by Admin::ProductsController#index as HTML
+  Parameters: {"q"=>{"category_id_eq"=>"1"}, "commit"=>"Filter", "order"=>"id_desc"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = 1 ORDER BY "products"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  Rendered /home/dan/.rvm/gems/ruby-3.1.2/gems/activeadmin-2.13.1/app/views/active_admin/resource/index.html.arb (Duration: 98.8ms | Allocations: 39053)
+Completed 200 OK in 113ms (Views: 97.3ms | ActiveRecord: 4.6ms | Allocations: 42326)
+
+
+Started GET "/" for ::1 at 2022-12-26 21:51:33 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:7
+  Rendered products/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 2835)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 77.4ms | Allocations: 27036)
+Completed 200 OK in 114ms (Views: 79.2ms | ActiveRecord: 10.0ms | Allocations: 35922)
+
+
+Started GET "/" for ::1 at 2022-12-26 21:52:31 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:7
+  Rendered products/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 911)
+  Rendered layouts/_alerts.html.erb (Duration: 0.5ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 9373)
+Completed 200 OK in 32ms (Views: 26.0ms | ActiveRecord: 0.8ms | Allocations: 11698)
+
+
+Started GET "/" for ::1 at 2022-12-26 21:53:19 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:7
+  Rendered products/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 911)
+  Rendered layouts/_alerts.html.erb (Duration: 1.0ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 9373)
+Completed 200 OK in 38ms (Views: 32.2ms | ActiveRecord: 1.1ms | Allocations: 11666)
+
+
+Started GET "/" for ::1 at 2022-12-26 21:58:40 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:7
+  Rendered products/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1002)
+  Rendered layouts/_alerts.html.erb (Duration: 0.6ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 9481)
+Completed 200 OK in 34ms (Views: 26.9ms | ActiveRecord: 0.8ms | Allocations: 11789)
+
+
+Started GET "/..." for ::1 at 2022-12-26 21:58:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 21:59:46 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:11
+  Rendered products/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 956)
+  Rendered layouts/_alerts.html.erb (Duration: 1.5ms | Allocations: 168)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 9419)
+Completed 200 OK in 32ms (Views: 27.1ms | ActiveRecord: 0.7ms | Allocations: 11795)
+
+
+Started GET "/..." for ::1 at 2022-12-26 21:59:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 22:01:32 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:11
+  Rendered products/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 945)
+  Rendered layouts/_alerts.html.erb (Duration: 1.1ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 9424)
+Completed 200 OK in 59ms (Views: 47.8ms | ActiveRecord: 1.4ms | Allocations: 11686)
+
+
+Started GET "/..." for ::1 at 2022-12-26 22:01:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 22:02:14 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:11
+  Rendered products/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 941)
+  Rendered layouts/_alerts.html.erb (Duration: 1.2ms | Allocations: 168)
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | Allocations: 9404)
+Completed 200 OK in 66ms (Views: 53.7ms | ActiveRecord: 2.1ms | Allocations: 11645)
+
+
+Started GET "/..." for ::1 at 2022-12-26 22:02:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/info/routes" for ::1 at 2022-12-26 22:08:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/info/routes"):
+  
+Started GET "/" for ::1 at 2022-12-26 22:09:52 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:11
+  Rendered products/index.html.erb within layouts/application (Duration: 23.8ms | Allocations: 6269)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 6356)
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 19.9ms | Allocations: 16954)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+    12:   <img src="..." class="card-img-top" alt="...">
+    13:   <div class="card-body">
+    14:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    15:     <%= link_to product.name, product_path %>
+    16:   </div>
+    17:   <br>
+    18:   <% end %>
+  
+app/views/products/index.html.erb:15
+app/views/products/index.html.erb:11
+Started GET "/" for ::1 at 2022-12-26 22:21:14 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 33ms (ActiveRecord: 8.6ms | Allocations: 8678)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product without an ID):
+  
+app/controllers/products_controller.rb:13:in `set_product'
+Started GET "/" for ::1 at 2022-12-26 22:23:43 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 4456)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4541)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 13.8ms | Allocations: 10950)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to product.name, product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:25:42 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2266)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2352)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.3ms | Allocations: 4643)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:26:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 6747)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 6857)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 11.0ms | Allocations: 18632)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:26:04 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1979)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2059)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.7ms | Allocations: 3858)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:26:26 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2264)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 2350)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.3ms | Allocations: 4495)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to 'Product', product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:26:58 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1941)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2020)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms | Allocations: 3720)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to 'Product', product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/info/routes" for ::1 at 2022-12-26 22:27:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/info/routes"):
+  
+Started GET "/products/1" for ::1 at 2022-12-26 22:28:21 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 28.3ms | Allocations: 5864)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 5944)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.7ms | Allocations: 8937)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Product id: 1, name: "Vasilyok", description: "Summer dress", price: 0.1e4, image: nil, category_id: 1, created_at: "2022-12-22 20:04:17.838785000 +0000", updated_at: "2022-12-22 20:04:17.838785000 +0000">):
+    1:   <% @product.each do |product| %>
+    2:   <img src="..." class="card-img-top" alt="...">
+    3:   <div class="card-body">
+    4:     <h3><%= product.name%></h3>
+  
+app/views/products/show.html.erb:1
+Started GET "/" for ::1 at 2022-12-26 22:29:36 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4377)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4462)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 10.0ms | Allocations: 10897)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:34:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 19.6ms | Allocations: 6747)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 6857)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 11.7ms | Allocations: 18631)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started GET "/products/2" for ::1 at 2022-12-26 22:37:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 6398)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 6508)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 10.4ms | Allocations: 23421)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Product id: 2, name: "Dana", description: "Business formal suit", price: 0.2e4, image: "", category_id: 2, created_at: "2022-12-26 18:57:59.064949000 +0000", updated_at: "2022-12-26 18:57:59.064949000 +0000">):
+    1:   <% @product.each do |prod| %>
+    2:   <img src="..." class="card-img-top" alt="...">
+    3:   <div class="card-body">
+    4:     <h3><%= prod.name%></h3>
+  
+app/views/products/show.html.erb:1
+Started GET "/products/2" for ::1 at 2022-12-26 22:40:00 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 5785)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 5874)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.6ms | Allocations: 8752)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Product id: 2, name: "Dana", description: "Business formal suit", price: 0.2e4, image: "", category_id: 2, created_at: "2022-12-26 18:57:59.064949000 +0000", updated_at: "2022-12-26 18:57:59.064949000 +0000">):
+    1:   <% @product.each do |product| %>
+    2:   byebug
+    3:   <img src="..." class="card-img-top" alt="...">
+    4:   <div class="card-body">
+  
+app/views/products/show.html.erb:1
+Started GET "/products/2" for ::1 at 2022-12-26 22:40:13 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5792)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5881)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.2ms | Allocations: 8749)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Product id: 2, name: "Dana", description: "Business formal suit", price: 0.2e4, image: "", category_id: 2, created_at: "2022-12-26 18:57:59.064949000 +0000", updated_at: "2022-12-26 18:57:59.064949000 +0000">):
+    1:   byebug
+    2: 
+    3:   <% @product.each do |product| %>
+    4:   <img src="..." class="card-img-top" alt="...">
+    5:   <div class="card-body">
+    6:     <h3><%= product.name%></h3>
+  
+app/views/products/show.html.erb:3
+Started GET "/products/2" for ::1 at 2022-12-26 22:41:42 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+Completed 500 Internal Server Error in 104088ms (ActiveRecord: 7.4ms | Allocations: 75561)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `set_product'
+app/controllers/products_controller.rb:16:in `set_product'
+Started GET "/products/2" for ::1 at 2022-12-26 22:43:37 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+Completed 500 Internal Server Error in 12456ms (ActiveRecord: 5.2ms | Allocations: 557120)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `set_product'
+app/controllers/products_controller.rb:16:in `set_product'
+Started GET "/products/2" for ::1 at 2022-12-26 22:43:58 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 45552)
+  Rendered layouts/_alerts.html.erb (Duration: 9.9ms | Allocations: 66564)
+  Rendered layout layouts/application.html.erb (Duration: 4488.7ms | Allocations: 27271937)
+Completed 200 OK in 5045ms (Views: 4514.3ms | ActiveRecord: 18.0ms | Allocations: 30847389)
+
+
+Started GET "/products/..." for ::1 at 2022-12-26 22:44:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/products/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 22:44:24 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 341.2ms | Allocations: 2403631)
+  Rendered layout layouts/application.html.erb (Duration: 349.9ms | Allocations: 2463500)
+Completed 500 Internal Server Error in 492ms (ActiveRecord: 4.9ms | Allocations: 3344549)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"products"}, missing required keys: [:id]
+Did you mean?  product_url):
+     7:   <img src="..." class="card-img-top" alt="...">
+     8:   <div class="card-body">
+     9:     <p class="card-text"><%= product.price.to_i %> грн.</p>
+    10:     <%= link_to "#{product.name}", product_path %>
+    11:   </div>
+    12:   <br>
+    13:   <% end %>
+  
+app/views/products/index.html.erb:10
+app/views/products/index.html.erb:6
+Started GET "/" for ::1 at 2022-12-26 22:46:15 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 70.4ms | Allocations: 423344)
+  Rendered layouts/_alerts.html.erb (Duration: 9.3ms | Allocations: 70825)
+  Rendered layout layouts/application.html.erb (Duration: 772.8ms | Allocations: 5071342)
+Completed 200 OK in 934ms (Views: 801.3ms | ActiveRecord: 8.2ms | Allocations: 6051486)
+
+
+Started GET "/..." for ::1 at 2022-12-26 22:46:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/products/1" for ::1 at 2022-12-26 22:46:24 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 11.6ms | Allocations: 71428)
+  Rendered layouts/_alerts.html.erb (Duration: 2.6ms | Allocations: 23266)
+  Rendered layout layouts/application.html.erb (Duration: 783.1ms | Allocations: 4587133)
+Completed 200 OK in 963ms (Views: 809.1ms | ActiveRecord: 7.2ms | Allocations: 5745497)
+
+
+Started GET "/products/..." for ::1 at 2022-12-26 22:46:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/products/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 22:55:06 +0200
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 281.4ms | Allocations: 1954200)
+  Rendered layouts/_alerts.html.erb (Duration: 9.0ms | Allocations: 70825)
+  Rendered layout layouts/application.html.erb (Duration: 1757.7ms | Allocations: 12352635)
+Completed 200 OK in 2460ms (Views: 1785.3ms | ActiveRecord: 58.7ms | Allocations: 16666059)
+
+
+Started GET "/..." for ::1 at 2022-12-26 22:55:15 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/products/1" for ::1 at 2022-12-26 22:55:19 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (3.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (4.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:9
+  Rendered products/show.html.erb within layouts/application (Duration: 290.9ms | Allocations: 1611467)
+  Rendered layouts/_alerts.html.erb (Duration: 3.6ms | Allocations: 23266)
+  Rendered layout layouts/application.html.erb (Duration: 1111.9ms | Allocations: 6125859)
+Completed 200 OK in 1310ms (Views: 1114.3ms | ActiveRecord: 24.6ms | Allocations: 7430573)
+
+
+Started GET "/products/..." for ::1 at 2022-12-26 22:55:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/products/..."):
+  
+Started GET "/products/1" for ::1 at 2022-12-26 23:00:13 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:15:in `set_product'
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 81230)
+  Rendered layouts/_alerts.html.erb (Duration: 11.8ms | Allocations: 70827)
+  Rendered layout layouts/application.html.erb (Duration: 1623.2ms | Allocations: 10465328)
+Completed 200 OK in 2715ms (Views: 1657.2ms | ActiveRecord: 35.3ms | Allocations: 17489910)
+
+
+Started GET "/products/..." for ::1 at 2022-12-26 23:00:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/products/..."):
+  
+Started GET "/" for ::1 at 2022-12-26 23:03:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (16.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 5259)
+  Rendered layouts/_alerts.html.erb (Duration: 0.5ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 335.3ms | Allocations: 76308)
+Completed 200 OK in 409ms (Views: 332.9ms | ActiveRecord: 13.5ms | Allocations: 88126)
+
+
+Started GET "/..." for ::1 at 2022-12-26 23:03:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/..."):
+  
+Started GET "/products/1" for ::1 at 2022-12-26 23:03:54 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:15:in `set_product'
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 173)
+  Rendered layouts/_alerts.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 8140)
+Completed 200 OK in 66ms (Views: 31.2ms | ActiveRecord: 9.2ms | Allocations: 14114)
+
+
+Started GET "/products/..." for ::1 at 2022-12-26 23:03:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/products/..."):
+  

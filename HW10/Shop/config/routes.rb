@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "categories#index"
+  root "products#index"
   # root "devise/registrations#new"
   # root "users#new"
   resources :categories, only: %i[index]
-  resources :products, only: %i[index]
+  resources :products, only: %i[index show]
 
 end

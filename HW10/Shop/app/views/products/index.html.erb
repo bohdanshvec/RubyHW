@@ -3,12 +3,11 @@
 
 <br>
 
-
   <% @products.each do |product| %>
-    <h2><%= product.name %></h2>
-    <p><%= product.description %></p>
-    <h3><%= product.price %></h3>
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"><%= product.price.to_i %> грн.</p>
+    <%= link_to "#{product.name}", product_path(product) %>
+  </div>
+  <br>
   <% end %>
-
-
-
