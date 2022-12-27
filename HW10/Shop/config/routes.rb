@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root "products#index"
 
-  resources :categories, only: %i[index]
+  resources :categories, only: %i[index show]
   resources :products, only: %i[index show]
 
 end

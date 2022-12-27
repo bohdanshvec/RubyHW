@@ -1,0 +1,13 @@
+<h1>Products in Category <%= @category.title%></h1>
+
+<br>
+
+  <% @products.each do |product| %>
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"><%= product.price.to_i %> грн.</p>
+    <p class="card-text"><%= product.description %> </p>
+
+  </div>
+  <br>
+  <% end %>
