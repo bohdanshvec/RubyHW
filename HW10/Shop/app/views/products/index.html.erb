@@ -12,24 +12,14 @@
     </ul> 
 </div>
 
-<div id="viewport">
   <!-- Content -->
-  <div id="content">
-    <div class="container-fluid">
-      <div class="row">
+    <div class="container">
         <h3 class="text-center">Our Collection</h3>
-      </div>
-      <div class="row">
         <% @products.each do |product| %>
-          <%= link_to product, class: "card p-0 mt-3 mx-auto shadow-sm" do %>
-          <img src=<%= product.image %> class="card-img-top" alt=<%= product.name %>>
+          <%= link_to product do %>
+          <img src="<%= product.image %>" alt="<%= product.name %>" height="100" width="100">
           <% end %>
-            <div class="card-body px">
               <h5 class="card-title text-center"><%= product.name %></h5>
-              <p class="card-price mt-auto text-end"><%= product.price.to_i %> грн.</p>
-            </div>
+              <p class="card-title text-center"><%= product.price.to_i %> грн.</p>
         <% end %>
-      </div>
     </div>
-  </div>
-</div>

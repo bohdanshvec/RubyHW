@@ -1,24 +1,22 @@
-# README
+# HW 10
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Create database
 
-Things you may want to cover:
 
-* Ruby version
+### Type in console:
 
-* System dependencies
+```sh
+rails db:create
+```
 
-* Configuration
+```sh
+rails db:migrate
+```
 
-* Database creation
+```sh
+rails db:seed
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+rails s
+```
