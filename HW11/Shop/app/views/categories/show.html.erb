@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Products in Category <%= @category.title%></h1>
+  <br>
+  <% @products.each do |product| %>
+    <%= link_to product do %>
+      <img src="<%= product.image %>" alt="<%= product.name %>" height="200" width="200">
+    <% end %>
+    <%= render 'layouts/button_add_cart' %>
+    <div class="card-body">
+      <p class="card-text"><%= product.price.to_i %> грн.</p>
+      <p class="card-text"><%= product.description %> </p>
+    </div>
+  <br>
+  <% end %>
+</div>

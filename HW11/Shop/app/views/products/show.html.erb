@@ -1,0 +1,11 @@
+  <div class="container">
+    <img src="<%= @product.image %>" alt="<%= @product.name %>" height="300" width="300">
+    <%= render 'layouts/button_add_cart' %>
+    <h3><%= @product.name %></h3>
+      <p class="card-text"><%= @product.price.to_i %> грн.</p>
+        <div>
+          <h5><%= @product.description %></h5>
+        </div>
+      <br>
+    <h6>Category: <%= @category.title %></h6>
+  </div>

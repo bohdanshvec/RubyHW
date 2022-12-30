@@ -1,0 +1,12 @@
+    <div class="container">
+        <h3>Our Collection</h3>
+        <% @products.each do |product| %>
+          <%= link_to product do %>
+          <img src="<%= product.image %>" alt="<%= product.name %>" height="100" width="100">
+          <% end %>
+              <%= render 'layouts/button_add_cart' %>
+              <h5><%= product.name %></h5>
+              <h5><%= product.price.to_i %> грн.</h5>
+              <br>
+        <% end %>
+    </div>
