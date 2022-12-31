@@ -5,7 +5,7 @@ RSpec.describe 'api/v1/articles', type: :request do
   path '/' do
 
     get('list articles') do
-      tags 'Articles'
+      tags '/'
       response(200, 'successful') do
 
         after do |example|
@@ -23,8 +23,19 @@ RSpec.describe 'api/v1/articles', type: :request do
   path '/api/v1/articles' do
     get('list articles') do
       tags 'Articles'
-      response(200, 'successful') do
+      
+      # parameter name: :author, in: :query, schema: { type: :string },
+      #   description: 'Get articles by a specific author'
+      # parameter name: :tags_ids, in: :query, schema: { type: :string },
+      #   description: 'Filter articles by tags'
 
+
+      # parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },
+      # description: 'Get articles with status: published/unpublished'
+
+      response(200, 'successful') do
+      parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },
+                description: 'To filter Article by status: published/unpublished'
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {

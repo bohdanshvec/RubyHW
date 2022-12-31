@@ -12,6 +12,7 @@ RSpec.describe 'api/v1/likes', type: :request do
   path '/api/v1/likes' do
 
     get('list likes') do
+      tags 'Likes'
       response(200, 'successful') do
 
         after do |example|
@@ -26,6 +27,7 @@ RSpec.describe 'api/v1/likes', type: :request do
     end
 
     post('create like') do
+      tags 'Likes'
       response(200, 'successful') do
         consumes 'application/json'
         parameter name: :like, in: :body, schema: {

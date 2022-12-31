@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show]
   resources :products, only: %i[index show]
   get '/cart', to: 'carts#show', as: 'cart'
+  resources :line_items, only: :create
 
 end
