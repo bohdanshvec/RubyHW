@@ -5,7 +5,9 @@
     <%= link_to product do %>
       <img src="<%= product.image %>" alt="<%= product.name %>" height="200" width="200">
     <% end %>
-    <%= render 'layouts/button_add_cart' %>
+    <% if current_user %>
+      <%= button_to "Add to cart", line_items_path(product_id: product.id), class: 'btn btn-primary' %>
+    <% end %>
     <div class="card-body">
       <p class="card-text"><%= product.price.to_i %> грн.</p>
       <p class="card-text"><%= product.description %> </p>

@@ -1,34 +1,29 @@
-<h1>Cart</h1>
-
-<%
-=begin%>
- <% if current_cart.line_items.eny? %> 
-<%
-=end%>
-  <table class="table">
-      <tr>
-        <th scope="col">Image</th>
-        <th scope="col">Name</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-      </tr>
-    <% current_cart.line_items.each do |line_item|%>
-      <tr>
-        <%
-=begin%>
- <td><%= image_tag image_url(line_item.product.name), width: 150, height: 150 %></td>
-        <td><%= line_item.product.name %></td>
-        <td><%= line_item.quantity %></td> 
-<%
-=end%>
-        <td><%= line_item.price %></td>
-      </tr>
-    <% end %>
-  </table>
-<%
-=begin%>
- <% else %>
-  <p>Currently no items in the cart.</p>
-<% end %> 
-<%
-=end%>
+<% if current_cart.line_items.any? %>
+  <div class="container">
+    <h1>Cart</h1>
+    <table class="table">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      <% current_cart.line_items.each do |line_item| %>
+        <tr>
+          <td><img src="<%= line_item.product.image %>" height="100" width="100"></td> 
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.quantity %></td> 
+          <td><%= line_item.price %></td>
+        </tr>
+      <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total price :</td>
+          <td><%= current_cart.summ_price %></td>
+        </tr>
+    </table>
+  </div>
+<% else %>
+  <p>Your cart is empty</p>
+<% end %>
