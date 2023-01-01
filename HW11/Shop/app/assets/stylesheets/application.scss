@@ -14,4 +14,18 @@
  *= require_self
  */
 $primary: #c11;
-@import "bootstrap"
+@import 'bootstrap';
+// .cont2 {
+//   border: red 10px solid;
+// }
+// .div23 {
+//   display: flex;
+//   flex-direction: row;
+// }
+.hhh {
+  height: 100vh;
+  width: max-content;
+}
+.mm {
+  display: flex;
+}

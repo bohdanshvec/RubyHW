@@ -13,10 +13,12 @@
 
   <body>
     <header>
-      <%= render 'layouts/alerts' %>
       <%= render 'layouts/navbar' %>
-      <%= render 'layouts/sidebar' %>
+      <%= render 'layouts/alerts' %>
     </header>
+    <main class='mm'>
+      <%= render 'layouts/sidebar' %>
       <%= yield %>
+      </main>
   </body>
 </html>
