@@ -1,6 +1,4 @@
-
- <% if current_cart.line_items.any? %> 
-
+<% if current_cart.line_items.any? %>
   <div class="container">
     <h1>Cart</h1>
     <table class="table">
@@ -19,15 +17,13 @@
         </tr>
       <% end %>
         <tr>
-          <td></td>
+          <td><%= button_to "Place an ORDER", orders_path, class: 'btn btn-primary' %></td>
           <td></td>
           <td>Total price :</td>
           <td><%= current_cart.summ_price %></td>
         </tr>
     </table>
   </div>
-
- <% else %>
+<% else %>
   <p>Your cart is empty</p>
-<% end %> 
-
+<% end %>

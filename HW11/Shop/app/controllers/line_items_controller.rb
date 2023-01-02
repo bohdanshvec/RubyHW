@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :quantity_chenge, only: %i[quantity_plus quantity_reduce]
 
   def create
