@@ -23,15 +23,12 @@ RSpec.describe 'api/v1/articles', type: :request do
   path '/api/v1/articles' do
     get('list articles') do
       tags 'Articles'
+      parameter name: :search, in: :query, type: :string, description: 'Search posts by keywords from title or body'
+      parameter name: :author, in: :query, type: :string, description: 'Filter posts by author name'
+      parameter name: :tags, in: :query, type: :string, description: 'Filter posts by tags'
+      parameter name: :sort, in: :query, type: :string, description: 'Sort posts by titles: asc/desc'
+      parameter name: :page, in: :query, type: :integer, description: 'Choose page'
       
-      # parameter name: :author, in: :query, schema: { type: :string },
-      #   description: 'Get articles by a specific author'
-      # parameter name: :tags_ids, in: :query, schema: { type: :string },
-      #   description: 'Filter articles by tags'
-
-
-      # parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },
-      # description: 'Get articles with status: published/unpublished'
 
       response(200, 'successful') do
       parameter name: :status, in: :query, schema: { type: :string, enum: %w[unpublished published] },

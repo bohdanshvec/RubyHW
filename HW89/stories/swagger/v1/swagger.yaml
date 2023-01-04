@@ -12,15 +12,37 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: []
   "/api/v1/articles":
     get:
       summary: list articles
       tags:
       - Articles
       parameters:
+      - name: search
+        in: query
+        description: Search posts by keywords from title or body
+        schema:
+          type: string
+      - name: author
+        in: query
+        description: Filter posts by author name
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Filter posts by tags
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: 'Sort posts by titles: asc/desc'
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Choose page
+        schema:
+          type: integer
       - name: status
         in: query
         schema:
@@ -32,9 +54,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: []
     post:
       summary: create article
       tags:
@@ -43,15 +62,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 1856
-                title: 'The Lord of the Rings: The Return of the King'
-                body: May the Force be with you.
-                created_at: '2022-12-31T15:46:51.268Z'
-                author: Forest Kirlin
-                comments: []
       requestBody:
         content:
           application/json:
@@ -86,15 +96,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 1857
-                title: Shutter Island
-                body: Toto, I've got a feeling we're not in Kansas anymore.
-                created_at: '2022-12-31T15:46:51.296Z'
-                author: Stephan Koepp
-                comments: []
     patch:
       summary: update article
       tags:
@@ -103,15 +104,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 1858
-                title: Rush
-                body: Go ahead, make my day.
-                created_at: '2022-12-31T15:46:51.313Z'
-                author: Sandy Gorczany IV
-                comments: []
       requestBody:
         content:
           application/json:
@@ -139,15 +131,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 1859
-                title: The Matrix
-                body: Greetings, programs!
-                created_at: '2022-12-31T15:46:51.332Z'
-                author: Carl Carter LLD
-                comments: []
       requestBody:
         content:
           application/json:
@@ -174,9 +157,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: ok
   "/api/v1/articles/{article_id}/tags/{id}":
     parameters:
     - name: article_id
@@ -198,10 +178,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                data: Tag 'bvb' added in Article Double Indemnity
   "/api/v1/authors":
     get:
       summary: list authors
@@ -210,37 +186,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-              - id: 641
-                created_at: '2022-12-19T10:18:36.036Z'
-                updated_at: '2022-12-19T10:18:36.036Z'
-                name: Odis Rowe Ret.
-              - id: 696
-                created_at: '2022-12-19T10:23:27.382Z'
-                updated_at: '2022-12-19T10:23:27.382Z'
-                name: Versie Moen IV
-              - id: 657
-                created_at: '2022-12-19T10:19:46.524Z'
-                updated_at: '2022-12-19T10:19:46.524Z'
-                name: Domingo Crist
-              - id: 673
-                created_at: '2022-12-19T10:20:51.590Z'
-                updated_at: '2022-12-19T10:20:51.590Z'
-                name: Evonne Kemmer
-              - id: 618
-                created_at: '2022-12-19T10:17:30.824Z'
-                updated_at: '2022-12-19T10:17:30.824Z'
-                name: Salvatore Dach
-              - id: 689
-                created_at: '2022-12-19T10:21:29.591Z'
-                updated_at: '2022-12-19T10:21:29.591Z'
-                name: Allen Schumm
-              - id: 634
-                created_at: '2022-12-19T10:17:45.393Z'
-                updated_at: '2022-12-19T10:17:45.393Z'
-                name: Rep. Gary Bauch
     post:
       summary: create author
       tags:
@@ -249,13 +194,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 2356
-                created_at: '2022-12-31T15:46:51.434Z'
-                updated_at: '2022-12-31T15:46:51.434Z'
-                name: Les Reilly
       requestBody:
         content:
           application/json:
@@ -289,9 +227,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: []
     post:
       summary: create comment
       tags:
@@ -300,27 +235,8 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 752
-                body: I love the smell of napalm in the morning.
-                status: unpublished
-                author: Jefferey Quitzon
-                created_at: '2022-12-31T15:46:51.498Z'
-                article:
-                  id: 1862
-                  title: The Shining
-                  body: Go ahead, make my day.
-                  created_at: '2022-12-31T15:46:51.464Z'
-                  author: Jefferey Quitzon
         '422':
           description: invalid request
-          content:
-            application/json:
-              example:
-                article:
-                - must exist
       requestBody:
         content:
           application/json:
@@ -355,18 +271,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                comment:
-                  id: 753
-                  created_at: '2022-12-31T15:46:51.528Z'
-                  updated_at: '2022-12-31T15:46:51.528Z'
-                  body: May the Force be with you.
-                  status: unpublished
-                  article_id: 1863
-                  author_id: 2360
-                like: []
     patch:
       summary: update comment
       tags:
@@ -375,20 +279,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 754
-                body: All right, Mr. DeMille, I'm ready for my closeup.
-                status: unpublished
-                author: Amiee Stoltenberg
-                created_at: '2022-12-31T15:46:51.554Z'
-                article:
-                  id: 1864
-                  title: Rush
-                  body: Here's looking at you, kid.
-                  created_at: '2022-12-31T15:46:51.549Z'
-                  author: Amiee Stoltenberg
       requestBody:
         content:
           application/json:
@@ -416,20 +306,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 755
-                body: I'm going to make him an offer he can't refuse.
-                status: unpublished
-                author: Rhett Green
-                created_at: '2022-12-31T15:46:51.577Z'
-                article:
-                  id: 1865
-                  title: Apocalypse Now
-                  body: Go ahead, make my day.
-                  created_at: '2022-12-31T15:46:51.572Z'
-                  author: Rhett Green
       requestBody:
         content:
           application/json:
@@ -456,9 +332,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: ok
   "/api/v1/likes":
     get:
       summary: list likes
@@ -467,9 +340,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: []
     post:
       summary: create like
       tags:
@@ -478,15 +348,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 264
-                likeable_type: Article
-                likeable_id: 1867
-                created_at: '2022-12-31T15:46:51.638Z'
-                updated_at: '2022-12-31T15:46:51.638Z'
-                author_id: 2364
       requestBody:
         content:
           application/json:
@@ -511,9 +372,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: []
     post:
       summary: create tag
       tags:
@@ -522,13 +380,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example:
-                id: 453
-                name: hashtag
-                created_at: '2022-12-31T15:46:51.654Z'
-                updated_at: '2022-12-31T15:46:51.654Z'
       requestBody:
         content:
           application/json:
@@ -554,9 +405,6 @@ paths:
       responses:
         '200':
           description: successful
-          content:
-            application/json:
-              example: ok
 servers:
 - url: http://{defaultHost}
   variables:
