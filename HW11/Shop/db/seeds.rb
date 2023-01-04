@@ -24,9 +24,9 @@ Category.create(title: 'Summer dress')
     price: 1000,
     category_id: 3)
 
-  Product.create(name: 'Краса',
+  Product.create(name: 'Роза',
     description: 'Полюбляючи зручні речі й не надаючи перевагу естетиці без комфорту, сучасні жінки радо наповнюють гардероб саме такими сукнями, як ця! Неймовірно жіночна, зі зручною довжиною до коліна та з елегантною горловиною-човником, яка трішки відкриває ключиці, вона не сковує рухів і в одну мить стає стильною частиною повсякденного образу. Бежевий колір з тендітним принтом прикрашений вставками з екошкіри по плечах. Довгий спущений рукав і пояс, який за потреби можна одягати, а можна й залишити вдома.',
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTobvLgaJvXHLToCzZlu39XR9z_n-bV1Ub8jR6J-wgc&s",
+    image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR7X7v8GB08eJWVv2cphBFzFvYcXzzVDPFIt-lHprVxREdHDH8ucrHoZ1mwbobrNj6hveLu8tzpO3qRKsCuKc9cGjJTRnIottNwXfTiyGSN6vFM6666L7QNTA&usqp=CAE",
     price: 1500,
     category_id: 2)
 
@@ -38,7 +38,7 @@ Category.create(title: 'Summer dress')
 
   Product.create(name: 'Отава',
     description: 'Мода – циклічна, і ця стильна сукня з інтернет-магазину якнайкраще демонструє торжество крою з 80-х! Модель, представлена на сайті жіночого одягу, пошита з костюмного кріплення в приталеному силуеті з обємними рукавами, прилаштованими по окату. А ніжний, небесно-блакитний відтінок і круглий виріз горловини підкреслюють, наскільки це гарна сукня з жіночним підтекстом.',
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTobvLgaJvXHLToCzZlu39XR9z_n-bV1Ub8jR6J-wgc&s",
+    image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSSYEENaCxaeAPDLnWNPONidxzGrtGIpFNihBzkKu1tAZxFKGfxmUnh1t1WiuYUSCs-unHivLCPDLfcxspuKowQNLHtR2RAuZs8foqlswzmmGPmTswsZoyE&usqp=CAE",
     price: 1500,
     category_id: 1)
 
@@ -62,7 +62,7 @@ Category.create(title: 'Summer dress')
 
   Product.create(name: 'Пава',
     description: 'Якщо взяти за базу маленьку чорну сукню, яка панує в жіночих гардеробах вже декілька століть, і зробити її максимально універсальною – вийде саме така модель. Ця трикотажна сукня чорного кольору крою, який ладно облягає фігуру, здатна трансформуватись під ваш настрій. Сьогодні вона – стримано романтична, завтра – по-діловому сучасна, післязавтра – пасує до джинсової куртки та кросівок. І, звичайно, в ній є цікавинка від дизайнерів – декоративні шви з імітацією майки.',
-    image: "https://lesyashop.com.ua/catalog/sale/131406/",
+    image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTL1fXh-pVVOpHZM5_XbZ5NOTi12SJYVIpU8EkceDR0zGRfql4R4ggvG0tcMcqt28lnxgnSuJN3jxaxxSwc1575k2iNGkwE&usqp=CAE",
     price: 1200,
     category_id: 5)
 

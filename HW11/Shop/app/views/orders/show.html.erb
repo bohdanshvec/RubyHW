@@ -20,10 +20,10 @@
       <% end %>
         <tr>
           <td></td>
-          <td><%= button_to "Back to cart", cart_path, method: :get, class: 'btn btn-primary' %></td>
+          <td><%= link_to 'DELETE ORDER', order_path(@order), data: {'turbo-method': :delete}, class: 'btn btn-danger' %></td>
           <td></td>
           <td>Total price :</td>
-          <td><%= current_cart.summ_price %><%= button_to "PAY", order_path, method: :patch, class: 'btn btn-primary' %></td>
+          <td><%= @order.cart.line_items.map(&:price).sum %><%= button_to "PAY", order_path, method: :patch, class: 'btn btn-primary' %></td>
         </tr>
     </table>
 </div>

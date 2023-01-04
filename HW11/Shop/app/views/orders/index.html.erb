@@ -1,0 +1,35 @@
+<% if Order.any? %>
+  <div class="container">  
+    <h1>All your Orders</h1>
+    <table class="table">
+      <% @orders.each do |order| %>
+        <td><h2>ORDER # <%= order.id %></h2></td>
+        <td><h2>Status : <%= order.status %></h2></td>
+        <td><h2>Created : <%= order.created_at %></h2></td>
+        <tr>
+          <th scope="col">Name :</th>
+          <th scope="col">Quantity :</th>
+        </tr>
+        <% order.cart.line_items.each do |line_item| %>
+        <tr>
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.quantity %></td>
+        </tr>
+        <% end %>
+        <tr>
+        <% if order.status == 'unpaid' %>
+          <td><%= button_to "PAY", order_path(order), method: :patch, class: 'btn btn-primary' %></td>
+        <% else %>
+          <td>Paid : <%= order.updated_at %></td>
+        <% end %>
+          <td>Order payment amount : <%= order.cart.line_items.map(&:price).sum %>  <%= link_to 'DELETE ORDER', order_path(order), data: {'turbo-method': :delete}, class: 'btn btn-danger' %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+  </div>
+<% else %>
+  <p>Your order list is empty</p>
+<% end %>
