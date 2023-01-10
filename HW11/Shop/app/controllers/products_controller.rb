@@ -2,8 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show]
 
   def index
+    # byebug
     @products = Product.all
-    @categories = Category.all
+    @products = @products.where(category_id: params[:format]) if params[:format]
+    # @categories = Category.all
   end
 
   def show

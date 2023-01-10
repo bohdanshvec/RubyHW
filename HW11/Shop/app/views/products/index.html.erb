@@ -6,13 +6,13 @@
           <div>
           <%= link_to product do %>
           <img src="<%= product.image %>" alt="<%= product.name %>" height="300">
-          <% end %>
           <% if current_user %>
-            <%= button_to "Add to cart", line_items_path(product_id: product.id), class: 'btn btn-primary' %>
+            <%= button_to "Add to cart", line_items_path(product_id: product.id), class: "btn btn-outline-light me-2" %>
           <% end %>
           <h5><%= product.name %></h5>
-          <h5><%= product.price.to_i %> грн.</h5>
+          <h5><%= number_to_currency(product.price) %> грн.</h5>
           <br>
+          <% end %>
           </div>
         <% end %>
       </div>

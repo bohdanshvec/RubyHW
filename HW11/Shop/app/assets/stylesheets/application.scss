@@ -26,9 +26,15 @@ $primary: #c11;
   height: 100vh;
   width: max-content;
 }
+
+.ddd {
+  justify-content: right;
+}
+
 .mm {
   display: flex;
 }
+
 .div24 {
   display: flex;
   flex-wrap: wrap;

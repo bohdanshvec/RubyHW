@@ -14,5 +14,11 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  # show do
+  #   h3 product.name
+  #   div do
+  #     simple_format product.image
+  #   end
+  # end
   
 end

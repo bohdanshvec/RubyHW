@@ -30,29 +30,6 @@ class ApplicationController < ActionController::Base
     cookies[:cart_id] = nil
   end
 
-
-
-  # TOLIKA CODE:
-
-  # def current_cart
-  #   @current_cart ||= Cart.find(cookies_cart_id)
-  # rescue ActiveRecord::RecordNotFound
-  #   @current_cart = Cart.create(user_id: current_user.id)
-  #   cookies[current_user.id] = { cart_id: @current_cart.id }
-  #   @current_cart
-  # end
-
-  # def cookies_cart_id
-  #   if cookies[current_user.id].present? 
-  #       cookies[current_user.id][:cart_id]
-  #   end
-  # end
-
-  # def reset_cart
-  #   Cart.find(cookies_cart_id).destroy
-  #   cookies[current_user.id] = nil
-  # end
-
   helper_method :current_cart
   helper_method :reset_cart
 end
