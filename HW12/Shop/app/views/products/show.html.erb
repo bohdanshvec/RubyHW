@@ -1,0 +1,19 @@
+  <div class="container">
+    <h3><%= @product.name %></h3>
+    <div class="container mm">
+    <div>
+      <img src="<%= @product.image %>" alt="<%= @product.name %>" height="300">
+        <% if current_user %>
+          <%= button_to "Add to cart", line_items_path(product_id: @product.id), class: "btn btn-outline-light me-2" %>
+        <% end %>
+        <p class="card-text"><%= number_to_currency(@product.price) %> грн.</p>
+    </div>
+    <div class="container">
+      <div>
+        <h5><%= @product.description %></h5>
+      </div>
+      <br>
+    <h6>Category: <%= @category.title %></h6>
+    </div>
+    </div>
+  </div>
