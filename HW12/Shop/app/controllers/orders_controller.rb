@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[update destroy]
 
   def index
-    @orders = current_user.orders.all
+    @orders = current_user.orders.includes([:cart])
   end
 
   def create
