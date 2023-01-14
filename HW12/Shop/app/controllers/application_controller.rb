@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  helper_method :current_cart
+
+  def category_all
+    Category.all
+  end
+  
   def current_cart
     if Cart.find(cookies[:cart_id]).user_id == current_user.id
       Cart.find(cookies[:cart_id])
@@ -16,12 +22,4 @@ class ApplicationController < ActionController::Base
     cookies[:cart_id] = cart.id
     cart
   end
-
-  def reset_cart
-    # Cart.find(cookies[:cart_id]).destroy
-    cookies[:cart_id] = nil
-  end
-
-  helper_method :current_cart
-  helper_method :reset_cart
 end
