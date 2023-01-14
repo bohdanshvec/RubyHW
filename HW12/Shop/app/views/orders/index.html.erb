@@ -1,14 +1,14 @@
-<% if Order.any? %>
-  <div class="container">  
+<% if @order %>
+  <div class='container'>  
     <h1>All your Orders</h1>
-    <table class="table">
-      <% @orders.each do |order| %>
+    <table class='table'>
+      <% @orders.includes([:cart]).each do |order| %>
         <td><h2 style='color: red'>ORDER № <%= order.id %></h2></td>
         <td><h2>Status : <%= order.status %></h2></td>
         <td><h3>Created : <%= order.created_at.strftime('%d-%m-%Y') %></h3></td>
         <tr>
-          <th scope="col">Name :</th>
-          <th scope="col">Quantity :</th>
+          <th scope='col'>Name :</th>
+          <th scope='col'>Quantity :</th>
         </tr>
         <% order.cart.line_items.includes([:product]).each do |line_item| %>
         <tr>
@@ -18,7 +18,7 @@
         <% end %>
         <tr>
         <% if order.status == 'unpaid' %>
-          <td><%= button_to "PAY", order_path(order), method: :patch, class: 'btn btn-outline-light me-2' %></td>
+          <td><%= button_to 'PAY', order_path(order), method: :patch, class: 'btn btn-outline-light me-2' %></td>
         <% else %>
           <td style='color: green'>Order paid : <%= order.updated_at.strftime('%d-%m-%Y') %></td>
         <% end %>
@@ -26,7 +26,7 @@
           <td>
             <div class='mm'>
               <%= link_to 'DELETE ORDER', order_path(order), data: {'turbo-method': :delete}, class: 'btn btn-danger text-white' %>
-              <%= button_to "SHOW ORDER", order_path(order), method: :get, class: 'btn btn-outline-light me-2' %></td>
+              <%= button_to 'SHOW ORDER', order_path(order), method: :get, class: 'btn btn-outline-light me-2' %></td>
             </div>
           </td>
         </tr>

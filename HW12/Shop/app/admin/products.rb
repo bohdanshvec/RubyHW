@@ -30,20 +30,21 @@ ActiveAdmin.register Product do
   index do
     column :id
     active_admin_config.resource_columns.each do |attribute|
-      if attribute == :description
+      case attribute
+      when :description
         column attribute do |body|
           body.description.truncate 100
         end
-      elsif attribute == :image
+      when :image
         column attribute do |foto|
-          image_tag foto.image, size: "50x50"
+          image_tag foto.image, size: '50x50'
         end
-      elsif attribute == :price
+      when :price
         column attribute do |price_tag|
           number_to_currency(price_tag.price)
         end
       else
-      column attribute
+        column attribute
       end
     end
     actions
@@ -64,7 +65,4 @@ ActiveAdmin.register Product do
       row :updated_at
     end
   end
-
 end
-
-

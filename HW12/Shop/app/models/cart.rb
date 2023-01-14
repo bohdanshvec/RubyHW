@@ -23,6 +23,6 @@ class Cart < ApplicationRecord
   end
 
   def sum_price
-    line_items.map(&:price).sum
+    line_items.pluck(:price).sum
   end
 end

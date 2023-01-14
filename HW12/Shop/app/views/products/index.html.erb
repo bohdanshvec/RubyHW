@@ -3,8 +3,7 @@
     <section class='cont'>
       <div class='div24'>
         <% @products.each do |product| %>
-          <div class='border'>
-          <div class='p-2'>
+          <div class='border p-2'>
           <%= link_to product do %>
             <%= image_tag(product.image, alt: "#{product.name}", height: '300', width: '220') %>
           <% end %>
@@ -14,7 +13,6 @@
           <h5><%= product.name %></h5>
           <h5><%= number_to_currency(product.price) %> грн.</h5>
           <br>
-          </div>
           </div>
         <% end %>
       </div>

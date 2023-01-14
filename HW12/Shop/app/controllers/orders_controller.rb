@@ -5,13 +5,12 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[update destroy]
 
   def index
-    @orders = current_user.orders.includes([:cart])
+    @orders = current_user.orders.all
+    @order = Order.any?
   end
 
   def create
     @order = current_user.orders.create(cart: current_cart)
-    # reset_cart
-    # Cart.find(cookies[:cart_id]).destroy
     cookies[:cart_id] = nil
     redirect_to order_path(@order), notice: 'Order was successfuiiy created'
   end

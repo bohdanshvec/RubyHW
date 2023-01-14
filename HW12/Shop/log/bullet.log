@@ -450,3 +450,12 @@ Call stack
   /home/dan/RubyHW/HW12/Shop/app/views/orders/index.html.erb:25:in `block in _app_views_orders_index_html_erb__3726546502492209098_285800'
   /home/dan/RubyHW/HW12/Shop/app/views/orders/index.html.erb:5:in `_app_views_orders_index_html_erb__3726546502492209098_285800'
 
+2023-01-14 18:30:29[WARN] user: dan
+GET /orders
+USE eager loading detected
+  Order => [:cart]
+  Add to your query: .includes([:cart])
+Call stack
+  /home/dan/RubyHW/HW12/Shop/app/views/orders/index.html.erb:13:in `block in _app_views_orders_index_html_erb___1820818414487428308_41520'
+  /home/dan/RubyHW/HW12/Shop/app/views/orders/index.html.erb:5:in `_app_views_orders_index_html_erb___1820818414487428308_41520'
+
