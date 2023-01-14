@@ -22,7 +22,7 @@ class Cart < ApplicationRecord
     line_items.create(product:, quantity: 1, price: product.price)
   end
 
-  def summ_price
+  def sum_price
     line_items.map(&:price).sum
   end
 end

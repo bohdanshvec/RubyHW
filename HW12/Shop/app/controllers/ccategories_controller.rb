@@ -3,13 +3,13 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show]
 
-  def index
-    @categories = Category.all
-  end
+  # def index
+  #   @categories = Category.all
+  # end
 
-  def show
-    @products = @category.products
-  end
+  # def show
+  #   @products = @category.products
+  # end
 
   private
 

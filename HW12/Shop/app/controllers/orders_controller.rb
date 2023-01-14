@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
-    redirect_to orders_path, notis: 'Order delete'
+    redirect_to orders_path, notice: 'Order delete'
   end
 
   private

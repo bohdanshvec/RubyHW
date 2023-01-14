@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# == Route Map
-#
-
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -10,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :categories, only: %i[index show]
+  # resources :categories, only: %i[index show]
   resources :products, only: %i[index show]
   get '/cart', to: 'carts#show', as: 'cart'
   resources :line_items, only: %i[create destroy]

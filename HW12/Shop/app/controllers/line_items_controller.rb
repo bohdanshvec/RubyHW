@@ -5,19 +5,17 @@ class LineItemsController < ApplicationController
   before_action :quantity_chenge, only: %i[quantity_plus quantity_reduce]
 
   def create
-    # byebug
     product = Product.find(params[:product_id])
     adding_product_to_cart(product)
-    # LineItem.where(cart_id: current_cart.where(user_id: current_user.id).ids.first)
 
-    redirect_to cart_path, notis: "#{product.name} was successfully added to the cart."
+    redirect_back fallback_location: root_path, notice: "#{product.name} was successfully added to the cart."
   end
 
   def quantity_plus
     @line_item.quantity += 1
     @line_item.price += @product_price
     @line_item.save
-    redirect_to cart_path, notis: 'Product added'
+    redirect_to cart_path, notice: 'Product added'
   end
 
   def quantity_reduce
@@ -28,13 +26,13 @@ class LineItemsController < ApplicationController
       @line_item.price -= @product_price
       @line_item.save
     end
-    redirect_to cart_path, notis: 'Product added'
+    redirect_to cart_path, notice: 'Product delete'
   end
 
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to cart_path, notis: 'Product delete'
+    redirect_to cart_path, notice: 'Product delete'
   end
 
   private

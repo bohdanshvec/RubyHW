@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   #   cookies[:cart_id] = cart.id
   #   cart
   # end
+
   def current_cart
     if Cart.find(cookies[:cart_id]).user_id == current_user.id
       Cart.find(cookies[:cart_id])
