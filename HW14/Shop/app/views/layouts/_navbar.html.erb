@@ -1,0 +1,16 @@
+<nav class='navbar navbar-light' style='background-color: #e3f2fd;' >
+  <div class='container'>
+    <%= button_to 'Home', root_path, method: :get, class: 'btn btn-outline-light me-2' %>
+    <% unless current_user %>
+      <%= button_to 'Sign in', user_session_path, method: :get, class: 'btn btn-outline-light me-2' %>
+    <% end %>
+    <% if current_user %>
+      <%= button_to 'All my Orders', orders_path, method: :get, class: 'btn btn-outline-light me-2' %>
+      <%= button_to 'Cart', cart_path, method: :get, class: 'btn btn-outline-light me-2' %>
+      <%= button_to 'Sing out', destroy_user_session_path, method: :get, class: 'btn btn-outline-light me-2' %>
+      <div class='text-dark justify-content-left' >
+        <%= current_user.email %>
+      </div>
+    <% end %>
+  </div>
+</nav>
