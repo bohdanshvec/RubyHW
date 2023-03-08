@@ -1720,3 +1720,20 @@ Call stack
   /home/dan/RubyHW/HW13w2/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___270768645850077290_91820'
   /home/dan/RubyHW/HW13w2/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___270768645850077290_91820'
 
+2023-03-08 19:38:56[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  Product => [:category]
+  Add to your query: .includes([:category])
+Call stack
+  /home/dan/RubyHW/HW13w2/Shop/app/admin/products.rb:47:in `block (3 levels) in <main>'
+  /home/dan/RubyHW/HW13w2/Shop/app/admin/products.rb:32:in `each'
+  /home/dan/RubyHW/HW13w2/Shop/app/admin/products.rb:32:in `block (2 levels) in <main>'
+
+2023-03-08 19:38:56[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+

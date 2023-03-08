@@ -12,7 +12,7 @@
     <% @order.cart.line_items.includes([:product]).each.with_index do |line_item, index| %>
     <tr>
       <td><%= index + 1 %></td>
-      <td><%= image_tag(line_item.product.foto.variant(:thumb)) %></td> 
+      <td><%= image_tag(line_item.product.photo.variant(:thumb)) %></td> 
       <td><%= line_item.product.name %></td>
       <td><%= line_item.quantity %></td> 
       <td><%= line_item.price %></td>

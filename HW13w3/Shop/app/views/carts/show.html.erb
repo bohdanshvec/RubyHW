@@ -12,7 +12,7 @@
         <tr>
           <td>
             <div class='mb-2'>
-              <%= image_tag(line_item.product.foto.variant(:thumb)) %>
+              <%= image_tag(line_item.product.photo.variant(:thumb)) %>
             </div>
             <%= link_to 'DELETE position', line_item_path(:id => line_item), data: { 'turbo-method': :delete }, class: 'btn btn-danger text-white' %>
           </td> 

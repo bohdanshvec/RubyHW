@@ -2700,3 +2700,232 @@ Call stack
   /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__3946303209246652043_88640'
   /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__3946303209246652043_88640'
 
+2023-03-08 19:27:54[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_41780'
+
+2023-03-08 19:28:02[WARN] user: dan
+GET /products?query=1
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_41780'
+
+2023-03-08 19:28:09[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_41780'
+
+2023-03-08 19:28:45[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_41780'
+
+2023-03-08 19:28:55[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_41780'
+
+2023-03-08 19:30:45[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_46420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_46420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_46420'
+
+2023-03-08 19:32:00[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_48420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_48420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_48420'
+
+2023-03-08 19:32:04[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb__1075232372476210898_48420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb__1075232372476210898_48420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb__1075232372476210898_48420'
+
+2023-03-08 19:40:15[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_41780'
+
+2023-03-08 19:40:33[WARN] user: dan
+GET /products?query=2
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_41780'
+
+2023-03-08 19:40:36[WARN] user: dan
+GET /products?query=2
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_41780'
+
+2023-03-08 19:40:39[WARN] user: dan
+GET /products?query=2
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_41780'
+
+2023-03-08 19:40:43[WARN] user: dan
+GET /products?query=2
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_41780'
+
+2023-03-08 19:40:46[WARN] user: dan
+GET /cart
+USE eager loading detected
+  Product => [:photo_attachment]
+  Add to your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/carts/show.html.erb:15:in `block in _app_views_carts_show_html_erb__4611286404938688901_44500'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/carts/show.html.erb:11:in `_app_views_carts_show_html_erb__4611286404938688901_44500'
+
+2023-03-08 19:43:44[WARN] user: dan
+GET /cart
+USE eager loading detected
+  Product => [:photo_attachment]
+  Add to your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/carts/show.html.erb:15:in `block in _app_views_carts_show_html_erb__4611286404938688901_49420'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/carts/show.html.erb:11:in `_app_views_carts_show_html_erb__4611286404938688901_49420'
+
+2023-03-08 19:43:55[WARN] user: dan
+GET /orders/3
+USE eager loading detected
+  Product => [:photo_attachment]
+  Add to your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/orders/show.html.erb:15:in `block in _app_views_orders_show_html_erb__1026586481292288003_49900'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/orders/show.html.erb:12:in `each'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/orders/show.html.erb:12:in `with_index'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/orders/show.html.erb:12:in `_app_views_orders_show_html_erb__1026586481292288003_49900'
+
+2023-03-08 19:49:29[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_69180'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_69180'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_69180'
+
+2023-03-08 19:50:42[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_71820'
+
+2023-03-08 19:50:56[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_71820'
+
+2023-03-08 19:51:00[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___2552323279640879120_71820'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___2552323279640879120_71820'
+
+2023-03-08 19:54:03[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___3254852042156054955_41780'
+
+2023-03-08 19:54:12[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___3254852042156054955_41780'
+
+2023-03-08 19:54:15[WARN] user: dan
+GET /
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:8:in `block (2 levels) in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:7:in `block in _app_views_products_index_html_erb___3254852042156054955_41780'
+  /home/dan/RubyHW/HW13w3/Shop/app/views/products/index.html.erb:5:in `_app_views_products_index_html_erb___3254852042156054955_41780'
+
