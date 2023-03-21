@@ -1,0 +1,6 @@
+:scheduler:
+  :schedule:
+    LotteryMonthWorker:
+      cron: '0 0 1 * *'
+      class: LotteryMonthWorker
+      
