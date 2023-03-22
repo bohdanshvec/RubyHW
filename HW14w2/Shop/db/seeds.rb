@@ -7,22 +7,11 @@ def attach_photo(product)
   product.save
 end
 
-# array_title = ['Evening dress', 'Casual dress', 'Strict dress','Warm dress', 'Summer dress']
-
-# array_title.each do |title|
-#   Category.find_or_create_by(title: title)
-# end
-
 category_one = Category.find_or_create_by(title: 'Evening dress')
 category_two = Category.find_or_create_by(title: 'Casual dress')
 category_three = Category.find_or_create_by(title: 'Strict dress')
 category_four = Category.find_or_create_by(title: 'Warm dress')
 category_five = Category.find_or_create_by(title: 'Summer dress')
-
-# category_one = Category.find_or_create_by(title: 'aaa')
-
-# byebug
-
 
 product_one = Product.create(name: 'Веселка',
                description: 'Правильно обрана сукня жіноча підіймає настрій на цілий день!
@@ -56,7 +45,7 @@ attach_photo(product_four)
 product_five = Product.create(name: 'Краса',
                description: 'Полюбляючи зручні речі й не надаючи перевагу естетиці без комфорту, сучасні жінки радо наповнюють гардероб саме такими сукнями, як ця! Неймовірно жіночна, зі зручною довжиною до коліна та з елегантною горловиною-човником, яка трішки відкриває ключиці, вона не сковує рухів і в одну мить стає стильною частиною повсякденного образу. Бежевий колір з тендітним принтом прикрашений вставками з екошкіри по плечах. Довгий спущений рукав і пояс, який за потреби можна одягати, а можна й залишити вдома.',
                price: 1500,
-               category_id: category_two.id))
+               category_id: category_two.id)
 
 attach_photo(product_five)
 

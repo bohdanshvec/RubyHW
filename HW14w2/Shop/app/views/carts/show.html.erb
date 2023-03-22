@@ -19,7 +19,7 @@
           </td> 
           <td><%= line_item.product.name %></td>
           <td>
-            <div class='mm'>
+            <div class='row'>
               <%= button_to '-',line_item_quantity_reduce_path(id: line_item), class: 'btn btn-outline-light me-2' %>
               <div class='p-2 justify-content-ceter'>
                 <%= line_item.quantity %>

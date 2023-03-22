@@ -3051,3 +3051,44 @@ Call stack
   /home/dan/RubyHW/HW14w2/Shop/app/views/orders/show.html.erb:13:in `with_index'
   /home/dan/RubyHW/HW14w2/Shop/app/views/orders/show.html.erb:13:in `_app_views_orders_show_html_erb__4467488957361634456_128460'
 
+2023-03-22 10:16:37[WARN] user: dan
+PATCH /orders/28
+USE eager loading detected
+  LineItem => [:product]
+  Add to your query: .includes([:product])
+Call stack
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:47:in `block in array_photo'
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:46:in `array_photo'
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:25:in `update'
+
+2023-03-22 10:19:23[WARN] user: dan
+PATCH /orders/28
+USE eager loading detected
+  LineItem => [:product]
+  Add to your query: .includes([:product])
+Call stack
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:47:in `block in array_photo'
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:46:in `array_photo'
+  /home/dan/RubyHW/HW14w2/Shop/app/controllers/orders_controller.rb:25:in `update'
+
+2023-03-22 11:40:19[WARN] user: dan
+GET /admin/orders
+USE eager loading detected
+  Order => [:user]
+  Add to your query: .includes([:user])
+Call stack
+
+2023-03-22 11:40:19[WARN] user: dan
+GET /admin/orders
+USE eager loading detected
+  Order => [:cart]
+  Add to your query: .includes([:cart])
+Call stack
+
+2023-03-22 11:40:35[WARN] user: dan
+GET /admin/carts
+USE eager loading detected
+  Cart => [:user]
+  Add to your query: .includes([:user])
+Call stack
+

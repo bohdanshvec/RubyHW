@@ -26,7 +26,7 @@ ActiveAdmin.register Product do
         end
       when :image 
         column attribute do |x| 
-          Product.find(x.id).photo.present? ? image_tag(Product.find(x.id).photo, size: '50x50') : image_tag('plug.png', size: '50x50')
+          Product.find(x.id).photo.present? ? image_tag(Product.find(x.id).photo, size: '50x50') : image_tag('plug.jpg', size: '50x50')
         end
       when :price
         column attribute do |price_tag|
@@ -47,7 +47,7 @@ ActiveAdmin.register Product do
         number_to_currency(price_tag.price)
       end
       row :image do |x|
-        x.photo.present? ? image_tag(x.photo, size: '50x50') : image_tag('plug.png', size: '50x50')
+        x.photo.present? ? image_tag(x.photo, size: '50x50') : image_tag('plug.jpg', size: '50x50')
       end
       row :category
       row :created_at

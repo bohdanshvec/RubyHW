@@ -1,8 +1,8 @@
   <div class='container'>
     <h3><%= @product.name %></h3>
-    <div class='container mm'>
+    <div class='container all-row'>
       <div>
-        <%= image_tag((@product.photo.attached? ? @product.photo.variant(:thumb) : 'plug.png'), alt: @product.name) %>
+        <%= image_tag((@product.photo.attached? ? @product.photo.variant(:thumb) : 'plug.jpg'), alt: @product.name) %>
       </div>
       <div class='container'>
         <div>

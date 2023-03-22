@@ -1,12 +1,12 @@
 <div class='container cont2'>
   <h3>Our Collection</h3>
   <section class='cont'>
-    <div class='div24'>
+    <div class='row-wrap-40px'>
       <% @products.each do |product| %>
         <div class='border p-2'>
         
         <%= link_to product do %>
-          <%= image_tag((product.photo.attached? ? product.photo.variant(:medium) : 'plug.png'), alt: product.name) %>
+          <%= image_tag((product.photo.attached? ? product.photo.variant(:medium) : 'plug.jpg'), alt: product.name) %>
         <% end %>
 
         <% if current_user %>
