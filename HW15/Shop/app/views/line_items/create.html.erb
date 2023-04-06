@@ -1,0 +1,13 @@
+<%= turbo_frame_tag dom_id(@product) do %>
+  <% line_item = current_cart.line_items.find_by(product_id: @product.id) %>
+  <div class='row'>
+    <%= button_to 'In cart', line_items_path(product_id: @product.id), class: 'btn btn-outline-light me-2 mb-3 mt-3' %>
+    <div class='all-row'>
+      <%= button_to '-', line_item_quantity_reduce_path(id: line_item.id), class: 'btn btn-outline-light me-2' %>
+      <div class='p-2 justify-content-ceter'>
+        <%= line_item.quantity %>
+      </div>
+      <%= button_to '+', line_item_quantity_plus_path(id: line_item.id), class: 'btn btn-outline-light me-2' %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+:scheduler:
+  :schedule:
+    lottery_month_worker:
+      every: 1 month
+      class: LotteryMonthWorker
+      
