@@ -8,6 +8,11 @@ class LineItemsController < ApplicationController
     @product = Product.find(params[:product_id])
     adding_product_to_cart(@product)
 
+    # respond_to do |format|
+    #   format.html { redirect_to products_path, notice: "#{@product.name} was successfully added to the cart." }
+    #   format.turbo_stream
+    # end
+
     # flash[:notice] = "#{product.name} was successfully added to the cart."
     # respond_to do |format|
     #   format.html { redirect_to line_item_path(id: @line_item.id) }
@@ -20,6 +25,8 @@ class LineItemsController < ApplicationController
     #   end
     # end
     # redirect_to products_path, notice: "#{@product.name} was successfully added to the cart."
+    # flash[:notice] = "#{@product.name} was successfully added to the cart."
+    # redirect_back fallback_location: root_path
   end
 
   def quantity_plus

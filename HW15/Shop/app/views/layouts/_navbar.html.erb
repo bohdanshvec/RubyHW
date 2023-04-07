@@ -6,7 +6,9 @@
     <% end %>
     <% if current_user %>
       <%= button_to 'All my Orders', orders_path, method: :get, class: 'btn btn-outline-light me-2' %>
+      <%= turbo_frame_tag "second_frame" do %>
       <%= button_to "Cart #{cart_counter}", cart_path, method: :get, class: 'btn btn-outline-light me-2' %>
+      <% end %>
       <%= button_to 'Sing out', destroy_user_session_path, method: :get, class: 'btn btn-outline-light me-2' %>
       <div class='text-dark justify-content-left' >
         <%= current_user.email %>

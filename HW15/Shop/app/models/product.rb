@@ -29,6 +29,8 @@ class Product < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [300, 300]
   end
 
+  broadcasts_to ->(_product) { 'products' }, inserts_by: :prepend
+
   def add_product(product)
     line_items(product:)
   end
