@@ -1,14 +1,13 @@
-<%= turbo_stream_from 'products' %>
-
 <div class='container cont2'>
   <h3>Our Collection</h3>
   <section class='cont'>
   <div id="products" class="row products">
     <div class='row-wrap-40px'>
 
-      <% @products.each do |product| %>
-        <%= render partial: 'products/product', locals: { product: product} %>
-      <% end %>
+    <%= render @products %>
+
+
+
     </div>
   </div>
   </section>

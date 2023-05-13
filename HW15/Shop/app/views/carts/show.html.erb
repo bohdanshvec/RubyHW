@@ -9,7 +9,7 @@
           <th scope='col'>Price</th>
         </tr>
 
-      <% current_cart.line_items.includes(product: [photo_attachment: :blob]).each do |line_item| %>
+      <% current_cart.line_items.ordered.includes(product: [photo_attachment: :blob]).each do |line_item| %>
         <tr>
           <td>
             <div class='mb-2'>

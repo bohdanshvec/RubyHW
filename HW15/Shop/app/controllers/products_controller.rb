@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
+  # require 'turbo/streams_controller'
+  # include Turbo::StreamsController
+
   def index
     @products = Product.all.includes(photo_attachment: :blob)
     @products = @products.where(category_id: params[:query]) if params[:query]

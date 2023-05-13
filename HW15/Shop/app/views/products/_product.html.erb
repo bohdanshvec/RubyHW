@@ -1,16 +1,15 @@
-<div class='border p-2'>
-        
-  <%= link_to product do %>
-    <%= image_tag((product.photo.attached? ? product.photo.variant(:medium) : 'plug.jpg'), alt: product.name) %>
-  <% end %>
+        <div class='border p-2'>
 
-  <% if current_user %>
-    <%= turbo_frame_tag "first_frame" do %>
-        <%= button_to 'Add to cart', line_items_path(product_id: product.id), data: { turbo_frame: "second_frame" }, class: 'btn btn-outline-light me-2 mb-3 mt-3' %>
-    <% end %>
-  <% end %>
+          <%= link_to product do %>
+            <%= image_tag((product.photo.attached? ? product.photo.variant(:medium) : 'plug.jpg'), alt: product.name) %>
+          <% end %>
 
-  <h5><%= product.name %></h5>
-  <h5><%= number_to_currency(product.price) %></h5>
-  <br>
-</div>
+          <h5><%= product.name %></h5>
+          <h5><%= number_to_currency(product.price) %></h5>
+
+        <% if current_user %>
+            <%= button_to 'Add to cart', line_items_path(product_id: product.id), class: 'btn btn-outline-light me-2 mb-3 mt-3' %>
+        <% end %>
+
+
+        </div>

@@ -8,6 +8,16 @@ class LineItemsController < ApplicationController
     @product = Product.find(params[:product_id])
     adding_product_to_cart(@product)
 
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
+
+    # respond_to do |format|
+    #   format.html { redirect_to products_path, notice: "#{@product.name} was successfully added to the cart." }
+    #   format.turbo_stream
+    # end
+
     # respond_to do |format|
     #   format.html { redirect_to products_path, notice: "#{@product.name} was successfully added to the cart." }
     #   format.turbo_stream
@@ -33,7 +43,11 @@ class LineItemsController < ApplicationController
     @line_item.quantity += 1
     @line_item.price += @product_price
     @line_item.save
-    redirect_to cart_path, notice: 'Product added'
+    redirect_to cart_path, notice: "Product #{@line_item.product.name} added"
+    # respond_to do |format|
+    #   format.html
+    #   format.turbo_stream
+    # end
   end
 
   def quantity_reduce
@@ -44,13 +58,17 @@ class LineItemsController < ApplicationController
       @line_item.price -= @product_price
       @line_item.save
     end
-    redirect_to cart_path, notice: 'Product delete'
+    redirect_to cart_path, notice: "Product #{@line_item.product.name} delete"
+    # respond_to do |format|
+    #   format.html
+    #   format.turbo_stream
+    # end
   end
 
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to cart_path, notice: 'Product delete'
+    redirect_to cart_path, notice: "Product #{@line_item.product.name} delete"
   end
 
   private

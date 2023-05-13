@@ -29,7 +29,16 @@ class Product < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [300, 300]
   end
 
-  broadcasts_to ->(_product) { 'products' }, inserts_by: :prepend
+  # after_create_commit -> { broadcast_prepend_later_to "products" }
+  # broadcasts_to ->(_product) { 'products' }, inserts_by: :prepend
+  # after_create_commit -> { broadcast_prepend_to "products" }
+  # after_update_commit -> { broadcast_replace_to "products" }
+  # after_create_commit -> { broadcast_prepend_to "products" }#, partial: "products/product", locals: { product: product }, target: "products" }
+  # after_update_commit -> { broadcast_replace_to "products" }#, partial: "products/product", locals: { product: product }, target: "products" }
+  # after_destroy_commit -> { broadcast_remove_to "products" }
+
+
+
 
   def add_product(product)
     line_items(product:)
