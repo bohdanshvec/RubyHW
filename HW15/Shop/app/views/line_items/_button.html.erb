@@ -1,1 +1,10 @@
-
+<%= turbo_frame_tag dom_id(product) do %>
+  <%= button_to 'In cart', line_items_path(product_id: product.id), class: 'btn btn-outline-light me-2 mb-3 mt-3' %>
+  <div class='row-wrap my-div'>
+    <%= button_to '-', line_item_path(id: line_item.id), method: :patch, class: 'btn btn-outline-light me-2' %>
+    <div>
+      <%= render 'size_product', product: product %>
+    </div>
+    <%= button_to '+', line_items_path(product_id: product.id), class: 'btn btn-outline-light me-2' %>
+  </div>
+<% end %>

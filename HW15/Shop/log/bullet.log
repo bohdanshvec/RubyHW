@@ -3092,3 +3092,379 @@ USE eager loading detected
   Add to your query: .includes([:user])
 Call stack
 
+2023-05-14 16:41:14[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 16:51:26[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 16:52:47[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 16:53:09[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 16:58:41[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:01:04[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:03:28[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:08:20[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:13:12[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:17:03[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:17:20[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:28:59[WARN] user: dan
+GET /admin/products/
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:29:52[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:31:00[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:31:48[WARN] user: dan
+GET /admin/products/
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:32:11[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:35:05[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:35:17[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:36:27[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:36:44[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:38:06[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:38:20[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:40:50[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:44:56[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:45:30[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:46:24[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:47:01[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:47:12[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:47:32[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 17:50:34[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:35:27[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:37:02[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:37:19[WARN] user: dan
+GET /admin/products?order=id_desc
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:40:06[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:40:20[WARN] user: dan
+GET /admin/products?order=id_desc
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:43:46[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:44:06[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:45:18[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:49:56[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 18:59:12[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:00:21[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:01:15[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:01:31[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:08:08[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:09:18[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:10:30[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:11:13[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:11:31[WARN] user: dan
+GET /admin/products?order=id_desc
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-14 19:12:06[WARN] user: dan
+GET /admin/products
+USE eager loading detected
+  ActiveStorage::Attachment => [:blob]
+  Add to your query: .includes([:blob])
+Call stack
+
+2023-05-26 15:16:21[WARN] user: dan
+POST /line_items?product_id=29
+AVOID eager loading detected
+  Product => [:photo_attachment]
+  Remove from your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:5:in `block in _app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:1:in `_app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:6:in `block in _app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:5:in `_app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+
+2023-05-26 15:16:32[WARN] user: dan
+POST /line_items?product_id=30
+AVOID eager loading detected
+  Product => [:photo_attachment]
+  Remove from your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:5:in `block in _app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:1:in `_app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:6:in `block in _app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:5:in `_app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+
+2023-05-26 15:16:39[WARN] user: dan
+POST /line_items?product_id=31
+AVOID eager loading detected
+  Product => [:photo_attachment]
+  Remove from your query: .includes([:photo_attachment])
+Call stack
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:5:in `block in _app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/_button.html.erb:1:in `_app_views_line_items__button_html_erb__230983477352180252_48540'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:6:in `block in _app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+  /home/dan/RubyHW/HW15/Shop/app/views/line_items/create.turbo_stream.erb:5:in `_app_views_line_items_create_turbo_stream_erb___4556056626958323807_48500'
+

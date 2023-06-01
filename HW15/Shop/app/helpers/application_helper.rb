@@ -9,4 +9,9 @@ module ApplicationHelper
   def cart_counter
     current_cart.line_items.map(&:quantity).sum if current_cart.line_items.map(&:quantity).sum != 0
   end
+
+  def counter_product(product)
+    current_cart.line_items.find_by(product_id: product.id).quantity
+  end
+  
 end

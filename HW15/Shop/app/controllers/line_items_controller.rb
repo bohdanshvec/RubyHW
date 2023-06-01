@@ -7,6 +7,8 @@ class LineItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     adding_product_to_cart(@product)
+    @line_item = current_cart.line_items.find_by(product_id: @product.id)
+    # byebug
 
     respond_to do |format|
       format.html
@@ -39,6 +41,29 @@ class LineItemsController < ApplicationController
     # redirect_back fallback_location: root_path
   end
 
+  def update
+    @line_item = LineItem.find(params[:id])
+    @product = @line_item.product
+
+    if @line_item.quantity == 1
+         @line_item.quantity -= 1
+         @line_item.save
+         @line_item.destroy
+      # byebug
+    # redirect_back fallback_location: root_path
+
+    redirect_to root_path, notice: "Product #{@line_item.product.name} delete"
+    else
+      @line_item.quantity -= 1
+      @line_item.save
+    end
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Product #{@line_item.product.name} delete" }
+      format.turbo_stream
+    end
+  end 
+
   def quantity_plus
     @line_item.quantity += 1
     @line_item.price += @product_price
@@ -68,6 +93,11 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
+
+    # respond_to do |format|
+    #   format.html
+    #   format.turbo_stream
+    # end
     redirect_to cart_path, notice: "Product #{@line_item.product.name} delete"
   end
 

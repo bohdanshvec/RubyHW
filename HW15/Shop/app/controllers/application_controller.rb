@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   helper_method :current_cart
+  helper_method :cart_counter
   before_action :category_all
 
   def category_all
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
     cart = Cart.create(user_id: current_user.id)
     cookies[:cart_id] = cart.id
     cart
+  end
+
+  def cart_counter
+    current_cart.line_items.map(&:quantity).sum if current_cart.line_items.map(&:quantity).sum != 0
   end
 end
